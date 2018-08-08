@@ -1,0 +1,140 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{techreport}
+\def\@classname{techreport}
+\RequirePackage{xkeyval}
+\RequirePackage{xstring}
+\LoadClass[10pt,reqno]{amsart}
+\RequirePackage{microtype}
+\RequirePackage{etoolbox}
+\RequirePackage{refcount}
+\RequirePackage{totpages}
+\RequirePackage{environ}
+\RequirePackage{textcase}
+\RequirePackage[square,numbers,sort&compress]{natbib}
+\let\citeN\cite
+\let\cite\citep
+\let\citeANP\citeauthor
+\let\citeNN\citeyearpar
+\let\citeyearNP\citeyear
+\let\citeNP\citealt
+\RequirePackage[bookmarksnumbered,unicode]{hyperref}
+\pdfstringdefDisableCommands{%
+	\def\unskip{}%
+	\def\textbullet{- }%
+	\def\textrightarrow{ -> }%
+	\def\footnotemark{}%
+}
+\urlstyle{sf}
+\AtEndPreamble{%
+	\hypersetup{colorlinks,linkcolor=ACMRed,citecolor=ACMPurple,urlcolor=ACMDarkBlue,filecolor=ACMDarkBlue}}
+\RequirePackage{graphicx}
+\RequirePackage[prologue]{xcolor}
+\definecolor[named]{ACMBlue}{cmyk}{1,0.1,0,0.1}
+\definecolor[named]{ACMYellow}{cmyk}{0,0.16,1,0}
+\definecolor[named]{ACMOrange}{cmyk}{0,0.42,1,0.01}
+\definecolor[named]{ACMRed}{cmyk}{0,0.90,0.86,0}
+\definecolor[named]{ACMLightBlue}{cmyk}{0.49,0.01,0,0}
+\definecolor[named]{ACMGreen}{cmyk}{0.20,0,1,0.19}
+\definecolor[named]{ACMPurple}{cmyk}{0.55,1,0,0.15}
+\definecolor[named]{ACMDarkBlue}{cmyk}{1,0.58,0,0.21}
+\RequirePackage{geometry}
+\geometry{twoside=true,includeheadfoot,head=13pt,foot=2pc,paperwidth=6.75in,paperheight=10in,top=58pt,bottom=44pt,inner=46pt,outer=46pt,marginparwidth=2pc,heightrounded}
+\setlength\parindent{9\p@}
+\setlength\parskip{\z@}
+\setlength\normalparindent{\parindent}
+\RequirePackage{iftex}
+\ifPDFTeX
+\input{glyphtounicode}
+\pdfglyphtounicode{f_f}{FB00}
+\pdfglyphtounicode{f_f_i}{FB03}
+\pdfglyphtounicode{f_f_l}{FB04}
+\pdfglyphtounicode{f_i}{FB01}
+\pdfglyphtounicode{t_t}{00740074}
+\pdfglyphtounicode{f_t}{00660074}
+\pdfglyphtounicode{T_h}{00540068}
+\pdfgentounicode=1
+\fi
+\RequirePackage{cmap}
+\ifxetex
+	\RequirePackage[tt=false]{libertine}
+\else
+	\RequirePackage[tt=false,type1=true]{libertine}
+\fi
+\RequirePackage[varqu]{zi4}
+\RequirePackage[libertine]{newtxmath}
+\ifxetex\else
+	\RequirePackage[T1]{fontenc}
+\fi
+\RequirePackage{caption,float}
+\captionsetup[table]{position=top}
+\captionsetup{labelfont={bf},textfont={bf},labelsep=colon,margin=\z@}
+\captionsetup{textfont={it}}
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{challenge}[theorem]{Challenge}
+\newtheorem{principle}[theorem]{Principle}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{Alg}[theorem]{Algorithm}
+\newtheorem{fact}[theorem]{Fact}
+\numberwithin{equation}{section}
+\def\@proofnamefont{\itshape}
+\def\@proofindent{\noindent}
+\renewenvironment{proof}[1][\proofname]{\par
+	\pushQED{\qed}%
+	\normalfont \topsep6\p@\@plus6\p@\relax
+	\trivlist
+	\item[\@proofindent\hskip\labelsep
+		{\@proofnamefont #1\@addpunct{.}}]\ignorespaces
+}{%
+	\popQED\endtrivlist\@endpefalse
+}
+
+\RequirePackage{booktabs}
+\RequirePackage{subcaption}
+\RequirePackage{mathpartir}
+\RequirePackage{turnstile}
+\RequirePackage{mathtools}
+\RequirePackage{mathrsfs}
+\RequirePackage{stmaryrd}
+\RequirePackage{relsize}
+\RequirePackage{multirow}
+\RequirePackage{tikz}
+\usetikzlibrary{shapes,arrows}
+%%
+%% Commands to avoid a full page consisting of occurrences of "spsp" from a bug in
+%% the changebar package when using pdflatex.
+%%
+%% See http://tex.stackexchange.com/questions/162332/why-does-the-changebar-package-create-a-page-full-of-spsp-and-how-can-this-be
+%%
+\makeatletter % changes the catcode of @ to 11
+\AtEndDocument{%
+\def\cb@checkPdfxy#1#2#3#4#5{%
+\cb@@findpdfpoint{#1}{#2}%
+\ifdim#3sp=\cb@pdfx\relax      % <<-- original has \ifnum#3=\cb@pdfx
+\ifdim#4sp=\cb@pdfy\relax      % <<-- original has \ifnum#4=\cb@pdfy
+\ifdim#5=\cb@pdfz\relax
+\else
+\cb@error
+\fi
+\else
+\cb@error
+\fi
+\else
+\cb@error
+\fi
+}}
+\makeatother % changes the catcode of @ back to 12
+\RequirePackage{color}
+\RequirePackage[color]{changebar}
+\cbcolor{ACMRed}
+\IfFileExists{refs.sty}{\RequirePackage{refs}}{}
+\IfFileExists{shortcuts.sty}{\RequirePackage{shortcuts}}{}
