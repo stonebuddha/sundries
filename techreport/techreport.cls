@@ -75,7 +75,7 @@
 \captionsetup[table]{position=top}
 \captionsetup{labelfont={bf},textfont={bf},labelsep=colon,margin=\z@}
 \RequirePackage{fancyhdr}
-\pagestyle{fancy}
+\pagestyle{plain}
 \newtheoremstyle{trplain}%
 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space above
 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space below
