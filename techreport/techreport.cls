@@ -150,7 +150,7 @@
 \RequirePackage{tikz}
 \usetikzlibrary{shapes,arrows}
 \RequirePackage{enumitem}
-\setlist{nosep,leftmargin=*,labelindent=\parindent}
+\setlist{nosep,leftmargin=*}
 
 \IfFileExists{refs.sty}{\RequirePackage{refs}}{}
 \IfFileExists{shortcuts.sty}{\RequirePackage{shortcuts}}{}
