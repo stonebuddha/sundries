@@ -26,7 +26,8 @@
 }
 \urlstyle{sf}
 \AtEndPreamble{%
-	\hypersetup{colorlinks,linkcolor=ACMRed,citecolor=ACMPurple,urlcolor=ACMDarkBlue,filecolor=ACMDarkBlue}}
+	\hypersetup{colorlinks,linkcolor=ACMRed,citecolor=ACMPurple,urlcolor=ACMDarkBlue,filecolor=ACMDarkBlue}%
+}
 \RequirePackage{graphicx}
 \RequirePackage[prologue]{xcolor}
 \definecolor[named]{ACMBlue}{cmyk}{1,0.1,0,0.1}
@@ -39,7 +40,7 @@
 \definecolor[named]{ACMDarkBlue}{cmyk}{1,0.58,0,0.21}
 \RequirePackage{geometry}
 \geometry{twoside=true,includeheadfoot,head=13pt,foot=2pc,paperwidth=6.75in,paperheight=10in,top=58pt,bottom=44pt,inner=46pt,outer=46pt,marginparwidth=2pc,heightrounded}
-\setlength\parindent{9\p@}
+\setlength\parindent{10\p@}
 \setlength\parskip{\z@}
 \setlength\normalparindent{\parindent}
 \RequirePackage{iftex}
@@ -55,37 +56,72 @@
 \pdfgentounicode=1
 \fi
 \RequirePackage{cmap}
-\ifxetex
-	\RequirePackage[tt=false]{libertine}
-\else
-	\RequirePackage[tt=false,type1=true]{libertine}
-\fi
-\RequirePackage[varqu]{zi4}
-\RequirePackage[libertine]{newtxmath}
+%\ifxetex
+%	\RequirePackage[tt=false]{libertine}
+%\else
+%	\RequirePackage[tt=false,type1=true]{libertine}
+%\fi
+%\RequirePackage[varqu]{zi4}
+%\RequirePackage[libertine]{newtxmath}
+\RequirePackage[scaled=0.88]{beraserif}
+\RequirePackage[scaled=0.85]{berasans}
+\RequirePackage[scaled=0.84]{beramono}
+\RequirePackage{mathpazo}
+\RequirePackage[T1,small,euler-digits]{eulervm}
 \ifxetex\else
 	\RequirePackage[T1]{fontenc}
 \fi
 \RequirePackage{caption,float}
 \captionsetup[table]{position=top}
 \captionsetup{labelfont={bf},textfont={bf},labelsep=colon,margin=\z@}
-\captionsetup{textfont={it}}
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{observation}[theorem]{Observation}
-\newtheorem{challenge}[theorem]{Challenge}
-\newtheorem{principle}[theorem]{Principle}
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{Alg}[theorem]{Algorithm}
-\newtheorem{fact}[theorem]{Fact}
-\numberwithin{equation}{section}
+\newtheoremstyle{trplain}%
+	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space above
+	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space below
+	{\itshape}% body font
+	{\z@}% indent amount
+	{\bfseries}% head font
+	{.}% punctuation after head
+	{.5em}% spacing after head
+	{\thmname{#1}\thmnumber{ #2}\thmnote{ {\normalfont(#3)}}}% head spec
+\newtheoremstyle{trdefinition}%
+	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space above
+ 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space below
+ 	{\normalfont}% body font
+ 	{\z@}% indent amount
+ 	{\bfseries}% head font
+ 	{.}% punctuation after head
+ 	{.5em}% spacing after head
+ 	{\thmname{#1}\thmnumber{ #2}\thmnote{ {\normalfont(#3)}}}% head spec
+ \newtheoremstyle{trremark}%
+	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space above
+ 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space below
+ 	{\normalfont}% body font
+ 	{\z@}% indent amount
+ 	{\itshape}% head font
+ 	{.}% punctuation after head
+ 	{.5em}% spacing after head
+ 	{\thmname{#1}\thmnumber{ #2}\thmnote{ {\normalfont(#3)}}}% head spec
+\theoremstyle{trplain}
+\AtEndPreamble{%
+	\theoremstyle{trplain}
+	\newtheorem{theorem}{Theorem}[section]
+	\newtheorem{conjecture}[theorem]{Conjecture}
+	\newtheorem{proposition}[theorem]{Proposition}
+	\newtheorem{lemma}[theorem]{Lemma}
+	\newtheorem{corollary}[theorem]{Corollary}
+	\theoremstyle{trdefinition}
+	\newtheorem{example}[theorem]{Example}
+	\newtheorem{definition}[theorem]{Definition}
+	\newtheorem{observation}[theorem]{Observation}
+	\newtheorem{challenge}[theorem]{Challenge}
+	\newtheorem{principle}[theorem]{Principle}
+	\theoremstyle{trremark}
+	\newtheorem{remark}[theorem]{Remark}
+	\newtheorem{fact}[theorem]{Fact}
+	\theoremstyle{trplain}
+}
 \def\@proofnamefont{\itshape}
 \def\@proofindent{\noindent}
 \renewenvironment{proof}[1][\proofname]{\par
@@ -97,7 +133,9 @@
 }{%
 	\popQED\endtrivlist\@endpefalse
 }
+\numberwithin{equation}{section}
 
+\RequirePackage{enumerate}
 \RequirePackage{booktabs}
 \RequirePackage{subcaption}
 \RequirePackage{mathpartir}
@@ -107,34 +145,12 @@
 \RequirePackage{stmaryrd}
 \RequirePackage{relsize}
 \RequirePackage{multirow}
+\RequirePackage{algorithm}
+\RequirePackage{algpseudocode}
 \RequirePackage{tikz}
 \usetikzlibrary{shapes,arrows}
-%%
-%% Commands to avoid a full page consisting of occurrences of "spsp" from a bug in
-%% the changebar package when using pdflatex.
-%%
-%% See http://tex.stackexchange.com/questions/162332/why-does-the-changebar-package-create-a-page-full-of-spsp-and-how-can-this-be
-%%
-\makeatletter % changes the catcode of @ to 11
-\AtEndDocument{%
-\def\cb@checkPdfxy#1#2#3#4#5{%
-\cb@@findpdfpoint{#1}{#2}%
-\ifdim#3sp=\cb@pdfx\relax      % <<-- original has \ifnum#3=\cb@pdfx
-\ifdim#4sp=\cb@pdfy\relax      % <<-- original has \ifnum#4=\cb@pdfy
-\ifdim#5=\cb@pdfz\relax
-\else
-\cb@error
-\fi
-\else
-\cb@error
-\fi
-\else
-\cb@error
-\fi
-}}
-\makeatother % changes the catcode of @ back to 12
-\RequirePackage{color}
-\RequirePackage[color]{changebar}
-\cbcolor{ACMRed}
+\RequirePackage{enumitem}
+\setlist{nosep,leftmargin=*,labelindent=\parindent}
+
 \IfFileExists{refs.sty}{\RequirePackage{refs}}{}
 \IfFileExists{shortcuts.sty}{\RequirePackage{shortcuts}}{}
