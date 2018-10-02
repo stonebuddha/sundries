@@ -149,7 +149,7 @@
 \RequirePackage{algpseudocode}
 \RequirePackage{tikz}
 \usetikzlibrary{shapes,arrows}
-\RequirePackage{enumitem}
+\RequirePackage[shortlabels]{enumitem}
 \setlist{nosep,leftmargin=*}
 
 \IfFileExists{refs.sty}{\RequirePackage{refs}}{}
