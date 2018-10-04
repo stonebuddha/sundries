@@ -151,6 +151,7 @@
 \usetikzlibrary{shapes,arrows}
 \RequirePackage[shortlabels]{enumitem}
 \setlist{nosep,leftmargin=*}
+\RequirePackage{nicefrac}
 
 \IfFileExists{refs.sty}{\RequirePackage{refs}}{}
 \IfFileExists{shortcuts.sty}{\RequirePackage{shortcuts}}{}
