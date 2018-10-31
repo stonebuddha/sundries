@@ -4,6 +4,7 @@
 \RequirePackage{xkeyval}
 \RequirePackage{xstring}
 \LoadClass[10pt,letterpaper]{article}
+\RequirePackage{amsmath,amsfonts,amsthm}
 \RequirePackage{microtype}
 \RequirePackage{etoolbox}
 \RequirePackage{refcount}
@@ -119,7 +120,6 @@
   \labelwidth\leftmarginvi \advance\labelwidth-\labelsep}
 \RequirePackage{fancyhdr}
 \pagestyle{headings}
-\RequirePackage{amsmath,amsfonts,amsthm}
 \newtheoremstyle{trplain}%
 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space above
 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space below
