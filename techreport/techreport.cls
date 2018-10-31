@@ -204,7 +204,6 @@
 \RequirePackage[shortlabels]{enumitem}
 \setlist{nosep,leftmargin=*}
 \RequirePackage{nicefrac}
-\RequirePackage{etoolbox}
 \RequirePackage{marginnote}
 \RequirePackage{authblk}
 
