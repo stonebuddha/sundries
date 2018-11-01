@@ -14,7 +14,7 @@
 \RequirePackage[square,numbers,sort&compress]{natbib}
 \RequirePackage[bookmarksnumbered,unicode]{hyperref}
 \pdfstringdefDisableCommands{%
-  \def\unskip{}%
+	\def\unskip{}%
 	\def\textbullet{- }%
 	\def\textrightarrow{ -> }%
 	\def\footnotemark{}%
@@ -45,7 +45,7 @@
 \geometry{twoside=false,includeheadfoot,head=13pt,foot=2pc,paperwidth=6.75in,paperheight=10in,top=58pt,bottom=44pt,inner=46pt,outer=46pt,marginparwidth=2pc,heightrounded}
 \setlength\parindent{10\p@}
 \setlength\parskip{\z@}
-%\setlength\normalparindent{\parindent}
+%% \setlength\normalparindent{\parindent}
 \RequirePackage{iftex}
 \ifPDFTeX
 \input{glyphtounicode}
@@ -59,13 +59,13 @@
 \pdfgentounicode=1
 \fi
 \RequirePackage{cmap}
-%\ifxetex
-%	\RequirePackage[tt=false]{libertine}
-%\else
-%	\RequirePackage[tt=false,type1=true]{libertine}
-%\fi
-%\RequirePackage[varqu]{zi4}
-%\RequirePackage[libertine]{newtxmath}
+%% \ifxetex
+%% 	\RequirePackage[tt=false]{libertine}
+%% \else
+%% 	\RequirePackage[tt=false,type1=true]{libertine}
+%% \fi
+%% \RequirePackage[varqu]{zi4}
+%% \RequirePackage[libertine]{newtxmath}
 \RequirePackage[scaled=0.88]{beraserif}
 \RequirePackage[scaled=0.85]{berasans}
 \RequirePackage[scaled=0.84]{beramono}
@@ -80,44 +80,44 @@
 \captionsetup{labelfont={bf},textfont={bf},labelsep=colon,margin=\z@}
 \newdimen\@TR@labelwidth
 \AtBeginDocument{%
-  \setlength\labelsep{4pt}
-  \setlength{\@TR@labelwidth}{6.5pt}
+	\setlength\labelsep{4pt}
+	\setlength{\@TR@labelwidth}{6.5pt}
 
-  %% First-level list: when beginning after the first line of an
-  %% indented paragraph or ending before an indented paragraph, labels
-  %% should not hang to the left of the preceding/following text.
-  \setlength\leftmargini{\z@}
-  \addtolength\leftmargini{\parindent}
-  \addtolength\leftmargini{2\labelsep}
-  \addtolength\leftmargini{\@TR@labelwidth}
+	%% First-level list: when beginning after the first line of an
+	%% indented paragraph or ending before an indented paragraph, labels
+	%% should not hang to the left of the preceding/following text.
+	\setlength\leftmargini{\z@}
+	\addtolength\leftmargini{\parindent}
+	\addtolength\leftmargini{2\labelsep}
+	\addtolength\leftmargini{\@TR@labelwidth}
 
-  %% Second-level and higher lists.
-  \setlength\leftmarginii{\z@}
-  \addtolength\leftmarginii{0.5\labelsep}
-  \addtolength\leftmarginii{\@TR@labelwidth}
-  \setlength\leftmarginiii{\leftmarginii}
-  \setlength\leftmarginiv{\leftmarginiii}
-  \setlength\leftmarginv{\leftmarginiv}
-  \setlength\leftmarginvi{\leftmarginv}
-  \@listi}
+	%% Second-level and higher lists.
+	\setlength\leftmarginii{\z@}
+	\addtolength\leftmarginii{0.5\labelsep}
+	\addtolength\leftmarginii{\@TR@labelwidth}
+	\setlength\leftmarginiii{\leftmarginii}
+	\setlength\leftmarginiv{\leftmarginiii}
+	\setlength\leftmarginv{\leftmarginiv}
+	\setlength\leftmarginvi{\leftmarginv}
+	\@listi}
 \newskip\listisep
 \listisep\smallskipamount
 \def\@listI{\leftmargin\leftmargini
-  \labelwidth\leftmargini \advance\labelwidth-\labelsep
-  \listparindent\z@
-  \topsep\listisep}
+	\labelwidth\leftmargini \advance\labelwidth-\labelsep
+	\listparindent\z@
+	\topsep\listisep}
 \let\@listi\@listI
 \def\@listii{\leftmargin\leftmarginii
-  \labelwidth\leftmarginii \advance\labelwidth-\labelsep
-  \topsep\z@skip}
+	\labelwidth\leftmarginii \advance\labelwidth-\labelsep
+	\topsep\z@skip}
 \def\@listiii{\leftmargin\leftmarginiii
-  \labelwidth\leftmarginiii \advance\labelwidth-\labelsep}
+	\labelwidth\leftmarginiii \advance\labelwidth-\labelsep}
 \def\@listiv{\leftmargin\leftmarginiv
-  \labelwidth\leftmarginiv \advance\labelwidth-\labelsep}
+	\labelwidth\leftmarginiv \advance\labelwidth-\labelsep}
 \def\@listv{\leftmargin\leftmarginv
-  \labelwidth\leftmarginv \advance\labelwidth-\labelsep}
+	\labelwidth\leftmarginv \advance\labelwidth-\labelsep}
 \def\@listvi{\leftmargin\leftmarginvi
-  \labelwidth\leftmarginvi \advance\labelwidth-\labelsep}
+	\labelwidth\leftmarginvi \advance\labelwidth-\labelsep}
 \RequirePackage{fancyhdr}
 \pagestyle{headings}
 \newtheoremstyle{trplain}%
@@ -131,22 +131,22 @@
 	{\thmname{#1}\thmnumber{ #2}\thmnote{ {\normalfont(#3)}}}% head spec
 \newtheoremstyle{trdefinition}%
 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space above
- 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space below
- 	{\normalfont}% body font
- 	{\z@}% indent amount
- 	{\bfseries}% head font
- 	{.}% punctuation after head
- 	{.5em}% spacing after head
- 	{\thmname{#1}\thmnumber{ #2}\thmnote{ {\normalfont(#3)}}}% head spec
- \newtheoremstyle{trremark}%
+	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space below
+	{\normalfont}% body font
+	{\z@}% indent amount
+	{\bfseries}% head font
+	{.}% punctuation after head
+	{.5em}% spacing after head
+	{\thmname{#1}\thmnumber{ #2}\thmnote{ {\normalfont(#3)}}}% head spec
+\newtheoremstyle{trremark}%
 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space above
- 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space below
- 	{\normalfont}% body font
- 	{\z@}% indent amount
- 	{\itshape}% head font
- 	{.}% punctuation after head
- 	{.5em}% spacing after head
- 	{\thmname{#1}\thmnumber{ #2}\thmnote{ {\normalfont(#3)}}}% head spec
+	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space below
+	{\normalfont}% body font
+	{\z@}% indent amount
+	{\itshape}% head font
+	{.}% punctuation after head
+	{.5em}% spacing after head
+	{\thmname{#1}\thmnumber{ #2}\thmnote{ {\normalfont(#3)}}}% head spec
 \theoremstyle{trplain}
 \AtEndPreamble{%
 	\theoremstyle{trplain}
@@ -173,17 +173,17 @@
 	\normalfont \topsep6\p@\@plus6\p@\relax
 	\trivlist
 	\item[\@proofindent\hskip\labelsep
-		{\@proofnamefont #1\@addpunct{.}}]\ignorespaces
+	{\@proofnamefont #1\@addpunct{.}}]\ignorespaces
 }{%
 	\popQED\endtrivlist\@endpefalse
 }
 \RequirePackage{comment}
 \specialcomment{acks}{%
-  \begingroup
-  \section*{Acknowledgments}
-  \phantomsection\addcontentsline{toc}{section}{Acknowledgments}
+	\begingroup
+	\section*{Acknowledgments}
+	\phantomsection\addcontentsline{toc}{section}{Acknowledgments}
 }{%
-  \endgroup
+	\endgroup
 }
 \numberwithin{equation}{section}
 
