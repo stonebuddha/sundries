@@ -193,6 +193,7 @@
 \RequirePackage{mathpartir}
 \RequirePackage{turnstile}
 \RequirePackage{mathtools}
+\mathtoolsset{showonlyrefs,showmanualtags}
 \RequirePackage{mathrsfs}
 \RequirePackage{stmaryrd}
 \RequirePackage{relsize}
