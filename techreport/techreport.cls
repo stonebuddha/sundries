@@ -3,7 +3,34 @@
 \def\@classname{techreport}
 \RequirePackage{xkeyval}
 \RequirePackage{xstring}
-\LoadClass[10pt,letterpaper]{article}
+\define@boolkey+{techreport.cls}[@TR@]{screen}[true]{%
+	\if@TR@screen
+		\PackageInfo{\@classname}{Using screen mode}%
+	\else
+		\PackageInfo{\@classname}{Not using screen mode}%
+	\fi%
+}{\PackageError{\@classname}{The option screen can be either true or false}}
+\ExecuteOptionsX{screen=false}
+\define@boolkey+{techreport.cls}[@TR@]{libertine}[true]{%
+	\if@TR@libertine
+		\PackageInfo{\@classname}{Using libertine fonts}%
+	\else
+		\PackageInfo{\@classname}{Not using libertine fonts}%
+	\fi%
+}{\PackageError{\@classname}{The option libertine can be either true or false}}
+\ExecuteOptionsX{libertine=false}
+\def\TR@fontsize{}
+\DeclareOptionX{9pt}{\edef\TR@fontsize{\CurrentOption}}
+\DeclareOptionX{10pt}{\edef\TR@fontsize{\CurrentOption}}
+\DeclareOptionX{11pt}{\edef\TR@fontsize{\CurrentOption}}
+\DeclareOptionX{12pt}{\edef\TR@fontsize{\CurrentOption}}
+\ProcessOptionsX
+\def\TR@column{}
+\def\@TR@twocolumn{twocolumn}
+\DeclareOptionX{onecolumn}{\edef\TR@column{\CurrentOption}}
+\DeclareOptionX{twocolumn}{\edef\TR@column{\CurrentOption}}
+\ProcessOptionsX
+\LoadClass[\TR@fontsize,\TR@column]{extarticle}
 \RequirePackage{amsmath,amsfonts,amsthm}
 \RequirePackage{microtype}
 \RequirePackage{etoolbox}
@@ -11,7 +38,67 @@
 \RequirePackage{totpages}
 \RequirePackage{environ}
 \RequirePackage{textcase}
-\RequirePackage[square,numbers,sort&compress]{natbib}
+\RequirePackage{natbib}
+\renewcommand{\bibsection}{%
+	\section*{\refname}%
+	\phantomsection\addcontentsline{toc}{section}{\refname}%
+}
+\renewcommand{\bibfont}{\footnotesize}
+\renewcommand\setcitestyle[1]{
+\@for\@tempa:=#1\do{
+\def\@tempb{round}\ifx\@tempa\@tempb\renewcommand\NAT@open{(}\renewcommand\NAT@close{)}\fi
+\def\@tempb{square}\ifx\@tempa\@tempb\renewcommand\NAT@open{[}\renewcommand\NAT@close{]}\fi
+\def\@tempb{angle}\ifx\@tempa\@tempb\renewcommand\NAT@open{$<$}\renewcommand\NAT@close{$>$}\fi
+\def\@tempb{curly}\ifx\@tempa\@tempb\renewcommand\NAT@open{\{}\renewcommand\NAT@close{\}}\fi
+\def\@tempb{semicolon}\ifx\@tempa\@tempb\renewcommand\NAT@sep{;}\fi
+\def\@tempb{colon}\ifx\@tempa\@tempb\renewcommand\NAT@sep{;}\fi
+\def\@tempb{comma}\ifx\@tempa\@tempb\renewcommand\NAT@sep{,}\fi
+\def\@tempb{authoryear}\ifx\@tempa\@tempb\NAT@numbersfalse\fi
+\def\@tempb{numbers}\ifx\@tempa\@tempb\NAT@numberstrue\NAT@superfalse\fi
+\def\@tempb{super}\ifx\@tempa\@tempb\NAT@numberstrue\NAT@supertrue\fi
+\def\@tempb{nobibstyle}\ifx\@tempa\@tempb\let\bibstyle=\@gobble\fi
+\def\@tempb{bibstyle}\ifx\@tempa\@tempb\let\bibstyle=\@citestyle\fi
+\def\@tempb{sort}\ifx\@tempa\@tempb\def\NAT@sort{\@ne}\fi
+\def\@tempb{nosort}\ifx\@tempa\@tempb\def\NAT@sort{\z@}\fi
+\def\@tempb{compress}\ifx\@tempa\@tempb\def\NAT@cmprs{\@ne}\fi
+\def\@tempb{nocompress}\ifx\@tempa\@tempb\def\NAT@cmprs{\@z}\fi
+\def\@tempb{sort&compress}\ifx\@tempa\@tempb\def\NAT@sort{\@ne}\def\NAT@cmprs{\@ne}\fi
+\def\@tempb{mcite}\ifx\@tempa\@tempb\let\NAT@merge\@ne\fi
+\def\@tempb{merge}\ifx\@tempa\@tempb\@ifnum{\NAT@merge<\tw@}{\let\NAT@merge\tw@}{}\fi
+\def\@tempb{elide}\ifx\@tempa\@tempb\@ifnum{\NAT@merge<\thr@@}{\let\NAT@merge\thr@@}{}\fi
+\def\@tempb{longnamesfirst}\ifx\@tempa\@tempb\NAT@longnamestrue\fi
+\def\@tempb{nonamebreak}\ifx\@tempa\@tempb\def\NAT@nmfmt#1{\mbox{\NAT@up#1}}\fi
+\expandafter\NAT@find@eq\@tempa=\relax\@nil
+\if\@tempc\relax\else
+	\expandafter\NAT@rem@eq\@tempc
+	\def\@tempb{open}\ifx\@tempa\@tempb\xdef\NAT@open{\@tempc}\fi
+	\def\@tempb{close}\ifx\@tempa\@tempb\xdef\NAT@close{\@tempc}\fi
+	\def\@tempb{aysep}\ifx\@tempa\@tempb\xdef\NAT@aysep{\@tempc}\fi
+	\def\@tempb{yysep}\ifx\@tempa\@tempb\xdef\NAT@yrsep{\@tempc}\fi
+	\def\@tempb{notesep}\ifx\@tempa\@tempb\xdef\NAT@cmt{\@tempc}\fi
+	\def\@tempb{citesep}\ifx\@tempa\@tempb\xdef\NAT@sep{\@tempc}\fi
+\fi}%
+\NAT@@setcites
+}
+\renewcommand\citestyle[1]{%
+	\ifcsname bibstyle@#1\endcsname%
+	\csname bibstyle@#1\endcsname\let\bibstyle\@gobble%
+	\else%
+	\@latex@error{Undefined `#1' citestyle}%
+	\fi%
+}
+\newcommand{\bibstyle@acmauthoryear}{%
+	\setcitestyle{%
+		authoryear,%
+		open={[},close={]},citesep={;},%
+		aysep={},yysep={,},%
+		notesep={, }}}
+\newcommand{\bibstyle@acmnumeric}{%
+	\setcitestyle{%
+		numbers,sort&compress,%
+		open={[},close={]},citesep={,},%
+		notesep={, }}}
+\citestyle{acmnumeric}
 \RequirePackage[bookmarksnumbered,unicode]{hyperref}
 \pdfstringdefDisableCommands{%
 	\def\unskip{}%
@@ -20,8 +107,11 @@
 	\def\footnotemark{}%
 }
 \urlstyle{rm}
+\ifx\TR@column\@TR@twocolumn
+	\urlstyle{sf}
+\fi
 \AtEndPreamble{%
-	\hypersetup{colorlinks,linkcolor=Red,citecolor=Purple,urlcolor=DarkBlue,filecolor=DarkBlue}%
+	\if@TR@screen\hypersetup{colorlinks,linkcolor=Red,citecolor=Purple,urlcolor=DarkBlue,filecolor=DarkBlue}\else\hypersetup{hidelinks}\fi%
 }
 \let\citeN\cite
 \let\cite\citep
@@ -31,6 +121,10 @@
 \let\citeNP\citealt
 \DeclareRobustCommand\citeA{\begingroup\NAT@swafalse\let\NAT@ctype\@ne\NAT@partrue\NAT@fullfalse\NAT@open\NAT@citetp}
 \providecommand\newblock{}
+\newcommand\shortcite[2][]{\ifNAT@numbers\cite[#1]{#2}\else\citeyearpar[#1]{#2}\fi}
+\def\bibliographystyle#1{%
+	\ifx\@begindocumenthook\@undefined\else\expandafter\AtBeginDocument\fi%
+    {\if@filesw\immediate\write\@auxout{\string\bibstyle{#1}}\fi}}
 \RequirePackage{graphicx}
 \RequirePackage[prologue]{xcolor}
 \definecolor[named]{Blue}{cmyk}{1,0.1,0,0.1}
@@ -42,10 +136,14 @@
 \definecolor[named]{Purple}{cmyk}{0.55,1,0,0.15}
 \definecolor[named]{DarkBlue}{cmyk}{1,0.58,0,0.21}
 \RequirePackage{geometry}
-\geometry{twoside=false,includeheadfoot,head=13pt,foot=2pc,paperwidth=6.75in,paperheight=10in,top=58pt,bottom=44pt,inner=46pt,outer=46pt,marginparwidth=2pc,heightrounded}
+\ifx\TR@column\@TR@twocolumn
+	\geometry{twoside=true,head=13pt,paperwidth=8.5in,paperheight=11in,includeheadfoot=false,columnsep=2pc,top=1in,bottom=1in,inner=0.75in,outer=0.75in,marginparwidth=2pc,heightrounded}
+\else
+	\geometry{twoside=true,includeheadfoot,head=13pt,foot=2pc,paperwidth=6.75in,paperheight=10in,top=58pt,bottom=44pt,inner=46pt,outer=46pt,marginparwidth=2pc,heightrounded}
+\fi
 \setlength\parindent{10\p@}
 \setlength\parskip{\z@}
-%% \setlength\normalparindent{\parindent}
+\setlength\bibsep{\parskip}
 \RequirePackage{iftex}
 \ifPDFTeX
 \input{glyphtounicode}
@@ -59,25 +157,38 @@
 \pdfgentounicode=1
 \fi
 \RequirePackage{cmap}
-%% \ifxetex
-%% 	\RequirePackage[tt=false]{libertine}
-%% \else
-%% 	\RequirePackage[tt=false,type1=true]{libertine}
-%% \fi
-%% \RequirePackage[varqu]{zi4}
-%% \RequirePackage[libertine]{newtxmath}
+\if@TR@libertine
+\ifxetex
+	\RequirePackage[tt=false]{libertine}
+\else
+	\RequirePackage[tt=false,type1=true]{libertine}
+\fi
+\RequirePackage[varqu]{zi4}
+\RequirePackage[libertine]{newtxmath}
+\else
 \RequirePackage[scaled=0.88]{beraserif}
 \RequirePackage[scaled=0.85]{berasans}
 \RequirePackage[scaled=0.84]{beramono}
 \RequirePackage{mathpazo}
 \linespread{1.05}
 \RequirePackage[T1,small,euler-digits]{eulervm}
+\fi
 \ifxetex\else
 	\RequirePackage[T1]{fontenc}
 \fi
 \RequirePackage{caption,float}
 \captionsetup[table]{position=top}
-\captionsetup{labelfont={bf},textfont={bf},labelsep=colon,margin=\z@}
+\ifx\TR@column\@TR@twocolumn
+	\captionsetup{labelfont={bf},textfont={normalfont},labelsep=period,margin=\z@}
+\else
+	\captionsetup{labelfont={bf},textfont={bf},labelsep=colon,margin=\z@}
+\fi
+\ifx\TR@column\@TR@twocolumn
+	\def\labelenumi{\theenumi.}
+	\def\labelenumii{\theenumii.}
+	\def\labelenumiii{\theenumiii.}
+	\def\labelenumiv{\theenumiv.}
+\fi
 \newdimen\@TR@labelwidth
 \AtBeginDocument{%
 	\setlength\labelsep{4pt}
@@ -118,35 +229,73 @@
 	\labelwidth\leftmarginv \advance\labelwidth-\labelsep}
 \def\@listvi{\leftmargin\leftmarginvi
 	\labelwidth\leftmarginvi \advance\labelwidth-\labelsep}
+\renewcommand{\descriptionlabel}[1]{\upshape\bfseries #1}
+\renewenvironment{description}{\list{}{%
+	\labelwidth\@TR@labelwidth
+	\let\makelabel\descriptionlabel}%
+}{
+	\endlist
+}
+\let\enddescription=\endlist % for efficiency
 \RequirePackage{fancyhdr}
 \pagestyle{headings}
+\def\@trplainbodyfont{\itshape}
+\def\@trplainindent{\parindent}
+\def\@trplainheadfont{\scshape}
+\def\@trplainnotefont{\@empty}
+\ifx\TR@column\@TR@twocolumn
+	\def\@trplainbodyfont{\itshape}
+	\def\@trplainindent{\z@}
+	\def\@trplainheadfont{\bfseries}
+	\def\@trplainnotefont{\normalfont}
+\fi
 \newtheoremstyle{trplain}%
 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space above
 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space below
-	{\itshape}% body font
-	{\z@}% indent amount
-	{\bfseries}% head font
+	{\@trplainbodyfont}% body font
+	{\@trplainindent}% indent amount
+	{\@trplainheadfont}% head font
 	{.}% punctuation after head
 	{.5em}% spacing after head
-	{\thmname{#1}\thmnumber{ #2}\thmnote{ {\normalfont(#3)}}}% head spec
+	{\thmname{#1}\thmnumber{ #2}\thmnote{ {\@trplainnotefont(#3)}}}% head spec
+\def\@trdefinitionbodyfont{\normalfont}
+\def\@trdefinitionindent{\parindent}
+\def\@trdefinitionheadfont{\bfseries}
+\def\@trdefinitionnotefont{\@empty}
+\ifx\TR@column\@TR@twocolumn
+	\def\@trdefinitionbodyfont{\normalfont}
+	\def\@trdefinitionindent{\z@}
+	\def\@trdefinitionheadfont{\bfseries}
+	\def\@trdefinitionnotefont{\normalfont}
+\fi
 \newtheoremstyle{trdefinition}%
 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space above
 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space below
-	{\normalfont}% body font
-	{\z@}% indent amount
-	{\bfseries}% head font
+	{\@trdefinitionbodyfont}% body font
+	{\@trdefinitionindent}% indent amount
+	{\@trdefinitionheadfont}% head font
 	{.}% punctuation after head
 	{.5em}% spacing after head
-	{\thmname{#1}\thmnumber{ #2}\thmnote{ {\normalfont(#3)}}}% head spec
+	{\thmname{#1}\thmnumber{ #2}\thmnote{ {\@trdefinitionnotefont(#3)}}}% head spec
+\def\@trremarkbodyfont{\itshape}
+\def\@trremarkindent{\parindent}
+\def\@trremarkheadfont{\itshape}
+\def\@trremarknotefont{\@empty}
+\ifx\TR@column\@TR@twocolumn
+	\def\@trremarkbodyfont{\itshape}
+	\def\@trremarkindent{\z@}
+	\def\@trremarkheadfont{\itshape}
+	\def\@trremarknotefont{\normalfont}
+\fi
 \newtheoremstyle{trremark}%
 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space above
 	{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% space below
-	{\normalfont}% body font
-	{\z@}% indent amount
-	{\itshape}% head font
+	{\@trremarkbodyfont}% body font
+	{\@trremarkindent}% indent amount
+	{\@trremarkheadfont}% head font
 	{.}% punctuation after head
 	{.5em}% spacing after head
-	{\thmname{#1}\thmnumber{ #2}\thmnote{ {\normalfont(#3)}}}% head spec
+	{\thmname{#1}\thmnumber{ #2}\thmnote{ {\@trremarknotefont(#3)}}}% head spec
 \theoremstyle{trplain}
 \AtEndPreamble{%
 	\theoremstyle{trplain}
@@ -156,18 +305,22 @@
 	\newtheorem{lemma}[theorem]{Lemma}
 	\newtheorem{corollary}[theorem]{Corollary}
 	\theoremstyle{trdefinition}
-	\newtheorem{example}[theorem]{Example}
 	\newtheorem{definition}[theorem]{Definition}
 	\newtheorem{observation}[theorem]{Observation}
 	\newtheorem{challenge}[theorem]{Challenge}
 	\newtheorem{principle}[theorem]{Principle}
 	\theoremstyle{trremark}
+	\newtheorem{example}[theorem]{Example}
 	\newtheorem{remark}[theorem]{Remark}
 	\newtheorem{fact}[theorem]{Fact}
 	\theoremstyle{trplain}
 }
-\def\@proofnamefont{\itshape}
-\def\@proofindent{\noindent}
+\def\@proofnamefont{\scshape}
+\def\@proofindent{\indent}
+\ifx\TR@column\@TR@twocolumn
+	\def\@proofnamefont{\itshape}
+	\def\@proofindent{\noindent}
+\fi
 \renewenvironment{proof}[1][\proofname]{\par
 	\pushQED{\qed}%
 	\normalfont \topsep6\p@\@plus6\p@\relax
@@ -185,7 +338,6 @@
 }{%
 	\endgroup
 }
-\numberwithin{equation}{section}
 
 \RequirePackage{enumerate}
 \RequirePackage{booktabs}
@@ -193,20 +345,43 @@
 \RequirePackage{mathpartir}
 \RequirePackage{turnstile}
 \RequirePackage{mathtools}
-\mathtoolsset{showonlyrefs,showmanualtags}
+\AtEndPreamble{%
+	\mathtoolsset{showonlyrefs,showmanualtags}%
+	\allowdisplaybreaks%
+}
 \RequirePackage{mathrsfs}
 \RequirePackage{stmaryrd}
 \RequirePackage{relsize}
 \RequirePackage{multirow}
+\RequirePackage{multicol}
 \RequirePackage{algorithm}
-\RequirePackage{algpseudocode}
+\RequirePackage[noend]{algpseudocode}
 \RequirePackage{tikz}
-\usetikzlibrary{shapes,arrows}
+\AtEndPreamble{%
+	\usetikzlibrary{arrows,automata,chains,shapes,trees}%
+}
 \RequirePackage[shortlabels]{enumitem}
-\setlist{nosep,leftmargin=*}
+\ifx\TR@column\@TR@twocolumn
+	\AtEndPreamble{%
+	\setlist{nosep,leftmargin=\parindent}%
+	}%
+	\AtBeginDocument{%
+	\setlength\abovedisplayskip{0.5\abovedisplayskip}%
+	\setlength\belowdisplayskip{0.5\belowdisplayskip}%
+	\setlength\abovedisplayshortskip{0.5\abovedisplayshortskip}%
+	\setlength\belowdisplayshortskip{0.5\belowdisplayshortskip}%
+	\setlength\floatsep{0.5\floatsep}%
+}
+\fi
 \RequirePackage{nicefrac}
 \RequirePackage{marginnote}
 \RequirePackage{authblk}
+\ifx\TR@column\@TR@twocolumn
+	\RequirePackage{flushend}
+\fi
+\RequirePackage{hhline}
+\RequirePackage{rotating}
+\RequirePackage{wrapfig}
 
 \IfFileExists{refs.sty}{\RequirePackage{refs}}{}
 \IfFileExists{shortcuts.sty}{\RequirePackage{shortcuts}}{}
