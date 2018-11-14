@@ -99,6 +99,9 @@
 		open={[},close={]},citesep={,},%
 		notesep={, }}}
 \citestyle{acmnumeric}
+\ifx\TR@column\@TR@twocolumn
+	\setlength\bibsep{\parskip}
+\fi
 \RequirePackage[bookmarksnumbered,unicode]{hyperref}
 \pdfstringdefDisableCommands{%
 	\def\unskip{}%
@@ -143,7 +146,6 @@
 \fi
 \setlength\parindent{10\p@}
 \setlength\parskip{\z@}
-\setlength\bibsep{\parskip}
 \RequirePackage{iftex}
 \ifPDFTeX
 \input{glyphtounicode}
