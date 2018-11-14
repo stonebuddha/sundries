@@ -183,7 +183,8 @@
 \ifx\TR@column\@TR@twocolumn
 	\captionsetup{labelfont={bf},textfont={normalfont},labelsep=period,margin=\z@}
 \else
-	\captionsetup{labelfont={bf},textfont={bf},labelsep=colon,margin=\z@}
+	\captionsetup{labelfont={sf,small},textfont={sf,small},margin=\z@}
+	\captionsetup[figure]{name={Fig.}}
 \fi
 \ifx\TR@column\@TR@twocolumn
 	\def\labelenumi{\theenumi.}
