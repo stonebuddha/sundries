@@ -349,8 +349,7 @@
 \RequirePackage{turnstile}
 \RequirePackage{mathtools}
 \AtEndPreamble{%
-	\mathtoolsset{showonlyrefs,showmanualtags}%
-	\allowdisplaybreaks%
+	\mathtoolsset{showmanualtags}%
 }
 \RequirePackage{mathrsfs}
 \RequirePackage{stmaryrd}
