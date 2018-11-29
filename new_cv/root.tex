@@ -1,0 +1,157 @@
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,letterpaper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% modern themes
+\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+\usepackage[tt=false,type1=true]{libertine}
+\usepackage[varqu]{zi4}
+\usepackage[libertine]{newtxmath}
+
+% adjust the page margins
+\usepackage[scale=0.78]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+\usepackage{import}
+
+% personal data
+\name{Di}{Wang}
+\title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
+%\address{my address, line 1, line 2, line 3, postcode}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+\phone[mobile]{+1 646 371 6916}                   % optional, remove / comment the line if not wanted
+%\phone[fixed]{01234 123456}                    % optional, remove / comment the line if not wanted
+%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+\email{diw3@cs.cmu.edu}                               % optional, remove / comment the line if not wanted
+\homepage{www.cs.cmu.edu/{\textasciitilde}diw3}                         % optional, remove / comment the line if not wanted
+\extrainfo{Carnegie Mellon University -- Computer Science Department -- Doctoral Student}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+\makeatletter
+\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+\usepackage{multibib}
+\newcites{conf,thesis,draft}{{In Peer-Reviewed Conferences},{Theses},{Working Papers}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+%\small{Undergraduate electrical and electronic engineer completing the final year of a master's degree. Passionate about science, with strong technical, business, and interpersonal skills for working in a team and successfully completing a project.}
+
+\section{Research Interests}
+
+My research interests are in the intersection of \emph{programming languages} and \emph{software engineering} with a focus on \emph{probabilistic programming}, \emph{quantitative program analysis}, \emph{higher type theory}, and \emph{program synthesis}.
+
+\section{Education}
+
+\begin{itemize}
+	\item{\cventry{Aug 2017 -- present}{Doctoral Student}{Carnegie Mellon University}{Pittsburgh, PA}{}{Advisor: Prof. Jan Hoffmann}}
+	
+	\vspace{5pt}
+	
+	\item{\cventry{Sep 2013 -- Jun 2017}{B.S. (Hons) in Computer Science \& Technology}{Peking University}{Beijing, China}{}{Advisor: Prof. Yingfei Xiong \\ Thesis: Accelerating Program Analyses by Conditional Summarization with Datalog \\ GPA: 3.83/4 \\ Selected Coursework: Design Principles of Programming Languages, Software Analysis, Compiler Lab (Honor Track), Introduction to Theoretical Computer Science, Programming Techniques and Methodology}}
+\end{itemize}
+
+\section{Positions}
+
+\begin{itemize}
+	\item{\cventry{Aug 2017 -- present}{Research Assistant}{Carnegie Mellon University}{Pittsburgh, PA}{}{In the group of Prof. Jan Hoffmann \\ Topics: Static Analysis of Probabilistic Programs, Automatic Resource Bound Analysis}}
+	
+	\vspace{5pt}
+	
+	\item{\cventry{Sep 2016 -- Jan 2017}{Research Intern}{Massachusetts Institute of Technology}{Boston, MA}{}{In the group of Prof. Adam Chlipala \\ Topics: Type System for Complexity Analysis, Complexity Preserved Compiler}}
+	
+	\vspace{5pt}
+	
+	\item{\cventry{Jun 2016 -- Aug 2016}{Research Intern}{University of Wisconsin-Madison}{Madison, WI}{}{In the group of Prof. Thomas Reps \\ Topics: Expectation Invariant Analysis of Probabilistic Programs}}
+	
+	\vspace{5pt}
+	
+	\item{\cventry{Sep 2015 -- Jun 2017}{Research Assistant}{Peking University}{Beijing, China}{}{In the group of Prof. Lu Zhang and Prof. Yingfei Xiong \\ Topics: Complete Library Summarization for Program Analyses, Pointer Analysis for Java}}
+\end{itemize}
+
+\section{Professional Activities}
+
+\begin{itemize}
+	\item Artifact Evaluation Committee -- Principles of Programming Languages (POPL'19) \hfill 2018
+\end{itemize}
+
+\section{Technical and Personal Skills}
+
+\begin{itemize}
+
+\item \textbf{Programming Languages:} Proficient in: C, C++, Java, OCaml, Standard ML, Ruby; \\ Also familiar with: Rust, Coq, Agda, Racket, Python, JavaScript.
+
+\vspace{5pt}
+
+\item \textbf{Softwares and Tools:} Rails, Soot, WALA, Chord, LLVM, Souffl{\'e}, Git, Vim, Emacs.
+
+\vspace{5pt}
+
+\item \textbf{Languages:} Native in Chinese; Fluent in English.
+
+\end{itemize}
+
+\section{Scholarships and Awards}
+
+\begin{itemize}
+	\item China National Scholarship \hfill 2016 -- 2017
+	\item Huawei Scholarship \hfill 2015 -- 2016
+	\item China National Scholarship \hfill 2014 -- 2015
+	\item Peking University Freshman Scholarship \hfill 2013 -- 2014
+	
+	\vspace{5pt}
+	
+	\item Silver Medal (5\textsuperscript{th} place) in the 39\textsuperscript{th} Annual ACM-ICPC World Finals \hfill May 2015
+	\item Gold Medal (1\textsuperscript{st} place) in the 39\textsuperscript{th} ACM-ICPC Asia Regionals Anshan site \hfill Oct 2014
+	\item Gold Medal (9\textsuperscript{th} place) in the 38\textsuperscript{th} ACM-ICPC Asia Regionals Changchun site \hfill Dec 2013
+\end{itemize}
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+\section{Publications}
+\nociteconf{POPL:WH19,PLDI:WHR18,OOPSLA:WWC17,ESOP:TWX17}
+\bibliographystyleconf{unsrt}
+\vspace{5pt}
+\bibliographyconf{publications}                   % 'publications' is the name of a BibTeX file
+\nocitethesis{BS}
+\bibliographystylethesis{unsrt}
+\bibliographythesis{publications}
+\vspace{5pt}
+\nocitedraft{misc:KWP18,misc:WWC18,misc:WHR18}
+\bibliographystyledraft{unsrt}
+\bibliographydraft{publications}
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+%-----       letter       ---------------------------------------------------------
+
+\end{document}

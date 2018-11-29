@@ -1,0 +1,7 @@
+*.pdf
+.texpadtmp
+*.bbl
+*.log
+*.aux
+*.blg
+*.out
