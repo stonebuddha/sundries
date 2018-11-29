@@ -19,6 +19,22 @@
 	\fi%
 }{\PackageError{\@classname}{The option libertine can be either true or false}}
 \ExecuteOptionsX{libertine=false}
+\define@boolkey+{techreport.cls}[@TR@]{single}[true]{%
+	\if@TR@single
+		\PackageInfo{\@classname}{Using single-sided layout}%
+	\else
+		\PackageInfo{\@classname}{Not using single-sided layout}%
+	\fi%
+}{\PackageError{\@classname}{The option single can be either true or false}}
+\ExecuteOptionsX{single=false}
+\define@boolkey+{techreport.cls}[@TR@]{showonlyrefs}[true]{%
+	\if@TR@showonlyrefs
+		\PackageInfo{\@classname}{Using showonlyrefs mode for mathtools}%
+	\else
+		\PackageInfo{\@classname}{Not using showonlyrefs mode for mathtools}%
+	\fi%
+}{\PackageError{\@classname}{The option showonlyrefs can be either true or false}}
+\ExecuteOptionsX{showonlyrefs=false}
 \def\TR@fontsize{}
 \DeclareOptionX{9pt}{\edef\TR@fontsize{\CurrentOption}}
 \DeclareOptionX{10pt}{\edef\TR@fontsize{\CurrentOption}}
@@ -139,10 +155,19 @@
 \definecolor[named]{Purple}{cmyk}{0.55,1,0,0.15}
 \definecolor[named]{DarkBlue}{cmyk}{1,0.58,0,0.21}
 \RequirePackage{geometry}
-\ifx\TR@column\@TR@twocolumn
-	\geometry{twoside=true,head=13pt,paperwidth=8.5in,paperheight=11in,includeheadfoot=false,columnsep=2pc,top=1in,bottom=1in,inner=0.75in,outer=0.75in,marginparwidth=2pc,heightrounded}
+\if@TR@single
+	\ifx\TR@column\@TR@twocolumn
+		\geometry{twoside=false,head=13pt,paperwidth=8.5in,paperheight=11in,includeheadfoot=false,columnsep=2pc,top=1in,bottom=1in,left=0.75in,right=0.75in,marginparwidth=2pc,heightrounded}
+	\else
+		\geometry{twoside=false,includeheadfoot,head=13pt,foot=2pc,paperwidth=6.75in,paperheight=10in,top=58pt,bottom=44pt,left=46pt,right=46pt,marginparwidth=2pc,heightrounded}
+	\fi
+	\@mparswitchfalse
+	\reversemarginpar
 \else
-	\geometry{twoside=true,includeheadfoot,head=13pt,foot=2pc,paperwidth=6.75in,paperheight=10in,top=58pt,bottom=44pt,inner=46pt,outer=46pt,marginparwidth=2pc,heightrounded}
+	\ifx\TR@column\@TR@twocolumn
+		\geometry{twoside=true,head=13pt,paperwidth=8.5in,paperheight=11in,includeheadfoot=false,columnsep=2pc,top=1in,bottom=1in,inner=0.75in,outer=0.75in,marginparwidth=2pc,heightrounded}
+	\else
+		\geometry{twoside=true,includeheadfoot,head=13pt,foot=2pc,paperwidth=6.75in,paperheight=10in,top=58pt,bottom=44pt,inner=46pt,outer=46pt,marginparwidth=2pc,heightrounded}
 \fi
 \setlength\parindent{10\p@}
 \setlength\parskip{\z@}
@@ -349,7 +374,7 @@
 \RequirePackage{turnstile}
 \RequirePackage{mathtools}
 \AtEndPreamble{%
-	\mathtoolsset{showmanualtags}%
+	\if@TR@showonlyrefs\mathtoolsset{showmanualtags,showonlyrefs}\else\mathtoolsset{showmanualtags}\fi%
 }
 \RequirePackage{mathrsfs}
 \RequirePackage{stmaryrd}
@@ -385,20 +410,71 @@
 \RequirePackage{hhline}
 \RequirePackage{rotating}
 \RequirePackage{wrapfig}
-\RequirePackage{cleveref}
-\AtEndPreamble{%
-	\crefname{theorem}{Thm.}{Thms.}%
-	\crefname{lemma}{Lem.}{Lemmas}%
-	\crefname{corollary}{Cor.}{Cors.}%
-	\crefname{figure}{Fig.}{Figs.}%
-	\crefname{definition}{Defn.}{Defns.}%
-	\crefname{table}{Tab.}{Tabs.}%
-	\crefmultiformat{section}{\S#2#1#3}{ and~\S#2#1#3}{, \S#2#1#3}{ and~\S#2#1#3}%
-	\crefname{example}{Ex.}{Exs.}%
-	\crefname{footnote}{footnote}{footnote}%
-	\crefname{observation}{Obs.}{Obs.}%
-	\crefname{remark}{Remark}{Remarks}%
-	\crefname{proposition}{Prop.}{Props.}%
-}
+\if@TR@showonlyrefs
+	\AtEndPreamble{%
+		\newcommand{\theoref}[1]{Thm.~\ref{The:#1}}%
+		\newcommand{\theorefs}[2]{Thms.~\ref{The:#1} and~\ref{The:#2}}%
+		\newcommand{\theorefsp}[3]{Thms.~\ref{The:#1}, \ref{The:#2} and~\ref{The:#3}}%
+		\newcommand{\lemref}[1]{Lem.~\ref{Lem:#1}}%
+		\newcommand{\lemrefs}[2]{Lemmas~\ref{Lem:#1} and~\ref{Lem:#2}}%
+		\newcommand{\lemrefsp}[3]{Lemmas~\ref{Lem:#1},~\ref{Lem:#2} and~\ref{Lem:#3}}%
+		\newcommand{\corref}[1]{Cor.~\ref{Cor:#1}}%
+		\newcommand{\correfs}[2]{Cors.~\ref{Cor:#1} and~\ref{Cor:#2}}%
+		\newcommand{\figref}[1]{Fig.~\ref{Fi:#1}}%
+		\newcommand{\figrefs}[2]{Figs.~\ref{Fi:#1} and~\ref{Fi:#2}}%
+		\newcommand{\figrefsp}[3]{Figs.~\ref{Fi:#1}, \ref{Fi:#2} and~\ref{Fi:#3}}%
+		\newcommand{\defref}[1]{Defn.~\ref{De:#1}}%
+		\newcommand{\defrefs}[2]{Defns.~\ref{De:#1} and~\ref{De:#2}}%
+		\newcommand{\tableref}[1]{Tab.~\ref{Ta:#1}}%
+		\newcommand{\tablerefs}[2]{Tabs.~\ref{Ta:#1} and~\ref{Ta:#2}}%
+		\newcommand{\sectref}[1]{\S\ref{Se:#1}}%
+		\newcommand{\sectrefs}[2]{\S\ref{Se:#1} and~\S\ref{Se:#2}}%
+		\newcommand{\sectrefsp}[3]{\S\ref{Se:#1}, \S\ref{Se:#2} and~\S\ref{Se:#3}}%
+		\newcommand{\sectseqref}[2]{\S\ref{Se:#1}--\S\ref{Se:#2}}%
+		\newcommand{\exref}[1]{Ex.~\ref{Exa:#1}}%
+		\newcommand{\exrefs}[2]{Exs.~\ref{Exa:#1} and~\ref{Exa:#2}}%
+		\newcommand{\exrefsp}[3]{Exs.~\ref{Exa:#1}, \ref{Exa:#2} and~\ref{Exa:#3}}%
+		\newcommand{\exrefspp}[4]{Exs.~\ref{Exa:#1}, \ref{Exa:#2}, \ref{Exa:#3} and~\ref{Exa:#4}}%
+		\newcommand{\itemref}[1]{item~\ref{It:#1}}%
+		\newcommand{\itemrefs}[2]{items~\ref{It:#1} and~\ref{It:#2}}%
+		\newcommand{\itemrefsp}[3]{items~\ref{It:#1}, \ref{It:#2} and~\ref{It:#3}}%
+		\newcommand{\itemrefspp}[4]{items~\ref{It:#1}, \ref{It:#2}, \ref{It:#3} and~\ref{It:#4}}%
+		\newcommand{\itemseqref}[2]{items~\ref{It:#1}--\ref{It:#2}}%
+		\newcommand{\Itemref}[1]{Item~\ref{It:#1}}%
+		\newcommand{\Itemrefs}[2]{Items~\ref{It:#1} and~\ref{It:#2}}%
+		\newcommand{\Itemrefsp}[3]{Items~\ref{It:#1}, \ref{It:#2} and~\ref{It:#3}}%
+		\newcommand{\Itemrefspp}[4]{Items~\ref{It:#1}, \ref{It:#2}, \ref{It:#3} and~\ref{It:#4}}%
+		\newcommand{\Itemseqref}[2]{Items~\ref{It:#1}--\ref{It:#2}}%
+		\newcommand{\footnoteref}[1]{footnote~\ref{Footnote:#1}}%
+		\newcommand{\footnoterefs}[2]{footnote~\ref{Footnote:#1} and~\ref{Footnote:#2}}%
+		\newcommand{\obsref}[1]{Obs.~\ref{Obs:#1}}%
+		\newcommand{\obsrefs}[2]{Obs.~\ref{Obs:#1} and~\ref{Obs:#2}}%
+		\newcommand{\obsrefsp}[3]{Obs.~\ref{Obs:#1}, \ref{Obs:#2} and~\ref{Obs:#3}}%
+		\newcommand{\obsrefspp}[4]{Obs.~\ref{Obs:#1}, \ref{Obs:#2}, \ref{Obs:#3} and~\ref{Obs:#4}}%
+		\newcommand{\obsseqref}[2]{Obs.~[\ref{Obs:#1}]--[\ref{Obs:#2}]}%
+		\newcommand{\remref}[1]{Remark~\ref{Rem:#1}}%
+		\newcommand{\propref}[1]{Prop.~\ref{Prop:#1}}%
+		\newcommand{\proprefs}[2]{Props.~\ref{Prop:#1} and~\ref{Prop:#2}}%
+		\newcommand{\proprefsp}[3]{Props.~\ref{Prop:#1}, \ref{Prop:#2} and~\ref{Prop:#3}}%
+	}
+\else
+	\RequirePackage{cleveref}
+	\AtEndPreamble{%
+		\newcommand{\theoref}[1]{\cref{#1}}
+		\crefname{theorem}{Thm.}{Thms.}%
+		\crefname{lemma}{Lem.}{Lemmas}%
+		\crefname{corollary}{Cor.}{Cors.}%
+		\crefname{figure}{Fig.}{Figs.}%
+		\crefname{definition}{Defn.}{Defns.}%
+		\crefname{table}{Tab.}{Tabs.}%
+		\crefmultiformat{section}{\S#2#1#3}{ and~\S#2#1#3}{, \S#2#1#3}{ and~\S#2#1#3}%
+		\crefname{example}{Ex.}{Exs.}%
+		\crefname{item}{item}{item}%
+		\crefname{footnote}{footnote}{footnote}%
+		\crefname{observation}{Obs.}{Obs.}%
+		\crefname{remark}{Remark}{Remarks}%
+		\crefname{proposition}{Prop.}{Props.}%
+	}
+\fi
 
 \IfFileExists{shortcuts.sty}{\RequirePackage{shortcuts}}{}
