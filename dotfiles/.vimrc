@@ -95,7 +95,7 @@ let g:syntastic_check_on_wq=0
 let g:syntastic_error_symbol='✘'
 let g:syntastic_warning_symbol='▲'
 
-let g:syntastic_mode_map={"mode":"active","passive_filetypes":["tex"]}
+let g:syntastic_mode_map={"mode":"active","passive_filetypes":["tex","xml"]}
 
 let g:syntastic_cpp_compiler='/usr/bin/clang++'
 let g:syntastic_cpp_compiler_options=' -std=c++11 -stdlib=libc++ -Wall -Wextra -Wconversion'
