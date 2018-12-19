@@ -88,7 +88,7 @@ function _fish_collapsed_pwd() {
 	echo "${elements[*]}"
 }
 
-export PROMPT='%f%n@%m %F{2}$(_fish_collapsed_pwd)%f> '
+export PROMPT='%F{15}%n@%m%f %F{2}$(_fish_collapsed_pwd)%f> '
 export RPROMPT="%F{red}%(?..%?)%f"
 
 # settings
