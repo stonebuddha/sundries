@@ -21,7 +21,7 @@
 \usepackage[libertine]{newtxmath}
 
 % adjust the page margins
-\usepackage[scale=0.78]{geometry}
+\usepackage[scale=0.85]{geometry}
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
@@ -59,6 +59,8 @@
 
 %\small{Undergraduate electrical and electronic engineer completing the final year of a master's degree. Passionate about science, with strong technical, business, and interpersonal skills for working in a team and successfully completing a project.}
 
+\vspace{-3em}
+
 \section{Research Interests}
 
 My research interests are in \emph{programming languages} and \emph{software engineering} with a focus on \emph{probabilistic programming}, \emph{quantitative program analysis}, \emph{higher type theory}, and \emph{program synthesis}.
@@ -66,35 +68,34 @@ My research interests are in \emph{programming languages} and \emph{software eng
 \section{Education}
 
 \begin{itemize}
-	\item{\cventry{Aug 2017 -- present}{Doctoral Student}{Carnegie Mellon University}{Pittsburgh, PA}{}{Advisor: Prof. Jan Hoffmann}}
+	\item{\cventry{Aug 2017 -- present}{Doctoral Student}{Carnegie Mellon
+        University}{Pittsburgh, PA}{}{Advisor: Prof. Jan Hoffmann}}
 	
 	\vspace{5pt}
 	
-	\item{\cventry{Sep 2013 -- Jun 2017}{B.S. (Hons) in Computer Science \& Technology}{Peking University}{Beijing, China}{}{Advisor: Prof. Yingfei Xiong \\ Thesis: Accelerating Program Analyses by Conditional Summarization with Datalog \\ GPA: 3.83/4 \\ Selected Coursework: Design Principles of Programming Languages, Software Analysis, Compiler Lab (Honor Track), Introduction to Theoretical Computer Science, Programming Techniques and Methodology}}
+	\item{\cventry{Sep 2013 -- Jun 2017}{B.S. (Hons) in Computer Science \&
+        Technology}{Peking University}{Beijing, China}{}{Advisor: Prof. Yingfei
+        Xiong}}
 \end{itemize}
 
 \section{Positions}
 
 \begin{itemize}
-	\item{\cventry{Aug 2017 -- present}{Research Assistant}{Carnegie Mellon University}{Pittsburgh, PA}{}{In the group of Prof. Jan Hoffmann \\ Topics: Static Analysis of Probabilistic Programs, Automatic Resource Bound Analysis}}
+	\item{\cventry{Aug 2017 -- present}{Research assistant in the group of Prof. Jan Hoffmann}{Carnegie Mellon University}{Pittsburgh, PA}{}{Topics: Static Analysis of Probabilistic Programs, Automatic Resource Bound Analysis}}
 	
 	\vspace{5pt}
 	
-	\item{\cventry{Sep 2016 -- Jan 2017}{Research Intern}{Massachusetts Institute of Technology}{Boston, MA}{}{In the group of Prof. Adam Chlipala \\ Topics: Type System for Complexity Analysis, Complexity Preserved Compiler}}
+	\item{\cventry{Sep 2016 -- Jan 2017}{Research intern in the group of Prof. Adam Chlipala}{Massachusetts Institute of Technology}{Boston, MA}{}{Topics: Type System for Complexity Analysis, Complexity Preserved Compiler}}
 	
 	\vspace{5pt}
 	
-	\item{\cventry{Jun 2016 -- Aug 2016}{Research Intern}{University of Wisconsin-Madison}{Madison, WI}{}{In the group of Prof. Thomas Reps \\ Topics: Expectation Invariant Analysis of Probabilistic Programs}}
+	\item{\cventry{Jun 2016 -- Aug 2016}{Research intern in the group of Prof.
+        Thomas Reps}{University of Wisconsin-Madison}{Madison, WI}{}{Topics:
+        Probabilistic Reasoning about Side Channel Attacks, Expectation Invariant Analysis of Probabilistic Programs}}
 	
 	\vspace{5pt}
 	
-	\item{\cventry{Sep 2015 -- Jun 2017}{Research Assistant}{Peking University}{Beijing, China}{}{In the group of Prof. Lu Zhang and Prof. Yingfei Xiong \\ Topics: Complete Library Summarization for Program Analyses, Pointer Analysis for Java}}
-\end{itemize}
-
-\section{Professional Activities}
-
-\begin{itemize}
-	\item Artifact Evaluation Committee -- Principles of Programming Languages (POPL'19) \hfill 2018
+	\item{\cventry{Sep 2015 -- Jun 2017}{Research assistant in the group of Prof. Lu Zhang and Prof. Yingfei Xiong}{Peking University}{Beijing, China}{}{Topics: Complete Library Summarization for Program Analyses, Pointer Analysis for Java}}
 \end{itemize}
 
 \section{Technical and Personal Skills}
@@ -116,17 +117,77 @@ My research interests are in \emph{programming languages} and \emph{software eng
 \section{Scholarships and Awards}
 
 \begin{itemize}
-	\item China National Scholarship \hfill 2016 -- 2017
-	\item Huawei Scholarship \hfill 2015 -- 2016
-	\item China National Scholarship \hfill 2014 -- 2015
-	\item Peking University Freshman Scholarship \hfill 2013 -- 2014
-	
-	\vspace{5pt}
-	
-	\item Silver Medal (5\textsuperscript{th} place) in the 39\textsuperscript{th} Annual ACM-ICPC World Finals \hfill May 2015
-	\item Gold Medal (1\textsuperscript{st} place) in the 39\textsuperscript{th} ACM-ICPC Asia Regionals Anshan site \hfill Oct 2014
-	\item Gold Medal (9\textsuperscript{th} place) in the 38\textsuperscript{th} ACM-ICPC Asia Regionals Changchun site \hfill Dec 2013
+\item China National Scholarship \hfill 2014, 2016
+\item Huawei Scholarship \hfill 2015
+	\item Silver Medal (5\textsuperscript{th} place) in the 39\textsuperscript{th} Annual ACM-ICPC World Finals \hfill 2015
+	\item Gold Medal (1\textsuperscript{st} place) in the 39\textsuperscript{th} ACM-ICPC Asia Regionals Anshan site \hfill 2014
+	\item Gold Medal (9\textsuperscript{th} place) in the 38\textsuperscript{th} ACM-ICPC Asia Regionals Changchun site \hfill 2013
 \end{itemize}
+
+\section{Curriculum Projects}
+
+\begin{itemize}
+  \item{\cventry{Feb 2017 -- May 2017}{Optimizing Compilers for Modern
+        Architectures}{SIMD Vectorization in In-Memory DBMSs for OLAP
+        Applications}{}{}{
+        \begin{itemize}
+        \item Proposed an optimization that uses vectorization in just-in-time
+          query compilation.
+        \item Implemented two approaches that use LLVM to emit SIMD instructions
+          to vectorize predicate evaluation in Peloton, an in-memory DBMS
+          developed by Carnegie Mellon Database Group.
+        \end{itemize}
+      }}
+  
+  \item{\cventry{Mar 2016 -- Jun 2016}{Design Principles of Programming Languages}{Melon: A Language
+        with Indexed Types}{}{}{
+        \begin{itemize}
+        \item Researched on type systems that can statically ensure dimension correctness
+          in matrix manipulation.
+        \item Implemented a language with a refinement type system that indexes matrices
+          by their dimensions and generates verification conditions for each
+          matrix operation.
+        \end{itemize}
+      }}
+
+  \item{\cventry{Sep 2015 -- Jan 2016}{Software Analysis}{JStype: A Static
+        Analysis Tool for JavaScript}{}{}{
+        \begin{itemize}
+        \item Researched on static analysis techniques for dynamic programming
+          languages, especially for JavaScript.
+        \item Implemented an abstract interpretation based static analyzer for a
+          CESK-style semantics of JavaScript with tunable analysis sensitivity.
+        \end{itemize}
+      }}
+
+  % \item{\cventry{Nov 2015 -- Jan 2016}{Operating Systems (Honor
+  %       Track)}{User-Level Thread Library}{}{}{
+  %       \begin{itemize}
+  %       \item Implemented a user-level thread library with a preemptive
+  %         round-robin scheduler.
+  %       \end{itemize}
+  %     }}
+
+  \item{\cventry{Jul 2015 -- Aug 2015}{Querying Big Data: Thory and
+        Practice}{Parallel Scalability}{}{}{
+        \begin{itemize}
+        \item Proposed a new definition of linear/parallel scalability when the
+          number of cores is far less than the scale of input, and conducted
+          theoretical analysis on several classical problems.
+        \item Proved graph reachability is not linear scalable, and not parallel scalable to some extent.
+        \end{itemize}
+      }}
+
+  % \item{\cventry{Mar 2014 -- Jun 2014}{Linux Programming}{OItester: A Judge
+  %       System for Programming Contests}{}{}{
+  %       \begin{itemize}
+  %       \item Designed and Implemented a web-based judge system with a separation
+  %         between the front-end and judgers.
+  %       \end{itemize}
+  %     }}
+\end{itemize}
+
+
 
 % Publications from a BibTeX file without multibib
 %  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
@@ -151,6 +212,13 @@ My research interests are in \emph{programming languages} and \emph{software eng
 %\nocitemisc{misc1,misc2,misc3}
 %\bibliographystylemisc{plain}
 %\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+\section{Professional Activities}
+
+\begin{itemize}
+	\item Artifact Evaluation Committee -- Principles of Programming Languages (POPL'19) \hfill 2018
+\end{itemize}
+
 
 %-----       letter       ---------------------------------------------------------
 
