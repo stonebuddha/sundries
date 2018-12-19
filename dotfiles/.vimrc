@@ -19,7 +19,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
-Plugin 'vim-syntastic/syntastic'
+Plugin 'skywind3000/asyncrun.vim'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 filetype plugin indent on
@@ -57,13 +58,13 @@ syntax on
 let mapleader=','
 let g:mapleader=','
 
-map <silent> <leader><cr> :noh<cr>
+noremap <silent> <leader><cr> :noh<cr>
 
-map <f2> :!pbcopy < %<cr>
-map <f5> :!chmod +x % && ./%<cr>
-map <f8> :!PATH=/usr/bin /usr/bin/lldb %<<cr>
+nnoremap <silent> <f2> :AsyncRun -raw pbcopy < "$(VIM_FILEPATH)"<cr>
+nnoremap <silent> <f5> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEPATH)"<cr>
+nnoremap <f8> :!PATH=/usr/bin /usr/bin/lldb %<<cr>
 
-au Filetype cpp map <f9> :!g++ -std=c++11 -o %< -g -Wall -Wextra -Wconversion -DLOCAL % && size %<<cr>
+au Filetype cpp nnoremap <silent> <f9> :AsyncRun g++ -std=c++11 -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" -g -Wall -Wextra -Wconversion -DLOCAL "$(VIM_FILEPATH)" && size "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"<cr>
 
 
 " base16-vim
@@ -82,27 +83,33 @@ let g:airline_powerline_fonts=1
 " delimitMate
 let delimitMate_expand_cr=1
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" asyncrun
+let g:asyncrun_open=6
+nnoremap <f10> :call asyncrun#quickfix_toggle(6)<cr>
 
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
+" ale
+let g:ale_linters_explicit=1
+let g:ale_completion_delay=500
+let g:ale_echo_delay=20
+let g:ale_lint_delay=500
+let g:ale_echo_msg_format='[%linter%] %code: %%s'
+let g:ale_lint_on_text_changed='normal'
+let g:ale_lint_on_insert_leave=1
+let g:airline#extensions#ale#enabled=1
 
-let g:syntastic_error_symbol='✘'
-let g:syntastic_warning_symbol='▲'
+let g:ale_linters = { 'cpp': ['clang'] }
 
-let g:syntastic_mode_map={"mode":"active","passive_filetypes":["tex","xml"]}
+let g:ale_cpp_clang_executable='/usr/bin/clang++'
+let g:ale_cpp_clang_options='-std=c++11 -stdlib=libc++ -Wall'
 
-let g:syntastic_cpp_compiler='/usr/bin/clang++'
-let g:syntastic_cpp_compiler_options=' -std=c++11 -stdlib=libc++ -Wall -Wextra -Wconversion'
-
-let g:syntastic_python_checkers=['python']
-
-let g:syntastic_ocaml_checkers=['merlin']
+let g:ale_sign_error="✘"
+let g:ale_sign_warning="▲"
+hi! clear SpellBad
+hi! clear SpellCap
+hi! clear SpellRare
+hi! SpellBad gui=undercurl guisp=red
+hi! SpellCap gui=undercurl guisp=blue
+hi! SpellRare gui=undercurl guisp=magenta
 
 " merlin
 let g:opamshare=substitute(system('opam config var share'),'\n$','','''')
