@@ -1,26 +1,37 @@
 export TERM="xterm-256color-italic"
 
+# base16-shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
 	[ -s "$BASE16_SHELL/profile_helper.sh" ] && \
 	eval "$("$BASE16_SHELL/profile_helper.sh")"
 
+# antigen using oh-my-zsh
 ANTIGEN="$HOME/.config/antigen.zsh"
 source "$ANTIGEN"
 antigen use oh-my-zsh
 
+# version control
 antigen bundle git
-antigen bundle pip
+antigen bundle github
 antigen bundle svn-fast-info
 
-antigen bundle colorize
-antigen bundle github
-antigen bundle python
-antigen bundle rupa/z z.sh
+# macOS
+antigen bundle osx
 
+# Python
+antigen bundle python
+antigen bundle pip
+
+# misc
+antigen bundle colorize				# cat with highlight
+antigen bundle rupa/z z.sh		# autojump
+
+# completion
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
+# shell highlight
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 typeset -A ZSH_HIGHLIGHT_STYLES
 # ZSH_HIGHLIGHT_STYLES[command]=fg=white,bold
@@ -50,6 +61,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
 
+# fish-style prompt
 function _fish_collapsed_pwd() {
 	local pwd="$1"
 	local home="$HOME"
@@ -76,26 +88,28 @@ function _fish_collapsed_pwd() {
 	echo "${elements[*]}"
 }
 
-if [ $UID -eq 0 ]; then
-	export PROMPT='%f%n@%m %F{1}$(_fish_collapsed_pwd)%f# '
-else
-	export PROMPT='%f%n@%m %F{2}$(_fish_collapsed_pwd)%f> '
-fi
+export PROMPT='%f%n@%m %F{2}$(_fish_collapsed_pwd)%f> '
 export RPROMPT="%F{red}%(?..%?)%f"
 
+# settings
 unsetopt correct_all
-setopt BANG_HIST                 # Treat the '!' character specially during expansion.
-setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
-setopt SHARE_HISTORY             # Share history between all sessions.
-setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
-setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
-setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
-setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
-setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
-setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
-setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
-setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
+setopt BANG_HIST									# Treat the '!' character specially during expansion.
+setopt INC_APPEND_HISTORY					# Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY							# Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST			# Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS						# Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS				# Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS					# Do not display a line previously found.
+setopt HIST_IGNORE_SPACE					# Don't record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS					# Don't write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS					# Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY								# Don't execute immediately upon history expansion.
 
+# opam
 . /Users/di/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-export PATH="/usr/local/opt/bison/bin:$PATH"
+
+# cask
 export PATH="/Users/di/.cask/bin:$PATH"
+
+# overiding the system bison
+export PATH="/usr/local/opt/bison/bin:$PATH"
