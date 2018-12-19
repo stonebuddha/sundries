@@ -97,10 +97,12 @@ let g:ale_lint_on_text_changed='normal'
 let g:ale_lint_on_insert_leave=1
 let g:airline#extensions#ale#enabled=1
 
-let g:ale_linters = { 'cpp': ['clang'] }
+let g:ale_linters = {
+			\	'cpp': ['clang'],
+			\	'ocaml': ['merlin'],
+			\}
 
-let g:ale_cpp_clang_executable='/usr/bin/clang++'
-let g:ale_cpp_clang_options='-std=c++11 -stdlib=libc++ -Wall'
+let g:ale_cpp_clang_options='-std=c++11 -stdlib=libc++ -Wall -Wextra -Wconversion'
 
 let g:ale_sign_error="✘"
 let g:ale_sign_warning="▲"
