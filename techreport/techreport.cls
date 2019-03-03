@@ -467,6 +467,7 @@
 		\crefname{figure}{Fig.}{Figs.}%
 		\crefname{definition}{Defn.}{Defns.}%
 		\crefname{table}{Tab.}{Tabs.}%
+		\crefformat{section}{\S#2#1#3}%
 		\crefmultiformat{section}{\S#2#1#3}{ and~\S#2#1#3}{, \S#2#1#3}{ and~\S#2#1#3}%
 		\crefname{example}{Ex.}{Exs.}%
 		\crefname{item}{item}{item}%
