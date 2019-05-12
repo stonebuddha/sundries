@@ -184,6 +184,7 @@
 \pdfgentounicode=1
 \fi
 \RequirePackage{cmap}
+\RequirePackage[mathcal]{euscript}
 \if@TR@libertine
 \ifxetex
 	\RequirePackage[tt=false]{libertine}
@@ -192,6 +193,7 @@
 \fi
 \RequirePackage[varqu]{zi4}
 \RequirePackage[libertine]{newtxmath}
+\RequirePackage{bbold}
 \else
 \RequirePackage[scaled=0.88]{beraserif}
 \RequirePackage[scaled=0.85]{berasans}
@@ -199,6 +201,11 @@
 \RequirePackage{mathpazo}
 \linespread{1.05}
 \RequirePackage[T1,small,euler-digits]{eulervm}
+\RequirePackage{bbm}
+\AtBeginDocument{%
+	\renewcommand{\mathbb}{\mathbbmss}%
+	\renewcommand{\mathbf}{\mathbold}%
+}
 \fi
 \ifxetex\else
 	\RequirePackage[T1]{fontenc}
