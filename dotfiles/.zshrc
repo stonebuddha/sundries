@@ -113,3 +113,6 @@ export PATH="/Users/di/.cask/bin:$PATH"
 
 # overiding the system bison
 export PATH="/usr/local/opt/bison/bin:$PATH"
+
+# rbenv
+eval "$(rbenv init -)"
