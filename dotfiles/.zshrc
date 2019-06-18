@@ -116,3 +116,6 @@ export PATH="/usr/local/opt/bison/bin:$PATH"
 
 # rbenv
 eval "$(rbenv init -)"
+
+# brew
+export PATH="/usr/local/sbin:$PATH"
