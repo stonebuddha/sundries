@@ -46,7 +46,7 @@ ZSH_HIGHLIGHT_STYLES[command]=fg=white,bold
 ZSH_HIGHLIGHT_STYLES[precommand]=fg=white,underline
 ZSH_HIGHLIGHT_STYLES[commandseparator]=none
 ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=009
-ZSH_HIGHLIGHT_STYLES[path]=fg=016,underline
+ZSH_HIGHLIGHT_STYLES[path]=fg=214,underline
 ZSH_HIGHLIGHT_STYLES[globbing]=fg=magenta
 ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=white,underline
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=none

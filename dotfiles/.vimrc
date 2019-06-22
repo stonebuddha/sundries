@@ -1,28 +1,26 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'danielwe/base16-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-Plugin 'danielwe/base16-vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'Raimondi/delimitMate'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'let-def/vimbufsync'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdcommenter'
 
-Plugin 'Raimondi/delimitMate'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'let-def/vimbufsync'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
+Plug 'w0rp/ale'
 
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+Plug 'skywind3000/asyncrun.vim'
 
-Plugin 'skywind3000/asyncrun.vim'
-Plugin 'w0rp/ale'
+call plug#end()
 
-call vundle#end()
 filetype plugin indent on
 
 
