@@ -136,8 +136,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("OperatorMono Nerd Font"
-                               :size 14
+   dotspacemacs-default-font '("FuraCode Nerd Font"
+                               :size 12
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -321,12 +321,14 @@ you should place your code here."
            exec-path)))
 
   (dolist (ft (fontset-list))
-    (set-fontset-font ft 'unicode (font-spec :name "OperatorMono Nerd Font" :size 14))
-    (set-fontset-font ft 'unicode (font-spec :name "XITS Math monospacified for OperatorMono Nerd Font") nil 'append))
+    (set-fontset-font ft 'unicode (font-spec :name "FuraCode Nerd Font" :size 12))
+    (set-fontset-font ft 'unicode (font-spec :name "XITS Math monospacified for FuraCode Nerd Font") nil 'append))
 
-  (set-face-attribute font-lock-comment-face nil :slant 'italic)
-  (set-face-attribute font-lock-keyword-face nil :slant 'italic)
-  (set-face-attribute font-lock-type-face nil :slant 'italic)
+  ;; (set-face-attribute font-lock-comment-face nil :slant 'italic)
+  ;; (set-face-attribute font-lock-keyword-face nil :slant 'italic)
+  ;; (set-face-attribute font-lock-type-face nil :slant 'italic)
+
+  (setq-default line-spacing 2)
 
   (defun unhighlight ()
     (interactive)
@@ -336,11 +338,11 @@ you should place your code here."
   (add-hook 'tuareg-mode-hook
             (lambda ()
               (local-set-key (kbd "<f5>") 'merlin-type-enclosing)
-              ;; (setq prettify-symbols-alist
-              ;;       '(("->" . ?→) ("<-" . ?←) ("fun" . ?λ) ("<=" . ?≤)
-              ;;         (">=" . ?≥) ("<>" . ?≠) ("'a" . ?α) ("'b" . ?β)
-              ;;         ("'c" . ?γ) ("'d" . ?δ) ("'e" . ?ϵ) ("'v" . ?ν)
-              ;;         ("|>" . ?▹) ("::" . ?∷)))
+              (setq prettify-symbols-alist
+                    '(("->" . ?→) ("<-" . ?←) ("fun" . ?λ) ("<=" . ?≤)
+                      (">=" . ?≥) ("<>" . ?≠) ("'a" . ?α) ("'b" . ?β)
+                      ("'c" . ?γ) ("'d" . ?δ) ("'e" . ?ϵ) ("'v" . ?ν)
+                      ("|>" . ?▹) ("::" . ?∷)))
               (prettify-symbols-mode)))
 
   (setq TeX-source-correlate-mode t)
