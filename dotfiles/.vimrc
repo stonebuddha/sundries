@@ -71,9 +71,9 @@ if filereadable(expand("~/.vimrc_background"))
 	source ~/.vimrc_background
 endif
 
-hi Comment	cterm=italic
-hi Type			cterm=italic
-hi Keyword	cterm=italic
+" hi Comment	cterm=italic
+" hi Type			cterm=italic
+" hi Keyword	cterm=italic
 
 " vim-airline
 let g:airline_powerline_fonts=1
