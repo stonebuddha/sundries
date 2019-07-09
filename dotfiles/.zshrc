@@ -1,4 +1,4 @@
-export TERM="xterm-256color-italic"
+export TERM="xterm-256color"
 
 # base16-shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
