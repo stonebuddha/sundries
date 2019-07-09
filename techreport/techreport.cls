@@ -184,7 +184,6 @@
 \pdfgentounicode=1
 \fi
 \RequirePackage{cmap}
-% \RequirePackage[mathcal]{euscript}
 \if@TR@libertine
 \ifxetex
 	\RequirePackage[tt=false]{libertine}
