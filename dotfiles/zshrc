@@ -130,3 +130,8 @@ eval "$(rbenv init -)"
 
 # brew
 export PATH="/usr/local/sbin:$PATH"
+
+# SML/NJ
+export PATH="/usr/local/smlnj/bin:$PATH"
+export PATH="$PATH:."
+export PATH="$PATH:.symbol-work/bin"
