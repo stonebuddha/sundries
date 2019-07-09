@@ -19,6 +19,8 @@ Plug 'w0rp/ale'
 
 Plug 'skywind3000/asyncrun.vim'
 
+Plug 'jez/vim-better-sml'
+
 call plug#end()
 
 filetype plugin indent on
@@ -59,7 +61,7 @@ let g:mapleader=','
 noremap <silent> <leader><cr> :noh<cr>
 
 nnoremap <silent> <f2> :AsyncRun -raw pbcopy < "$(VIM_FILEPATH)"<cr>
-nnoremap <silent> <f5> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEPATH)"<cr>
+nnoremap <silent> <f6> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEPATH)"<cr>
 nnoremap <f8> :!PATH=/usr/bin /usr/bin/lldb %<<cr>
 
 au Filetype cpp nnoremap <silent> <f9> :AsyncRun g++ -std=c++11 -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" -g -Wall -Wextra -Wconversion -DLOCAL "$(VIM_FILEPATH)" && size "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"<cr>
@@ -98,6 +100,7 @@ let g:airline#extensions#ale#enabled=1
 let g:ale_linters = {
 			\	'cpp': ['clang'],
 			\	'ocaml': ['merlin'],
+			\ 'sml': ['smlnj_cm'],
 			\}
 
 let g:ale_cpp_clang_options='-std=c++11 -stdlib=libc++ -Wall -Wextra -Wconversion'
@@ -115,3 +118,7 @@ hi! SpellRare gui=undercurl guisp=magenta
 let g:opamshare=substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
 execute "set rtp+=" . g:opamshare . "/ocp-indent/vim"
+
+" vim-better-sml
+au FileType sml nnoremap <silent> <buffer> <leader>t :SMLTypeQuery<cr>
+au FileType sml nnoremap <silent> <buffer> gd :SMLJumpToDef<cr>
