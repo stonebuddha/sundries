@@ -34,8 +34,6 @@ antigen bundle zsh-users/zsh-completions
 # shell highlight
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 typeset -A ZSH_HIGHLIGHT_STYLES
-# ZSH_HIGHLIGHT_STYLES[command]=fg=white,bold
-# ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta,bold'
 ZSH_HIGHLIGHT_STYLES[default]=none
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=009
 ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=009,standout
@@ -88,8 +86,21 @@ function _fish_collapsed_pwd() {
 	echo "${elements[*]}"
 }
 
-export PROMPT='%F{15}%n@%m%f %F{2}$(_fish_collapsed_pwd)%f> '
-export RPROMPT="%F{red}%(?..%?)%f"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}✗%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}✔%{$reset_color%}"
+
+function _user_host() {
+	if [[ -n $SSH_CONNECTION ]]; then
+		echo "%n@%m "
+	elif [[ $LOGNAME != $USER ]]; then
+		echo "%n "
+	fi
+}
+
+export PROMPT='%F{15}$(_user_host)%f%F{2}$(_fish_collapsed_pwd)%f%F{red}%(?.. [%?])%f> '
+export RPROMPT='$(git_prompt_info)'
 
 # settings
 unsetopt correct_all
