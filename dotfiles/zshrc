@@ -111,7 +111,7 @@ setopt HIST_VERIFY								# Don't execute immediately upon history expansion.
 # cask
 export PATH="/Users/di/.cask/bin:$PATH"
 
-# overiding the system bison
+# override the system bison
 export PATH="/usr/local/opt/bison/bin:$PATH"
 
 # rbenv
