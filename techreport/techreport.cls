@@ -467,7 +467,6 @@
 \else
 	\RequirePackage{cleveref}
 	\AtEndPreamble{%
-		\newcommand{\theoref}[1]{\cref{#1}}
 		\crefname{theorem}{Thm.}{Thms.}%
 		\crefname{lemma}{Lem.}{Lemmas}%
 		\crefname{corollary}{Cor.}{Cors.}%
