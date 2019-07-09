@@ -1,3 +1,9 @@
+[color]
+	ui = true
+
 [user]
-	name=Di Wang
-	email=wayne.wangdi@yandex.com
+	name = Di Wang
+	email = wayne.wangdi@yandex.com
+
+[github]
+	user = stonebuddha
