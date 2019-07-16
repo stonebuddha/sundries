@@ -19,7 +19,7 @@ Plug 'w0rp/ale'
 
 Plug 'skywind3000/asyncrun.vim'
 
-Plug 'jez/vim-better-sml'
+" Plug 'jez/vim-better-sml'
 
 call plug#end()
 
