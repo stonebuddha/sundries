@@ -102,7 +102,6 @@ let g:airline#extensions#ale#enabled=1
 let g:ale_linters = {
 			\	'cpp': ['clang'],
 			\	'ocaml': ['merlin'],
-			\ 'sml': ['smlnj_cm'],
 			\}
 
 let g:ale_cpp_clang_options='-std=c++11 -stdlib=libc++ -Wall -Wextra -Wconversion'
