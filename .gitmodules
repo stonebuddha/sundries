@@ -4,3 +4,6 @@
 [submodule "dotfiles/.config/base16-shell"]
 	path = dotfiles/config/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
+[submodule "dotfiles/config/base16-iterm2"]
+	path = dotfiles/config/base16-iterm2
+	url = https://github.com/martinlindhe/base16-iterm2.git
