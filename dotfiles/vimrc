@@ -122,5 +122,5 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 execute "set rtp+=" . g:opamshare . "/ocp-indent/vim"
 
 " vim-better-sml
-au FileType sml nnoremap <silent> <buffer> <leader>t :SMLTypeQuery<cr>
-au FileType sml nnoremap <silent> <buffer> gd :SMLJumpToDef<cr>
+" au FileType sml nnoremap <silent> <buffer> <leader>t :SMLTypeQuery<cr>
+" au FileType sml nnoremap <silent> <buffer> gd :SMLJumpToDef<cr>
