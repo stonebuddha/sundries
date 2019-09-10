@@ -8,7 +8,6 @@ full: *tex *bib
 	pdflatex -interaction=nonstopmode root
 	bibtex conf
 	bibtex thesis
-	bibtex draft
 	pdflatex root
 	pdflatex root
 
