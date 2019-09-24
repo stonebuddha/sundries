@@ -47,12 +47,14 @@
 \DeclareOptionX{twocolumn}{\edef\TR@column{\CurrentOption}}
 \ProcessOptionsX
 \LoadClass[\TR@fontsize,\TR@column]{extarticle}
-\RequirePackage{amsmath,amsfonts,amsthm}
+\RequirePackage{amsmath,amsfonts,amsthm,amssymb}
 \RequirePackage{microtype}
 \RequirePackage{etoolbox}
+\RequirePackage{booktabs}
 \RequirePackage{refcount}
 \RequirePackage{totpages}
 \RequirePackage{environ}
+\RequirePackage{setspace}
 \RequirePackage{textcase}
 \RequirePackage{natbib}
 \renewcommand{\bibsection}{%
@@ -184,15 +186,20 @@
 \pdfgentounicode=1
 \fi
 \RequirePackage{cmap}
+\RequirePackage[T1]{fontenc}
 \if@TR@libertine
 \ifxetex
 	\RequirePackage[tt=false]{libertine}
+	\setmonofont{inconsolata}
 \else
 	\RequirePackage[tt=false,type1=true]{libertine}
 \fi
 \RequirePackage[varqu]{zi4}
 \RequirePackage[libertine]{newtxmath}
-\RequirePackage{bbold}
+\RequirePackage{bbm}
+\AtBeginDocument{%
+	\renewcommand{\mathbb}{\mathbbm}%
+}
 \else
 \if@TR@screen
 \RequirePackage[nott,nosf]{kpfonts}
@@ -201,13 +208,6 @@
 \else
 \RequirePackage[light]{kpfonts}
 \fi
-\RequirePackage{bbm}
-\AtBeginDocument{%
-	\renewcommand{\mathbb}{\mathbbmss}%
-}
-\fi
-\ifxetex\else
-	\RequirePackage[T1]{fontenc}
 \fi
 \RequirePackage{caption,float}
 \captionsetup[table]{position=top}
@@ -271,6 +271,8 @@
 	\endlist
 }
 \let\enddescription=\endlist % for efficiency
+\RequirePackage{comment}
+\RequirePackage{textcomp}
 \RequirePackage{fancyhdr}
 \pagestyle{headings}
 \def\@trplainbodyfont{\itshape}
@@ -364,17 +366,24 @@
 }{%
 	\popQED\endtrivlist\@endpefalse
 }
-\RequirePackage{comment}
+\AtEndPreamble{%
+	\RequirePackage{balance}%
+}
+\AtEndDocument{%
+	\ifx\TR@column\@TR@twocolumn
+	\balance
+	\fi
+}
+\newcommand\acksname{Acknowledgments}
 \specialcomment{acks}{%
 	\begingroup
-	\section*{Acknowledgments}
-	\phantomsection\addcontentsline{toc}{section}{Acknowledgments}
+	\section*{\acksname}
+	\phantomsection\addcontentsline{toc}{section}{\acksname}
 }{%
 	\endgroup
 }
-
 \RequirePackage{enumerate}
-\RequirePackage{booktabs}
+\RequirePackage[shortlabels]{enumitem}
 \RequirePackage{subcaption}
 \RequirePackage{mathpartir}
 \RequirePackage{turnstile}
@@ -393,26 +402,9 @@
 \AtEndPreamble{%
 	\usetikzlibrary{arrows,automata,chains,shapes,trees}%
 }
-\RequirePackage[shortlabels]{enumitem}
-\ifx\TR@column\@TR@twocolumn
-	\AtEndPreamble{%
-	\setlist{nosep,leftmargin=\parindent}%
-	}%
-	\AtBeginDocument{%
-	\setlength\abovedisplayskip{0.5\abovedisplayskip}%
-	\setlength\belowdisplayskip{0.5\belowdisplayskip}%
-	\setlength\abovedisplayshortskip{0.5\abovedisplayshortskip}%
-	\setlength\belowdisplayshortskip{0.5\belowdisplayshortskip}%
-	\setlength\floatsep{0.5\floatsep}%
-	\def\MathparLineskip{\lineskip=0.29cm}%
-}
-\fi
 \RequirePackage{xfrac}
 \RequirePackage{marginnote}
 \RequirePackage{authblk}
-\ifx\TR@column\@TR@twocolumn
-	\RequirePackage{flushend}
-\fi
 \RequirePackage{hhline}
 \RequirePackage{rotating}
 \RequirePackage{wrapfig}
@@ -482,5 +474,17 @@
 		\crefname{proposition}{Prop.}{Props.}%
 	}
 \fi
-
 \IfFileExists{shortcuts.sty}{\RequirePackage{shortcuts}}{}
+\ifx\TR@column\@TR@twocolumn
+	\AtEndPreamble{%
+	\setlist{nosep,leftmargin=\parindent}%
+	}%
+	\AtBeginDocument{%
+	\setlength\abovedisplayskip{0.5\abovedisplayskip}%
+	\setlength\belowdisplayskip{0.5\belowdisplayskip}%
+	\setlength\abovedisplayshortskip{0.5\abovedisplayshortskip}%
+	\setlength\belowdisplayshortskip{0.5\belowdisplayshortskip}%
+	\setlength\floatsep{0.5\floatsep}%
+	\def\MathparLineskip{\lineskip=0.29cm}%
+}
+\fi
