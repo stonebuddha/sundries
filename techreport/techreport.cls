@@ -196,9 +196,11 @@
 \fi
 \RequirePackage[varqu]{zi4}
 \RequirePackage[libertine]{newtxmath}
-\RequirePackage{bbm}
+\RequirePackage{bbold}
 \AtBeginDocument{%
-	\renewcommand{\mathbb}{\mathbbm}%
+	\newcommand{\mathds}{\mathbb}%
+	\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}%
+	\renewcommand{\mathcal}{\pazocal}%
 }
 \else
 \if@TR@screen
@@ -208,6 +210,7 @@
 \else
 \RequirePackage[light]{kpfonts}
 \fi
+\RequirePackage{dsfont}
 \fi
 \RequirePackage{caption,float}
 \captionsetup[table]{position=top}
