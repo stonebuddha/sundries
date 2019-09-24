@@ -196,9 +196,7 @@
 \fi
 \RequirePackage[varqu]{zi4}
 \RequirePackage[libertine]{newtxmath}
-\RequirePackage{bbold}
 \AtBeginDocument{%
-	\newcommand{\mathds}{\mathbb}%
 	\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}%
 	\renewcommand{\mathcal}{\pazocal}%
 }
@@ -210,8 +208,12 @@
 \else
 \RequirePackage[light]{kpfonts}
 \fi
-\RequirePackage{dsfont}
 \fi
+\RequirePackage{mathbbol}
+\AtBeginDocument{%
+	\DeclareSymbolFontAlphabet{\mathbb}{AMSb}%
+	\DeclareSymbolFontAlphabet{\mathbbl}{bbold}%
+}
 \RequirePackage{caption,float}
 \captionsetup[table]{position=top}
 \ifx\TR@column\@TR@twocolumn
