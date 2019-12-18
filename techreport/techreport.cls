@@ -170,6 +170,7 @@
 		\geometry{twoside=true,head=13pt,paperwidth=8.5in,paperheight=11in,includeheadfoot=false,columnsep=2pc,top=1in,bottom=1in,inner=0.75in,outer=0.75in,marginparwidth=2pc,heightrounded}
 	\else
 		\geometry{twoside=true,includeheadfoot,head=13pt,foot=2pc,paperwidth=6.75in,paperheight=10in,top=58pt,bottom=44pt,inner=46pt,outer=46pt,marginparwidth=2pc,heightrounded}
+	\fi
 \fi
 \setlength\parindent{10\p@}
 \setlength\parskip{\z@}
