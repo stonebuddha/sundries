@@ -372,12 +372,7 @@
 	\popQED\endtrivlist\@endpefalse
 }
 \AtEndPreamble{%
-	\RequirePackage{balance}%
-}
-\AtEndDocument{%
-	\ifx\TR@column\@TR@twocolumn
-	\balance
-	\fi
+	\RequirePackage{flushend}%
 }
 \newcommand\acksname{Acknowledgments}
 \specialcomment{acks}{%
