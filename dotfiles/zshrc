@@ -138,3 +138,6 @@ export PATH="/usr/local/smlnj/bin:$PATH"
 
 # Matlab
 export PATH="/Applications/MATLAB_R2019a.app/bin:$PATH"
+
+# Mathematica
+export JLINK_JAR_LOCATION="/Applications/Mathematica.app/Contents/SystemFiles/Links/JLink/JLink.jar"
