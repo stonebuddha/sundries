@@ -53,6 +53,7 @@ values."
      themes-megapack
      ocaml
      (coq :location local)
+     (why3 :location local)
      latex
      )
    ;; List of additional packages that will be installed without being
