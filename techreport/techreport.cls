@@ -19,6 +19,14 @@
 	\fi%
 }{\PackageError{\@classname}{The option libertine can be either true or false}}
 \ExecuteOptionsX{libertine=false}
+\define@boolkey+{techreport.cls}[@TR@]{charter}[true]{%
+	\if@TR@charter
+		\PackageInfo{\@classname}{Using charter fonts}%
+	\else
+		\PackageInfo{\@classname}{Not using charter fonts}%
+	\fi%
+}{\PackageError{\@classname}{The option charter can be either true or false}}
+\ExecuteOptionsX{charter=false}
 \define@boolkey+{techreport.cls}[@TR@]{single}[true]{%
 	\if@TR@single
 		\PackageInfo{\@classname}{Using single-sided layout}%
@@ -197,10 +205,16 @@
 \fi
 \RequirePackage[varqu]{zi4}
 \RequirePackage[libertine]{newtxmath}
+\RequirePackage{mathrsfs}
 \AtBeginDocument{%
 	\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}%
 	\renewcommand{\mathcal}{\pazocal}%
 }
+\else
+\if@TR@charter
+\RequirePackage[charter,cal=cmcal]{mathdesign}
+\renewcommand{\sfdefault}{fvs}
+\renewcommand{\ttdefault}{fvm}
 \else
 \if@TR@screen
 \RequirePackage[nott,nosf]{kpfonts}
@@ -208,6 +222,7 @@
 \RequirePackage[scaled=0.84]{beramono}
 \else
 \RequirePackage[light]{kpfonts}
+\fi
 \fi
 \fi
 \RequirePackage{mathbbol}
@@ -392,7 +407,6 @@
 \AtEndPreamble{%
 	\if@TR@showonlyrefs\mathtoolsset{showmanualtags,showonlyrefs}\else\mathtoolsset{showmanualtags}\fi%
 }
-\RequirePackage{mathrsfs}
 \RequirePackage{stmaryrd}
 \RequirePackage{relsize}
 \RequirePackage{multirow}
