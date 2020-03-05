@@ -225,11 +225,15 @@
 \fi
 \fi
 \fi
+\if@TR@libertine
+\newcommand{\mathbbl}[1]{\vvmathbb{#1}}
+\else
 \RequirePackage{mathbbol}
 \AtBeginDocument{%
 	\DeclareSymbolFontAlphabet{\mathbb}{AMSb}%
 	\DeclareSymbolFontAlphabet{\mathbbl}{bbold}%
 }
+\fi
 \RequirePackage{caption,float}
 \captionsetup[table]{position=top}
 \ifx\TR@column\@TR@twocolumn
