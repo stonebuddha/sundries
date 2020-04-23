@@ -83,18 +83,6 @@
 \AtEndPreamble{%
 	\if@TR@screen\hypersetup{colorlinks,linkcolor=Red,citecolor=Purple,urlcolor=DarkBlue,filecolor=DarkBlue}\else\hypersetup{hidelinks}\fi%
 }
-\let\citeN\cite
-\let\cite\citep
-\let\citeANP\citeauthor
-\let\citeNN\citeyearpar
-\let\citeyearNP\citeyear
-\let\citeNP\citealt
-\DeclareRobustCommand\citeA{\begingroup\NAT@swafalse\let\NAT@ctype\@ne\NAT@partrue\NAT@fullfalse\NAT@open\NAT@citetp}
-\providecommand\newblock{}
-\newcommand\shortcite[2][]{\ifNAT@numbers\cite[#1]{#2}\else\citeyearpar[#1]{#2}\fi}
-\def\bibliographystyle#1{%
-	\ifx\@begindocumenthook\@undefined\else\expandafter\AtBeginDocument\fi%
-	{\if@filesw\immediate\write\@auxout{\string\bibstyle{#1}}\fi}}
 \RequirePackage{graphicx}
 \RequirePackage[prologue]{xcolor}
 \definecolor[named]{Blue}{cmyk}{1,0.1,0,0.1}
