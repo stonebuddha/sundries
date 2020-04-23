@@ -68,6 +68,7 @@
 \else
 	\RequirePackage[style=TR-Reference-Alpha]{biblatex}
 \fi
+\renewcommand{\bibfont}{\footnotesize}
 \RequirePackage[bookmarksnumbered,unicode]{hyperref}
 \pdfstringdefDisableCommands{%
 	\def\unskip{}%
