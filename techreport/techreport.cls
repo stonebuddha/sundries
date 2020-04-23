@@ -348,6 +348,9 @@
 \RequirePackage{algorithm}
 \RequirePackage[noend]{algpseudocode}
 \RequirePackage{pseudo}
+\AtEndPreamble{%
+	\pseudoset{indent-length=1em}%
+}
 \RequirePackage{tikz}
 \AtEndPreamble{%
 	\usetikzlibrary{arrows,automata,chains,shapes,trees}%
