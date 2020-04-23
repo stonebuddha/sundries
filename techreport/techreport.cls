@@ -65,6 +65,7 @@
 \RequirePackage{textcase}
 \ifx\TR@column\@TR@twocolumn
 	\RequirePackage[style=TR-Reference-Numeric]{biblatex}
+	\setlength\bibitemsep{\z@}
 \else
 	\RequirePackage[style=TR-Reference-Alpha]{biblatex}
 \fi
