@@ -27,6 +27,14 @@
 	\fi%
 }{\PackageError{\@classname}{The option charter can be either true or false}}
 \ExecuteOptionsX{charter=false}
+\define@boolkey+{techreport.cls}[@TR@]{cochineal}[true]{%
+	\if@TR@cochineal
+		\PackageInfo{\@classname}{Using cochineal fonts}%
+	\else
+		\PackageInfo{\@classname}{Not using cochineal fonts}%
+	\fi%
+}{\PackageError{\@classname}{The option cochineal can be either true or false}}
+\ExecuteOptionsX{cochineal=false}
 \define@boolkey+{techreport.cls}[@TR@]{single}[true]{%
 	\if@TR@single
 		\PackageInfo{\@classname}{Using single-sided layout}%
@@ -135,16 +143,19 @@
 \fi
 \RequirePackage[varqu]{zi4}
 \RequirePackage[libertine]{newtxmath}
-\RequirePackage{mathrsfs}
-\AtBeginDocument{%
-	\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}%
-	\renewcommand{\mathcal}{\pazocal}%
-}
+\RequirePackage[cal=cm]{mathalfa}
 \else
 \if@TR@charter
 \RequirePackage[charter,cal=cmcal]{mathdesign}
 \renewcommand{\sfdefault}{fvs}
 \renewcommand{\ttdefault}{fvm}
+\else
+\if@TR@cochineal
+\RequirePackage[p,osf]{cochineal}
+\RequirePackage[scale=.95,type1]{cabin}
+\RequirePackage[cochineal,bigdelims,cmintegrals]{newtxmath}
+\RequirePackage[zerostyle=c,scaled=.94]{newtxtt}
+\RequirePackage[cal=cm]{mathalfa}
 \else
 \if@TR@screen
 \RequirePackage[nott,nosf]{kpfonts}
@@ -155,7 +166,11 @@
 \fi
 \fi
 \fi
+\fi
 \if@TR@libertine
+\newcommand{\mathbbl}[1]{\vvmathbb{#1}}
+\else
+\if@TR@cochineal
 \newcommand{\mathbbl}[1]{\vvmathbb{#1}}
 \else
 \RequirePackage{mathbbol}
@@ -163,6 +178,7 @@
 	\DeclareSymbolFontAlphabet{\mathbb}{AMSb}%
 	\DeclareSymbolFontAlphabet{\mathbbl}{bbold}%
 }
+\fi
 \fi
 \RequirePackage{caption,float}
 \captionsetup[table]{position=top}
