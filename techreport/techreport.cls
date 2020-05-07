@@ -19,14 +19,6 @@
 	\fi%
 }{\PackageError{\@classname}{The option libertine can be either true or false}}
 \ExecuteOptionsX{libertine=false}
-\define@boolkey+{techreport.cls}[@TR@]{charter}[true]{%
-	\if@TR@charter
-		\PackageInfo{\@classname}{Using charter fonts}%
-	\else
-		\PackageInfo{\@classname}{Not using charter fonts}%
-	\fi%
-}{\PackageError{\@classname}{The option charter can be either true or false}}
-\ExecuteOptionsX{charter=false}
 \define@boolkey+{techreport.cls}[@TR@]{cochineal}[true]{%
 	\if@TR@cochineal
 		\PackageInfo{\@classname}{Using cochineal fonts}%
@@ -35,6 +27,14 @@
 	\fi%
 }{\PackageError{\@classname}{The option cochineal can be either true or false}}
 \ExecuteOptionsX{cochineal=false}
+\define@boolkey+{techreport.cls}[@TR@]{mathdesign}[true]{%
+	\if@TR@mathdesign
+		\PackageInfo{\@classname}{Using mathdesign fonts}%
+	\else
+		\PackageInfo{\@classname}{Not using mathdesign fonts}%
+	\fi%
+}{\PackageError{\@classname}{The option mathdesign can be either true or false}}
+\ExecuteOptionsX{mathdesign=false}
 \define@boolkey+{techreport.cls}[@TR@]{single}[true]{%
 	\if@TR@single
 		\PackageInfo{\@classname}{Using single-sided layout}%
@@ -152,17 +152,17 @@
 \RequirePackage[libertine]{newtxmath}
 \RequirePackage[cal=cm]{mathalfa}
 \else
-\if@TR@charter
-\RequirePackage[charter,cal=cmcal]{mathdesign}
-\renewcommand{\sfdefault}{fvs}
-\renewcommand{\ttdefault}{fvm}
-\else
 \if@TR@cochineal
 \RequirePackage[p,osf]{cochineal}
 \RequirePackage[scale=.95,type1]{cabin}
 \RequirePackage[cochineal,bigdelims,cmintegrals]{newtxmath}
 \RequirePackage[zerostyle=c,scaled=.94]{newtxtt}
 \RequirePackage[cal=cm]{mathalfa}
+\else
+\if@TR@mathdesign
+\RequirePackage[cal=cmcal]{mathdesign}
+\renewcommand{\sfdefault}{fvs}
+\renewcommand{\ttdefault}{fvm}
 \else
 \if@TR@screen
 \RequirePackage[nott,nosf]{kpfonts}
@@ -185,7 +185,7 @@
 \newcommand{\mathbbl}[1]{\vvmathbb{#1}}
 \else
 \RequirePackage{mathbbol}
-\if@TR@charter
+\if@TR@mathdesign
 \AtBeginDocument{%
 	\DeclareSymbolFontAlphabet{\mathbb}{mathdesignA}%
 	\DeclareSymbolFontAlphabet{\mathbbl}{bbold}%
