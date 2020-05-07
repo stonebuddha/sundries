@@ -63,7 +63,14 @@
 \DeclareOptionX{twocolumn}{\edef\TR@column{\CurrentOption}}
 \ProcessOptionsX
 \LoadClass[\TR@fontsize,\TR@column]{extarticle}
-\RequirePackage{amsmath,amsfonts,amsthm,amssymb}
+\RequirePackage{amsmath,amsthm}
+\if@TR@libertine
+\RequirePackage{amsfonts}
+\else
+\if@TR@cochineal
+\RequirePackage{amsfonts}
+\fi
+\fi
 \RequirePackage{microtype}
 \RequirePackage{etoolbox}
 \RequirePackage{booktabs}
@@ -161,6 +168,10 @@
 \RequirePackage[nott,nosf]{kpfonts}
 \RequirePackage[scaled=0.85]{berasans}
 \RequirePackage[scaled=0.84]{beramono}
+\AtEndPreamble{%
+  \renewcommand{\mathsf}[1]{\text{\normalfont\sffamily#1}}%
+  \renewcommand{\mathtt}[1]{\text{\normalfont\ttfamily#1}}%
+}
 \else
 \RequirePackage[light]{kpfonts}
 \fi
@@ -174,10 +185,17 @@
 \newcommand{\mathbbl}[1]{\vvmathbb{#1}}
 \else
 \RequirePackage{mathbbol}
+\if@TR@charter
+\AtBeginDocument{%
+	\DeclareSymbolFontAlphabet{\mathbb}{mathdesignA}%
+	\DeclareSymbolFontAlphabet{\mathbbl}{bbold}%
+}
+\else
 \AtBeginDocument{%
 	\DeclareSymbolFontAlphabet{\mathbb}{AMSb}%
 	\DeclareSymbolFontAlphabet{\mathbbl}{bbold}%
 }
+\fi
 \fi
 \fi
 \RequirePackage{caption,float}
