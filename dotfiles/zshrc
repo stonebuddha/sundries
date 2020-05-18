@@ -141,3 +141,6 @@ export PATH="/usr/local/smlnj/bin:$PATH"
 
 # Mathematica
 #export JLINK_JAR_LOCATION="/Applications/Mathematica.app/Contents/SystemFiles/Links/JLink/JLink.jar"
+
+# Ruby
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
