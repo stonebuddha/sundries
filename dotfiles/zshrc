@@ -117,10 +117,10 @@ setopt HIST_REDUCE_BLANKS					# Remove superfluous blanks before recording entry
 setopt HIST_VERIFY								# Don't execute immediately upon history expansion.
 
 # opam
-. /Users/di/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # cask
-export PATH="/Users/di/.cask/bin:$PATH"
+export PATH="$HOME/.cask/bin:$PATH"
 
 # override the system bison
 export PATH="/usr/local/opt/bison/bin:$PATH"
@@ -144,3 +144,6 @@ export PATH="/usr/local/smlnj/bin:$PATH"
 
 # Ruby
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
