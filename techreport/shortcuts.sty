@@ -129,5 +129,6 @@
 \newcommand{\Forall}[1]{\ensuremath{\forall {#1}\!:}}
 \newcommand{\Exists}[1]{\ensuremath{\exists {#1}\!:}}
 
-\newcommand{\Rule}[4][]{\ensuremath{\inferrule*[lab={\footnotesize{(#2)}},#1]{#3}{#4}}}
+\newcommand{\Rule}[4][]{\ensuremath{\inferrule*[lab={\hypertarget{#2}{(\TirName{#2})}},#1]{#3}{#4}}}
+\newcommand{\RefRule}[1]{\hyperlink{#1}{(\TirName{#1})}}
 \newcommand{\Omit}[1]{}
