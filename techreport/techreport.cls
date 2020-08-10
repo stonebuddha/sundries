@@ -79,7 +79,7 @@
 \RequirePackage{environ}
 \RequirePackage{textcase}
 \ifx\TR@column\@TR@twocolumn
-	\RequirePackage[style=TR-Reference-Numeric]{biblatex}
+	\RequirePackage[style=TR-Reference-Numeric,giveninits=true]{biblatex}
 	\setlength\bibitemsep{\z@}
 \else
 	\RequirePackage[style=TR-Reference-Alpha]{biblatex}
@@ -169,8 +169,8 @@
 \RequirePackage[scaled=0.85]{berasans}
 \RequirePackage[scaled=0.84]{beramono}
 \AtEndPreamble{%
-  \renewcommand{\mathsf}[1]{\text{\normalfont\sffamily#1}}%
-  \renewcommand{\mathtt}[1]{\text{\normalfont\ttfamily#1}}%
+	\renewcommand{\mathsf}[1]{\text{\normalfont\sffamily#1}}%
+	\renewcommand{\mathtt}[1]{\text{\normalfont\ttfamily#1}}%
 }
 \else
 \RequirePackage[light]{kpfonts}
