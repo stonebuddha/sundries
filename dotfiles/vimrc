@@ -109,6 +109,7 @@ let g:ale_cpp_clang_options='-std=c++11 -stdlib=libc++ -Wall -Wextra -Wconversio
 
 let g:ale_fix_on_save=1
 let g:ale_fixers = {
+			\	'cpp': ['clang-format'],
 			\	'ocaml': ['ocp-indent'],
 			\	'rust': ['rustfmt'],
 			\}
