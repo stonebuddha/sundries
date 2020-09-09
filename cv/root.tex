@@ -5,7 +5,7 @@
 % available at http://www.latex-project.org/lppl/.
 
 
-\documentclass[11pt,letterpaper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[11pt,letterpaper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % modern themes
 \moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
@@ -16,9 +16,12 @@
 % character encoding
 \usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
 %\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
-\usepackage[tt=false,type1=true]{libertine}
-\usepackage[varqu]{zi4}
-\usepackage[libertine]{newtxmath}
+%\usepackage[tt=false,type1=true]{libertine}
+%\usepackage[varqu]{zi4}
+%\usepackage[libertine]{newtxmath}
+\usepackage[cal=cmcal,charter]{mathdesign}
+\renewcommand{\sfdefault}{fvs}
+\renewcommand{\ttdefault}{fvm}
 
 % adjust the page margins
 \usepackage[scale=0.86]{geometry}
@@ -68,7 +71,7 @@
 
 \section{Research Interests}
 
-My research interests are \emph{programming languages} and \emph{software engineering} with a focus on \emph{probabilistic programming}, \emph{quantitative program analysis}, \emph{higher type theory}, and \emph{program synthesis}.
+My research interests are programming languages and software engineering with a focus on probabilistic programming, quantitative program analysis, higher type theory, and program synthesis.
 
 \section{Education}
 
@@ -103,6 +106,38 @@ My research interests are \emph{programming languages} and \emph{software engine
 	\item{\cventry{Sep 2015 -- Jun 2017}{Research assistant in the group of Prof. Lu Zhang and Prof. Yingfei Xiong}{Peking University}{Beijing, China}{}{Topics: Complete Library Summarization for Program Analyses, Pointer Analysis for Java}}
 \end{itemize}
 
+\section{Professional Activities}
+
+\begin{itemize}
+	\item Artifact Evaluation Committee -- Computer-Aided Verification (CAV'20) \hfill 2020
+	\item Artifact Evaluation Committee -- Principles of Programming Languages (POPL'20) \hfill 2019
+	\item Artifact Evaluation Committee -- Principles of Programming Languages (POPL'19) \hfill 2018
+\end{itemize}
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+\section{Publications}
+\nociteconf{ICFP:WKH20,ICFP:KWR20,PLDI:KWPH19,MFPS:WHR19,POPL:WH19,PLDI:WHR18,OOPSLA:WWC17,ESOP:TWX17}
+\bibliographystyleconf{unsrt}
+\vspace{2pt}
+\bibliographyconf{publications}                   % 'publications' is the name of a BibTeX file
+\nocitethesis{BS}
+\bibliographystylethesis{unsrt}
+\bibliographythesis{publications}
+%\vspace{2pt}
+%\nocitedraft{misc:WWC18}
+%\bibliographystyledraft{unsrt}
+%\bibliographydraft{publications}
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
 \section{Technical and Personal Skills}
 
 \begin{itemize}
@@ -131,41 +166,6 @@ My research interests are \emph{programming languages} and \emph{software engine
 	\item Gold Medal (1\textsuperscript{st} place) in the 39\textsuperscript{th} ACM-ICPC Asia Regionals Anshan site \hfill 2014
 	\item Gold Medal (9\textsuperscript{th} place) in the 38\textsuperscript{th} ACM-ICPC Asia Regionals Changchun site \hfill 2013
 \end{itemize}
-
-
-\section{Professional Activities}
-
-\begin{itemize}
-	\item Artifact Evaluation Committee -- Computer-Aided Verification (CAV'20) \hfill 2020
-	\item Artifact Evaluation Committee -- Principles of Programming Languages (POPL'20) \hfill 2019
-	\item Artifact Evaluation Committee -- Principles of Programming Languages (POPL'19) \hfill 2018
-\end{itemize}
-
-% Publications from a BibTeX file without multibib
-%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
-%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
-%\nocite{*}
-%\bibliographystyle{plain}
-%\bibliography{publications}                        % 'publications' is the name of a BibTeX file
-
-% Publications from a BibTeX file using the multibib package
-\section{Publications}
-\nociteconf{PLDI:KWPH19,MFPS:WHR19,POPL:WH19,PLDI:WHR18,OOPSLA:WWC17,ESOP:TWX17}
-\bibliographystyleconf{unsrt}
-\vspace{2pt}
-\bibliographyconf{publications}                   % 'publications' is the name of a BibTeX file
-\nocitethesis{BS}
-\bibliographystylethesis{unsrt}
-\bibliographythesis{publications}
-%\vspace{2pt}
-%\nocitedraft{misc:WWC18}
-%\bibliographystyledraft{unsrt}
-%\bibliographydraft{publications}
-%\nocitemisc{misc1,misc2,misc3}
-%\bibliographystylemisc{plain}
-%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
-
-
 
 \section{Curriculum Projects}
 
@@ -215,17 +215,15 @@ My research interests are \emph{programming languages} and \emph{software engine
   %       \end{itemize}
   %     }}
 
-  \vspace{2pt}
-
-  \item{\cventry{Jul 2015 -- Aug 2015}{Querying Big Data: Theory and
-        Practice}{Parallel Scalability}{}{}{
-        \begin{itemize}
-        \item Proposed a new definition of linear/parallel scalability when the
-          number of cores is far less than the scale of input, and conducted
-          theoretical analysis on several classical problems.
-        \item Proved graph reachability is not linear scalable, and not parallel scalable to some extent.
-        \end{itemize}
-      }}
+  % \item{\cventry{Jul 2015 -- Aug 2015}{Querying Big Data: Theory and
+  %       Practice}{Parallel Scalability}{}{}{
+  %       \begin{itemize}
+  %       \item Proposed a new definition of linear/parallel scalability when the
+  %         number of cores is far less than the scale of input, and conducted
+  %         theoretical analysis on several classical problems.
+  %       \item Proved graph reachability is not linear scalable, and not parallel scalable to some extent.
+  %       \end{itemize}
+  %     }}
 
   % \item{\cventry{Mar 2014 -- Jun 2014}{Linux Programming}{OItester: A Judge
   %       System for Programming Contests}{}{}{
