@@ -19,6 +19,14 @@
 	\fi%
 }{\PackageError{\@classname}{The option libertine can be either true or false}}
 \ExecuteOptionsX{libertine=false}
+\define@boolkey+{techreport.cls}[@TR@]{xcharter}[true]{%
+	\if@TR@xcharter
+		\PackageInfo{\@classname}{Using xcharter fonts}%
+	\else
+		\PackageInfo{\@classname}{Not using xcharter fonts}%
+	\fi%
+}{\PackageError{\@classname}{The option xcharter can be either true or false}}
+\ExecuteOptionsX{xcharter=false}
 \define@boolkey+{techreport.cls}[@TR@]{cochineal}[true]{%
 	\if@TR@cochineal
 		\PackageInfo{\@classname}{Using cochineal fonts}%
@@ -67,8 +75,12 @@
 \if@TR@libertine
 \RequirePackage{amsfonts}
 \else
+\if@TR@xcharter
+\RequirePackage{amsfonts}
+\else
 \if@TR@cochineal
 \RequirePackage{amsfonts}
+\fi
 \fi
 \fi
 \RequirePackage{microtype}
@@ -152,11 +164,18 @@
 \RequirePackage[libertine]{newtxmath}
 \RequirePackage[cal=cm]{mathalfa}
 \else
+\if@TR@xcharter
+\RequirePackage[scaled=.93,sups,osf]{XCharter}
+\RequirePackage[scaled=0.99,zerostyle=c]{newtxtt}
+\RequirePackage[scale=0.95,type1]{cabin}
+\RequirePackage[xcharter,smallerops,bigdelims]{newtxmath}
+\RequirePackage[cal=pxtx,calscaled=.91]{mathalfa}
+\else
 \if@TR@cochineal
 \RequirePackage[p,osf]{cochineal}
+\RequirePackage[scaled=.94,zerostyle=c]{newtxtt}
 \RequirePackage[scale=.95,type1]{cabin}
-\RequirePackage[cochineal,bigdelims,cmintegrals]{newtxmath}
-\RequirePackage[zerostyle=c,scaled=.94]{newtxtt}
+\RequirePackage[cochineal,smallerops,bigdelims]{newtxmath}
 \RequirePackage[cal=cm]{mathalfa}
 \else
 \if@TR@mathdesign
@@ -178,7 +197,11 @@
 \fi
 \fi
 \fi
+\fi
 \if@TR@libertine
+\newcommand{\mathbbl}[1]{\vvmathbb{#1}}
+\else
+\if@TR@xcharter
 \newcommand{\mathbbl}[1]{\vvmathbb{#1}}
 \else
 \if@TR@cochineal
@@ -195,6 +218,7 @@
 	\DeclareSymbolFontAlphabet{\mathbb}{AMSb}%
 	\DeclareSymbolFontAlphabet{\mathbbl}{bbold}%
 }
+\fi
 \fi
 \fi
 \fi
