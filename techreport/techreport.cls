@@ -176,7 +176,7 @@
 \RequirePackage[scaled=.94,zerostyle=c]{newtxtt}
 \RequirePackage[scale=.95,type1]{cabin}
 \RequirePackage[cochineal,smallerops,bigdelims]{newtxmath}
-\RequirePackage[cal=cm,calscaled=.95]{mathalfa}
+\RequirePackage[cal=cm,calscaled=.97]{mathalfa}
 \else
 \if@TR@mathdesign
 \RequirePackage[cal=cmcal]{mathdesign}
