@@ -150,18 +150,18 @@
 \pdfglyphtounicode{f_t}{00660074}
 \pdfglyphtounicode{T_h}{00540068}
 \pdfgentounicode=1
-\fi
 \RequirePackage{cmap}
+\fi
 \RequirePackage[T1]{fontenc}
 \if@TR@libertine
+\RequirePackage[libertine]{newtxmath}
 \ifxetex
 	\RequirePackage[tt=false]{libertine}
-	\setmonofont{inconsolata}
+	\setmonofont[StylisticSet=3]{inconsolata}
 \else
 	\RequirePackage[tt=false,type1=true]{libertine}
+	\RequirePackage[varqu]{zi4}
 \fi
-\RequirePackage[varqu]{zi4}
-\RequirePackage[libertine]{newtxmath}
 \RequirePackage[cal=cm]{mathalfa}
 \else
 \if@TR@xcharter
