@@ -16,12 +16,11 @@
 % character encoding
 \usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
 %\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
-%\usepackage[tt=false,type1=true]{libertine}
-%\usepackage[varqu]{zi4}
-%\usepackage[libertine]{newtxmath}
-\usepackage[cal=cmcal,charter]{mathdesign}
-\renewcommand{\sfdefault}{fvs}
-\renewcommand{\ttdefault}{fvm}
+\usepackage[scaled=.98,sups]{XCharter}
+\usepackage[scaled=1.04,zerostyle=c]{newtxtt}
+\usepackage[type1]{cabin}
+\usepackage[xcharter,smallerops,bigdelims,scaled=1.05]{newtxmath}
+\linespread{1.04}
 
 % adjust the page margins
 \usepackage[scale=0.86]{geometry}
@@ -33,7 +32,7 @@
 % personal data
 \name{Di}{Wang}
 %\title{Research Intern}                               % optional, remove / comment the line if not wanted
-%\address{my address, line 1, line 2, line 3, postcode}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+%\address{Carnegie Mellon University, 5000 Forbes Avenue, Pittsburgh, PA 15213}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
 \phone[mobile]{+1 646 371 6916}                   % optional, remove / comment the line if not wanted
 %\phone[fixed]{01234 123456}                    % optional, remove / comment the line if not wanted
 %\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
@@ -54,9 +53,9 @@
 \makeatother
 %\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
 
-% bibliography with mutiple entries
+% bibliography with multiple entries
 \usepackage{multibib}
-\newcites{conf,thesis}{{In Peer-Reviewed Conferences},{Theses}}
+\newcites{conf,thesis}{{Refereed Conference Papers},{Other Publications}}
 %----------------------------------------------------------------------------------
 %            content
 %----------------------------------------------------------------------------------
@@ -67,51 +66,46 @@
 
 %\small{Undergraduate electrical and electronic engineer completing the final year of a master's degree. Passionate about science, with strong technical, business, and interpersonal skills for working in a team and successfully completing a project.}
 
-\vspace{-3em}
-
 \section{Research Interests}
 
-My research interests are programming languages and software engineering with a focus on probabilistic programming, quantitative program analysis, higher type theory, and program synthesis.
+My research areas are programming languages and software engineering, with a focus on probabilistic programming, type systems, static resource analysis, and program synthesis.
+Currently, I am working on language-level integrations for Bayesian inference and probabilistic programming systems.
 
 \section{Education}
 
 \begin{itemize}
-	\item{\cventry{Aug 2017 -- present}{Doctoral Student}{Carnegie Mellon
-        University}{Pittsburgh, PA}{}{Advisor: Prof. Jan Hoffmann}}
-	
-	\vspace{2pt}
-	
-	\item{\cventry{Sep 2013 -- Jun 2017}{B.S. (Hons) in Computer Science \&
-        Technology}{Peking University}{Beijing, China}{}{Advisor: Prof. Yingfei
-        Xiong}}
+	\item{\cventry{Aug 2017 -- present}{Doctoral Student}{Carnegie Mellon University}{Pittsburgh, PA}{}{Advisor: Prof. Jan Hoffmann}}
+
+	\vspace{4pt}
+
+	\item{\cventry{Sep 2013 -- Jun 2017}{Bachelor of Science (with Honors) in Computer Science \& Technology}{Peking University}{Beijing, China}{}{Advisor: Prof. Yingfei Xiong}}
 \end{itemize}
 
 \section{Research Experiences}
 
 \begin{itemize}
-	\item{\cventry{Aug 2017 -- present}{Research assistant in the group of Prof. Jan Hoffmann}{Carnegie Mellon University}{Pittsburgh, PA}{}{Topics: Static Analysis of Probabilistic Programs, Automatic Resource Bound Analysis}}
-	
-	\vspace{4pt}
-	
-	\item{\cventry{Sep 2016 -- Jan 2017}{Research intern in the group of Prof. Adam Chlipala}{Massachusetts Institute of Technology}{Boston, MA}{}{Topics: Type System for Complexity Analysis, Complexity Preserved Compiler}}
-	
-	\vspace{4pt}
-	
-	\item{\cventry{Jun 2016 -- Aug 2016}{Research intern in the group of Prof.
-        Thomas Reps}{University of Wisconsin-Madison}{Madison, WI}{}{Topics:
-        Probabilistic Reasoning about Side Channel Attacks, Expectation Invariant Analysis of Probabilistic Programs}}
-	
-	\vspace{4pt}
-	
-	\item{\cventry{Sep 2015 -- Jun 2017}{Research assistant in the group of Prof. Lu Zhang and Prof. Yingfei Xiong}{Peking University}{Beijing, China}{}{Topics: Complete Library Summarization for Program Analyses, Pointer Analysis for Java}}
-\end{itemize}
+	\item{\cventry{Aug 2017 -- present}{Research assistant, supervised by Prof. Jan Hoffmann}{Carnegie Mellon University}{Pittsburgh, PA}{}
+  {Topics: Static Analysis of Probabilistic Programs, Automatic Resource Bound Analysis}}
 
-\section{Professional Activities}
+	\vspace{4pt}
 
-\begin{itemize}
-	\item Artifact Evaluation Committee -- Computer-Aided Verification (CAV'20) \hfill 2020
-	\item Artifact Evaluation Committee -- Principles of Programming Languages (POPL'20) \hfill 2019
-	\item Artifact Evaluation Committee -- Principles of Programming Languages (POPL'19) \hfill 2018
+  \item{\cventry{Jun 2020 -- Aug 2020}{Research intern, supervised by Dr. Herman Venter}{Facebook Novi}{Seattle, WA}{}
+  {Topics: Formal Verification of Rust Code, Side Channel Analysis of Blockchain Code}}
+
+  \vspace{4pt}
+
+	\item{\cventry{Sep 2016 -- Jan 2017}{Research intern, supervised by Prof. Adam Chlipala}{Massachusetts Institute of Technology}{Boston, MA}{}
+  {Topics: Type System for Complexity Analysis, Complexity Preserved Compiler}}
+
+	\vspace{4pt}
+
+	\item{\cventry{Jun 2016 -- Aug 2016}{Research intern, supervised by Prof. Thomas Reps}{University of Wisconsin-Madison}{Madison, WI}{}
+  {Topics:Probabilistic Reasoning about Side Channel Attacks, Expectation Invariant Analysis of Probabilistic Programs}}
+
+	\vspace{4pt}
+
+	\item{\cventry{Sep 2015 -- Jun 2017}{Research assistant, supervised by Prof. Lu Zhang and Prof. Yingfei Xiong}{Peking University}{Beijing, China}{}
+  {Topics: Complete Library Summarization for Program Analyses, Pointer Analysis for Java}}
 \end{itemize}
 
 % Publications from a BibTeX file without multibib
@@ -125,18 +119,26 @@ My research interests are programming languages and software engineering with a 
 \section{Publications}
 \nociteconf{ICFP:WKH20,ICFP:KWR20,PLDI:KWPH19,MFPS:WHR19,POPL:WH19,PLDI:WHR18,OOPSLA:WWC17,ESOP:TWX17}
 \bibliographystyleconf{unsrt}
-\vspace{2pt}
 \bibliographyconf{publications}                   % 'publications' is the name of a BibTeX file
-\nocitethesis{BS}
+\vspace{4pt}
+\nocitethesis{TR:WHR20,BS}
 \bibliographystylethesis{unsrt}
 \bibliographythesis{publications}
-%\vspace{2pt}
+%\vspace{4pt}
 %\nocitedraft{misc:WWC18}
 %\bibliographystyledraft{unsrt}
 %\bibliographydraft{publications}
 %\nocitemisc{misc1,misc2,misc3}
 %\bibliographystylemisc{plain}
 %\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+\section{Professional Activities}
+
+\begin{itemize}
+	\item Artifact Evaluation Committee -- Computer-Aided Verification (CAV'20) \hfill 2020
+	\item Artifact Evaluation Committee -- Principles of Programming Languages (POPL'20) \hfill 2019
+	\item Artifact Evaluation Committee -- Principles of Programming Languages (POPL'19) \hfill 2018
+\end{itemize}
 
 \section{Technical and Personal Skills}
 
@@ -170,7 +172,7 @@ My research interests are programming languages and software engineering with a 
 \section{Curriculum Projects}
 
 \begin{itemize}
-  \item{\cventry{Feb 2017 -- May 2017}{Optimizing Compilers for Modern
+  \item{\cventry{Feb 2018 -- May 2018}{Optimizing Compilers for Modern
         Architectures}{SIMD Vectorization in In-Memory DBMSs for OLAP
         Applications}{}{}{
         \begin{itemize}
@@ -179,11 +181,22 @@ My research interests are programming languages and software engineering with a 
         \item Implemented two approaches that use LLVM to emit SIMD instructions
           to vectorize predicate evaluation in Peloton, an in-memory DBMS
           developed by Carnegie Mellon Database Group.
+        \item Achieved a significant speedup (avg. 1.5$\times$) for complex SQL queries.
         \end{itemize}
       }}
 
-      \vspace{2pt}
-  
+      \vspace{4pt}
+
+  \item{\cventry{April 2018 -- May 2018}{Graduate Artificial Intelligence}{Predicting the Efficiency of Exact Inference Methods in Bayesian Network}{}{}{
+        \begin{itemize}
+        \item Reviewed exact inference methods for Bayesian networks from both the statistics and the programming languages community.
+        \item Proposed and implemented a machine-learning-based algorithm that predicts which exact inference method would work best on a given Bayesian network.
+        \item Achieved 72\% accuracy on a synthetic test set.
+        \end{itemize}
+      }}
+
+      \vspace{4pt}
+
   \item{\cventry{Mar 2016 -- Jun 2016}{Design Principles of Programming Languages}{Melon: A Language
         with Indexed Types}{}{}{
         \begin{itemize}
@@ -192,20 +205,24 @@ My research interests are programming languages and software engineering with a 
         \item Implemented a language with a refinement type system that indexes matrices
           by their dimensions and generates verification conditions for each
           matrix operation.
+        \item Conducted a case study on linear regression and wrote a techical report that formally presents the language specification.
         \end{itemize}
       }}
 
-      \vspace{2pt}
+      \vspace{4pt}
 
   \item{\cventry{Sep 2015 -- Jan 2016}{Software Analysis}{JStype: A Static
         Analysis Tool for JavaScript}{}{}{
         \begin{itemize}
-        \item Researched on static analysis techniques for dynamic programming
+        \item Researched on static-analysis techniques for dynamic programming
           languages, especially for JavaScript.
-        \item Implemented an abstract interpretation based static analyzer for a
+        \item Implemented an abstract-interpretation-based static analyzer for a
           CESK-style semantics of JavaScript with tunable analysis sensitivity.
+        \item Evaluated precision and efficiency of the analyzer on a broad suite of JavaScript programs.
         \end{itemize}
       }}
+
+      \vspace{4pt}
 
   % \item{\cventry{Nov 2015 -- Jan 2016}{Operating Systems (Honor
   %       Track)}{User-Level Thread Library}{}{}{
@@ -215,15 +232,16 @@ My research interests are programming languages and software engineering with a 
   %       \end{itemize}
   %     }}
 
-  % \item{\cventry{Jul 2015 -- Aug 2015}{Querying Big Data: Theory and
-  %       Practice}{Parallel Scalability}{}{}{
-  %       \begin{itemize}
-  %       \item Proposed a new definition of linear/parallel scalability when the
-  %         number of cores is far less than the scale of input, and conducted
-  %         theoretical analysis on several classical problems.
-  %       \item Proved graph reachability is not linear scalable, and not parallel scalable to some extent.
-  %       \end{itemize}
-  %     }}
+  \item{\cventry{Jul 2015 -- Aug 2015}{Querying Big Data: Theory and
+        Practice}{Parallel Scalability}{}{}{
+        \begin{itemize}
+        \item Proposed a new definition of linear/parallel scalability for the case where the
+          number of cores is far less than the scale of input, and conducted
+          theoretical analysis on several classical problems.
+        \item Proved graph reachability is not linear scalable, and not parallel scalable to some extent.
+        \item Wrote a technical paper that formally presents the results.
+        \end{itemize}
+      }}
 
   % \item{\cventry{Mar 2014 -- Jun 2014}{Linux Programming}{OItester: A Judge
   %       System for Programming Contests}{}{}{

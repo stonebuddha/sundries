@@ -166,8 +166,8 @@
 \else
 \if@TR@xcharter
 \RequirePackage[scaled=.93,sups,osf]{XCharter}
-\RequirePackage[scaled=0.99,zerostyle=c]{newtxtt}
-\RequirePackage[scale=0.95,type1]{cabin}
+\RequirePackage[scaled=.99,zerostyle=c]{newtxtt}
+\RequirePackage[scale=.95,type1]{cabin}
 \RequirePackage[xcharter,smallerops,bigdelims]{newtxmath}
 \RequirePackage[cal=pxtx,calscaled=.91]{mathalfa}
 \else
