@@ -154,13 +154,14 @@
 \fi
 \RequirePackage[T1]{fontenc}
 \if@TR@libertine
-\RequirePackage[libertine]{newtxmath}
 \ifxetex
+	\RequirePackage[libertine]{newtxmath}
 	\RequirePackage[tt=false]{libertine}
 	\setmonofont[StylisticSet=3]{inconsolata}
 \else
 	\RequirePackage[tt=false,type1=true]{libertine}
 	\RequirePackage[varqu]{zi4}
+	\RequirePackage[libertine]{newtxmath}
 \fi
 \RequirePackage[cal=cm]{mathalfa}
 \else
