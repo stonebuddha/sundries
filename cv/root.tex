@@ -39,9 +39,9 @@
 \email{diw3@cs.cmu.edu}                               % optional, remove / comment the line if not wanted
 \urlstyle{rm}
 \renewcommand{\httpslink}[2][]{%
-	\ifthenelse{\equal{#1}{}}%
-	{\url{#2}}%
-	{\href{https://#2}{\detokenize{#1}}}}
+  \ifthenelse{\equal{#1}{}}%
+  {\url{#2}}%
+  {\href{https://#2}{\detokenize{#1}}}}
 \homepage{https://www.cs.cmu.edu/~diw3}                         % optional, remove / comment the line if not wanted
 \extrainfo{Carnegie Mellon University -- Computer Science Department -- Doctoral Student}                 % optional, remove / comment the line if not wanted
 %\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
@@ -74,37 +74,37 @@ Currently, I am working on language-level integrations for Bayesian inference an
 \section{Education}
 
 \begin{itemize}
-	\item{\cventry{Aug 2017 -- present}{Doctoral Student}{Carnegie Mellon University}{Pittsburgh, PA}{}{Advisor: Prof. Jan Hoffmann}}
+  \item{\cventry{Aug 2017 -- present}{Doctoral Student}{Carnegie Mellon University}{Pittsburgh, PA}{}{Advisor: Prof. Jan Hoffmann}}
 
-	\vspace{4pt}
+  \vspace{4pt}
 
-	\item{\cventry{Sep 2013 -- Jun 2017}{Bachelor of Science (with Honors) in Computer Science \& Technology}{Peking University}{Beijing, China}{}{Advisor: Prof. Yingfei Xiong}}
+  \item{\cventry{Sep 2013 -- Jun 2017}{Bachelor of Science (with Honors) in Computer Science \& Technology}{Peking University}{Beijing, China}{}{Advisor: Prof. Yingfei Xiong}}
 \end{itemize}
 
 \section{Research Experiences}
 
 \begin{itemize}
-	\item{\cventry{Aug 2017 -- present}{Research assistant, supervised by Prof. Jan Hoffmann}{Carnegie Mellon University}{Pittsburgh, PA}{}
+  \item{\cventry{Aug 2017 -- present}{Research assistant, supervised by Prof. Jan Hoffmann}{Carnegie Mellon University}{Pittsburgh, PA}{}
   {Topics: Static Analysis of Probabilistic Programs, Automatic Resource Bound Analysis}}
 
-	\vspace{4pt}
+  \vspace{4pt}
 
-  \item{\cventry{Jun 2020 -- Aug 2020}{Research intern, supervised by Dr. Herman Venter}{Facebook Novi}{Seattle, WA}{}
+  \item{\cventry{May 2020 -- Aug 2020}{Research intern, supervised by Dr. Herman Venter}{Facebook Novi}{Seattle, WA}{}
   {Topics: Formal Verification of Rust Code, Side Channel Analysis of Blockchain Code}}
 
   \vspace{4pt}
 
-	\item{\cventry{Sep 2016 -- Jan 2017}{Research intern, supervised by Prof. Adam Chlipala}{Massachusetts Institute of Technology}{Boston, MA}{}
+  \item{\cventry{Sep 2016 -- Jan 2017}{Research intern, supervised by Prof. Adam Chlipala}{Massachusetts Institute of Technology}{Boston, MA}{}
   {Topics: Type System for Complexity Analysis, Complexity Preserved Compiler}}
 
-	\vspace{4pt}
+  \vspace{4pt}
 
-	\item{\cventry{Jun 2016 -- Aug 2016}{Research intern, supervised by Prof. Thomas Reps}{University of Wisconsin-Madison}{Madison, WI}{}
+  \item{\cventry{Jun 2016 -- Aug 2016}{Research intern, supervised by Prof. Thomas Reps}{University of Wisconsin-Madison}{Madison, WI}{}
   {Topics:Probabilistic Reasoning about Side Channel Attacks, Expectation Invariant Analysis of Probabilistic Programs}}
 
-	\vspace{4pt}
+  \vspace{4pt}
 
-	\item{\cventry{Sep 2015 -- Jun 2017}{Research assistant, supervised by Prof. Lu Zhang and Prof. Yingfei Xiong}{Peking University}{Beijing, China}{}
+  \item{\cventry{Sep 2015 -- Jun 2017}{Research assistant, supervised by Prof. Lu Zhang and Prof. Yingfei Xiong}{Peking University}{Beijing, China}{}
   {Topics: Complete Library Summarization for Program Analyses, Pointer Analysis for Java}}
 \end{itemize}
 
@@ -121,7 +121,7 @@ Currently, I am working on language-level integrations for Bayesian inference an
 \bibliographystyleconf{unsrt}
 \bibliographyconf{publications}                   % 'publications' is the name of a BibTeX file
 \vspace{4pt}
-\nocitethesis{TR:WHR20A,TR:WHR20B,TR:DWH20,BS}
+\nocitethesis{PLDI:WHR21A,PLDI:WHR21B,TR:DWH20}
 \bibliographystylethesis{unsrt}
 \bibliographythesis{publications}
 %\vspace{4pt}
@@ -135,20 +135,19 @@ Currently, I am working on language-level integrations for Bayesian inference an
 \section{Professional Activities}
 
 \begin{itemize}
-	\item Artifact Evaluation Committee -- Computer-Aided Verification (CAV'20) \hfill 2020
-	\item Artifact Evaluation Committee -- Principles of Programming Languages (POPL'20) \hfill 2019
-	\item Artifact Evaluation Committee -- Principles of Programming Languages (POPL'19) \hfill 2018
+  \item Artifact Evaluation Committee Member -- POPL'19, POPL'20, CAV'20
+  \item External Reviewer -- ICALP'18, LICS'19, LICS'20, LICS'21, ESOP'20, ESOP'21
 \end{itemize}
 
 \section{Technical and Personal Skills}
 
 \begin{itemize}
 
-\item \textbf{Programming Languages:} Proficient in: C, C++, Java, OCaml, Standard ML, Racket, Ruby; \\ Also familiar with: Rust, Coq, Scala, Python, JavaScript.
+\item \textbf{Programming Languages:} Proficient in: C, C++, Java, OCaml, Standard ML, Racket, Ruby, Rust; \\ Also familiar with: Coq, Scala, Python, JavaScript, Go, Objective-C.
 
 \vspace{4pt}
 
-\item \textbf{Softwares and Tools:} Rails, Soot, WALA, Chord, LLVM, Souffl{\'e}, Git, Vim, Emacs.
+\item \textbf{Softwares and Tools:} Rails, Soot, WALA, LLVM, Souffl{\'e}, Z3, Gurobi, PyTorch, Git, Vim, Emacs.
 
 \vspace{4pt}
 
@@ -162,16 +161,24 @@ Currently, I am working on language-level integrations for Bayesian inference an
 \item China National Scholarship \hfill 2014, 2016
 \item Huawei Scholarship \hfill 2015
 
-	\vspace{4pt}
+  \vspace{4pt}
 
-	\item Silver Medal (5\textsuperscript{th} place) in the 39\textsuperscript{th} Annual ACM-ICPC World Finals \hfill 2015
-	\item Gold Medal (1\textsuperscript{st} place) in the 39\textsuperscript{th} ACM-ICPC Asia Regionals Anshan site \hfill 2014
-	\item Gold Medal (9\textsuperscript{th} place) in the 38\textsuperscript{th} ACM-ICPC Asia Regionals Changchun site \hfill 2013
+  \item Silver Medal (5\textsuperscript{th} place) in the 39\textsuperscript{th} Annual ACM-ICPC World Finals \hfill 2015
+  \item Gold Medal (1\textsuperscript{st} place) in the 39\textsuperscript{th} ACM-ICPC Asia Regionals Anshan site \hfill 2014
+  \item Gold Medal (9\textsuperscript{th} place) in the 38\textsuperscript{th} ACM-ICPC Asia Regionals Changchun site \hfill 2013
 \end{itemize}
 
-\section{Curriculum Projects}
+\section{Projects}
 
 \begin{itemize}
+  \item{\cventry{May 2020 -- Aug 2020}{Research Intern at Facebook}{Static Tag Analysis of Rust Code}{}{}{
+      \begin{itemize}
+        \item Studied the formal semantics of Rust and the static analysis tool MIRAI.
+        \item Proposed and implemented a static tag analysis for Rust; the analysis keeps track of inter-procedural information flow, and allows user to customize tag propagation behavior of primitive operations.
+        \item Applied the static tag analysis to analyze side-channel vulnerabilities of blockchain code.
+      \end{itemize}
+    }}
+
   \item{\cventry{Feb 2018 -- May 2018}{Optimizing Compilers for Modern
         Architectures}{SIMD Vectorization in In-Memory DBMSs for OLAP
         Applications}{}{}{
@@ -197,6 +204,14 @@ Currently, I am working on language-level integrations for Bayesian inference an
 
       \vspace{4pt}
 
+    \item{\cventry{Feb 2017 -- Jun 2017}{Diploma Thesis}{ConDlog: Accelerating Program Analyses by Conditional Summarization with Datalog}{}{}{
+      \begin{itemize}
+        \item Researched on library summarization techniques for static analysis of large Java applications.
+        \item Proposed a Datalog-based algorithm that computes a complete analysis-specific conditional summary of JDK.
+        \item Achieved 3.9$\times$ and 1.3$\times$ speedup for Class Hierarchy Analysis and Rapid Type Analysis, respectively, on DaCapo benchmarks.
+      \end{itemize}
+    }}
+
   \item{\cventry{Mar 2016 -- Jun 2016}{Design Principles of Programming Languages}{Melon: A Language
         with Indexed Types}{}{}{
         \begin{itemize}
@@ -216,7 +231,7 @@ Currently, I am working on language-level integrations for Bayesian inference an
         \begin{itemize}
         \item Researched on static-analysis techniques for dynamic programming
           languages, especially for JavaScript.
-        \item Implemented an abstract-interpretation-based static analyzer for a
+        \item Implemented an abstract interpretater for a
           CESK-style semantics of JavaScript with tunable analysis sensitivity.
         \item Evaluated precision and efficiency of the analyzer on a broad suite of JavaScript programs.
         \end{itemize}
