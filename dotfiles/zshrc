@@ -139,3 +139,6 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 # Matlab
 export PATH="/Applications/MATLAB_R2018b.app/bin:$PATH"
+
+# Python
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"
