@@ -13,15 +13,11 @@ antigen use oh-my-zsh
 
 # version control
 antigen bundle git
-antigen bundle github
-antigen bundle svn-fast-info
+antigen bundle gitignore
 
 # macOS
 antigen bundle osx
-
-# Python
-antigen bundle python
-antigen bundle pip
+antigen bundle brew
 
 # misc
 antigen bundle colorize				# cat with highlight
