@@ -91,10 +91,10 @@
 \RequirePackage{environ}
 \RequirePackage{textcase}
 \ifx\TR@column\@TR@twocolumn
-	\RequirePackage[style=TR-Reference-Numeric,giveninits=true]{biblatex}
+	\RequirePackage[style=TR-Reference-Numeric,maxcitenames=2,giveninits=true]{biblatex}
 	\setlength\bibitemsep{\z@}
 \else
-	\RequirePackage[style=TR-Reference-Alpha]{biblatex}
+	\RequirePackage[style=TR-Reference-Alpha,maxcitenames=2]{biblatex}
 \fi
 \renewcommand{\bibfont}{\footnotesize}
 \RequirePackage[bookmarksnumbered,unicode]{hyperref}
