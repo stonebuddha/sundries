@@ -16,7 +16,7 @@
 % character encoding
 \usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
 %\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
-\usepackage[scaled=.98,sups]{XCharter}
+\usepackage[scaled=.98,sups,osf]{XCharter}
 \usepackage[scaled=1.04,zerostyle=c]{newtxtt}
 \usepackage[type1]{cabin}
 \usepackage[xcharter,smallerops,bigdelims,scaled=1.05]{newtxmath}
@@ -43,7 +43,7 @@
   {\url{#2}}%
   {\href{https://#2}{\detokenize{#1}}}}
 \homepage{https://www.cs.cmu.edu/~diw3}                         % optional, remove / comment the line if not wanted
-\extrainfo{Carnegie Mellon University -- Computer Science Department -- Doctoral Student}                 % optional, remove / comment the line if not wanted
+%\extrainfo{Carnegie Mellon University -- Computer Science Department -- Doctoral Student}                 % optional, remove / comment the line if not wanted
 %\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 %\quote{Some quote}                                 % optional, remove / comment the line if not wanted
 
@@ -66,40 +66,51 @@
 
 %\small{Undergraduate electrical and electronic engineer completing the final year of a master's degree. Passionate about science, with strong technical, business, and interpersonal skills for working in a team and successfully completing a project.}
 
-\section{Research Interests}
+\section{Bio}
 
-My research areas are programming languages and software engineering, with a focus on probabilistic programming, type systems, static resource analysis, and program synthesis.
-Currently, I am working on language-level integrations for Bayesian inference and probabilistic programming systems.
+I am a Ph.D. student at Carnegie Mellon University working with Jan Hoffmann.
+%
+My research focuses are programming languages,
+quantitative verification,
+and probabilistic programming;
+my broader interests include type theory, program synthesis, concurrency, and
+Bayesian inference.
+%
+I built an effective toolkit for rigorous and automatic analysis of probabilistic
+programs (PLDI'18, MFPS'19, ICFP'20, PLDI'21),
+the first coroutine-based paradigm for sound programmable Bayesian inference (PLDI'21),
+the first sound and relatively complete worst-case input generation algorithm (POPL'19),
+and the first resource-aware synthesizer for recursive programs (PLDI'19, ICFP'20).
 
 \section{Education}
 
 \begin{itemize}
-  \item{\cventry{Aug 2017 -- present}{Doctoral Student}{Carnegie Mellon University}{Pittsburgh, PA}{}{Advisor: Prof. Jan Hoffmann}}
+  \item{\cventry{Aug 2017 -- present}{Ph.D. in Computer Science \emph{(GPA: 4.0/4.0)}}{Carnegie Mellon University}{Pittsburgh, PA, USA}{}{Advisor: Prof. Jan Hoffmann \\ Thesis: \emph{Static Analysis of Probabilistic Programs: An Algebraic Approach}}}
 
   \vspace{4pt}
 
-  \item{\cventry{Sep 2013 -- Jun 2017}{Bachelor of Science (with Honors) in Computer Science \& Technology}{Peking University}{Beijing, China}{}{Advisor: Prof. Yingfei Xiong}}
+  \item{\cventry{Sep 2013 -- Jun 2017}{Bachelor of Science (with Honors) in Computer Science \& Technology \emph{(GPA: 3.83/4.0)}}{Peking University}{Beijing, China}{}{Advisor: Prof. Yingfei Xiong \\ Thesis: \emph{Accelerating Program Analyses by Conditional Summarization with Datalog}}}
 \end{itemize}
 
 \section{Research Experiences}
 
 \begin{itemize}
-  \item{\cventry{Aug 2017 -- present}{Research assistant, supervised by Prof. Jan Hoffmann}{Carnegie Mellon University}{Pittsburgh, PA}{}
-  {Topics: Static Analysis of Probabilistic Programs, Automatic Resource Bound Analysis}}
+%  \item{\cventry{Aug 2017 -- present}{Research assistant, supervised by Prof. Jan Hoffmann}{Carnegie Mellon University}{Pittsburgh, PA}{}
+%  {Topics: Static Analysis of Probabilistic Programs, Automatic Resource Bound Analysis}}
 
-  \vspace{4pt}
+%  \vspace{4pt}
 
-  \item{\cventry{May 2020 -- Aug 2020}{Research intern, supervised by Dr. Herman Venter}{Facebook Novi}{Seattle, WA}{}
+  \item{\cventry{May 2020 -- Aug 2020}{Research intern, supervised by Dr. Herman Venter}{Facebook Novi}{Seattle, WA, USA}{}
   {Topics: Formal Verification of Rust Code, Side Channel Analysis of Blockchain Code}}
 
   \vspace{4pt}
 
-  \item{\cventry{Sep 2016 -- Jan 2017}{Research intern, supervised by Prof. Adam Chlipala}{Massachusetts Institute of Technology}{Boston, MA}{}
+  \item{\cventry{Sep 2016 -- Jan 2017}{Research intern, supervised by Prof. Adam Chlipala}{Massachusetts Institute of Technology}{Boston, MA, USA}{}
   {Topics: Type System for Complexity Analysis, Complexity Preserved Compiler}}
 
   \vspace{4pt}
 
-  \item{\cventry{Jun 2016 -- Aug 2016}{Research intern, supervised by Prof. Thomas Reps}{University of Wisconsin-Madison}{Madison, WI}{}
+  \item{\cventry{Jun 2016 -- Aug 2016}{Research intern, supervised by Prof. Thomas Reps}{University of Wisconsin-Madison}{Madison, WI, USA}{}
   {Topics:Probabilistic Reasoning about Side Channel Attacks, Expectation Invariant Analysis of Probabilistic Programs}}
 
   \vspace{4pt}
@@ -117,11 +128,11 @@ Currently, I am working on language-level integrations for Bayesian inference an
 
 % Publications from a BibTeX file using the multibib package
 \section{Publications}
-\nociteconf{PLDI:WHR21A,PLDI:WHR21B,ICFP:WKH20,ICFP:KWR20,PLDI:KWPH19,MFPS:WHR19,POPL:WH19,PLDI:WHR18,OOPSLA:WWC17,ESOP:TWX17}
+\nociteconf{PLDI:WHR21B,PLDI:WHR21A,ICFP:WKH20,ICFP:KWR20,PLDI:KWPH19,MFPS:WHR19,POPL:WH19,PLDI:WHR18,OOPSLA:WWC17,ESOP:TWX17}
 \bibliographystyleconf{unsrt}
 \bibliographyconf{publications}                   % 'publications' is the name of a BibTeX file
 \vspace{4pt}
-\nocitethesis{TR:DWH20}
+\nocitethesis{misc:DWH21,misc:WHR21}
 \bibliographystylethesis{unsrt}
 \bibliographythesis{publications}
 %\vspace{4pt}
@@ -132,28 +143,46 @@ Currently, I am working on language-level integrations for Bayesian inference an
 %\bibliographystylemisc{plain}
 %\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
 
+\section{Teaching and Mentoring Experience}
+
+\begin{itemize}
+  \item \textbf{Guest Lecturer} -- \emph{Foundations of Quantitative Program Analysis}, Carnegie Mellon University \hfill 2019
+
+  \vspace{4pt}
+
+  \item \textbf{Teaching Assistant} -- \emph{Bug Catching: Automated Program Verification}, Carnegie Mellon University \hfill 2020
+  \item \textbf{Teaching Assistant} -- \emph{Programming Language Semantics}, Carnegie Mellon University \hfill 2019
+  \item \textbf{Teaching Assistant} -- \emph{Introduction to Computer Systems}, Peking University \hfill 2015
+
+  \vspace{4pt}
+  
+  \item \textbf{Mentor} -- Vanshika Chowdhary, \emph{Programmable Gibbs sampling with linear types} \hfill 2021
+  \item \textbf{Mentor} -- Mohamed Lotfi, \emph{Synthesis of probabilistic programs that generate handwritten digits} \hfill 2021
+  \item \textbf{Mentor} -- Charles Yuan, \emph{Exact Bayesian inference with distribution transformers} \hfill 2019
+\end{itemize}
+
 \section{Professional Activities}
 
 \begin{itemize}
-  \item Artifact Evaluation Committee Member -- POPL'19, POPL'20, CAV'20
-  \item External Reviewer -- ICALP'18, LICS'19, LICS'20, LICS'21, ESOP'20, ESOP'21
+  \item \textbf{Artifact Evaluation Committee Member} -- POPL'19, POPL'20, CAV'20
+  \item \textbf{External Reviewer} -- ICALP'18, LICS'19, LICS'20, LICS'21, ESOP'20, ESOP'21, POPL'21
 \end{itemize}
 
-\section{Technical and Personal Skills}
-
-\begin{itemize}
-
-\item \textbf{Programming Languages:} Proficient in: C, C++, Java, OCaml, Standard ML, Racket, Ruby, Rust; \\ Also familiar with: Coq, Scala, Python, JavaScript, Go, Objective-C.
-
-\vspace{4pt}
-
-\item \textbf{Softwares and Tools:} Rails, Soot, WALA, LLVM, Souffl{\'e}, Z3, Gurobi, PyTorch, Git, Vim, Emacs.
-
-\vspace{4pt}
-
-\item \textbf{Languages:} Native in Chinese; Fluent in English.
-
-\end{itemize}
+%\section{Technical and Personal Skills}
+%
+%\begin{itemize}
+%
+%\item \textbf{Programming Languages:} Proficient in: C, C++, Java, OCaml, Standard ML, Racket, Ruby, Rust; \\ Also familiar with: Coq, Scala, Python, JavaScript, Go, Objective-C.
+%
+%\vspace{4pt}
+%
+%\item \textbf{Softwares and Tools:} Rails, Soot, WALA, LLVM, Souffl{\'e}, Z3, Gurobi, PyTorch, Git, Vim, Emacs.
+%
+%\vspace{4pt}
+%
+%\item \textbf{Languages:} Native in Chinese; Fluent in English.
+%
+%\end{itemize}
 
 \section{Scholarships and Awards}
 
@@ -168,6 +197,28 @@ Currently, I am working on language-level integrations for Bayesian inference an
   \item Gold Medal (9\textsuperscript{th} place) in the 38\textsuperscript{th} ACM-ICPC Asia Regionals Changchun site \hfill 2013
 \end{itemize}
 
+\section{Talks}
+
+\subsection{Conference Presentations}
+
+\begin{itemize}
+  \item \textbf{Sound Probabilistic Inference via Guide Types}, \emph{PLDI'21}. \hfill Jun 2021
+  \item \textbf{Central Moment Analysis for Cost Accumulators in Probabilistic Programs}, \emph{PLDI'21}. \hfill Jun 2021
+  \item \textbf{Raising Expectations: Automating Expected Cost Analysis with Types}, \emph{ICFP'20}. \hfill Aug 2020
+  \item \textbf{Liquid Resource Types}, \emph{ICFP'20}. \hfill Aug 2020
+  \item \textbf{A Denotational Semantics for Low-Level Probabilistic Programs with Nondeterminism}, \emph{MFPS'19}. \hfill Jun 2019
+  \item \textbf{Type-Guided Worst-Case Input Generation}, \emph{POPL'19}. \hfill Jan 2019
+  \item \textbf{PMAF: An Algebraic Framework for Static Analysis of Probabilistic Programs}, \emph{PLDI'18}. \hfill Jun 2018
+\end{itemize}
+
+\subsection{Seminar Presentations}
+
+\begin{itemize}
+  \item \textbf{Type-Based Resource-Guided Search}, \emph{Peking University}, Programming Language Seminar. \hfill Oct 2020
+  \item \textbf{Taint Analysis for Blockchain Code}, \emph{Facebook Novi}, Novice Seminar. \hfill Aug 2020
+  \item \textbf{Automating Expected Cost Analysis with Types}, \emph{Facebook Novi}, Novice Seminar. \hfill Jun 2020
+\end{itemize}
+
 \section{Projects}
 
 \begin{itemize}
@@ -178,10 +229,12 @@ Currently, I am working on language-level integrations for Bayesian inference an
         \item Applied the static tag analysis to analyze side-channel vulnerabilities of blockchain code.
       \end{itemize}
     }}
+    
+    \vspace{4pt}
 
   \item{\cventry{Feb 2018 -- May 2018}{Optimizing Compilers for Modern
         Architectures}{SIMD Vectorization in In-Memory DBMSs for OLAP
-        Applications}{}{}{
+        Applications}{}{Carnegie Mellon University}{
         \begin{itemize}
         \item Proposed an optimization that uses vectorization in just-in-time
           query compilation.
@@ -194,7 +247,7 @@ Currently, I am working on language-level integrations for Bayesian inference an
 
       \vspace{4pt}
 
-  \item{\cventry{April 2018 -- May 2018}{Graduate Artificial Intelligence}{Predicting the Efficiency of Exact Inference Methods in Bayesian Network}{}{}{
+  \item{\cventry{April 2018 -- May 2018}{Graduate Artificial Intelligence}{Predicting the Efficiency of Exact Inference Methods in Bayesian Network}{}{Carnegie Mellon University}{
         \begin{itemize}
         \item Reviewed exact inference methods for Bayesian networks from both the statistics and the programming languages community.
         \item Proposed and implemented a machine-learning-based algorithm that predicts which exact inference method would work best on a given Bayesian network.
@@ -204,40 +257,40 @@ Currently, I am working on language-level integrations for Bayesian inference an
 
       \vspace{4pt}
 
-    \item{\cventry{Feb 2017 -- Jun 2017}{Diploma Thesis}{ConDlog: Accelerating Program Analyses by Conditional Summarization with Datalog}{}{}{
-      \begin{itemize}
-        \item Researched on library summarization techniques for static analysis of large Java applications.
-        \item Proposed a Datalog-based algorithm that computes a complete analysis-specific conditional summary of JDK.
-        \item Achieved 3.9$\times$ and 1.3$\times$ speedup for Class Hierarchy Analysis and Rapid Type Analysis, respectively, on DaCapo benchmarks.
-      \end{itemize}
-    }}
+%    \item{\cventry{Feb 2017 -- Jun 2017}{Diploma Thesis}{ConDlog: Accelerating Program Analyses by Conditional Summarization with Datalog}{}{}{
+%      \begin{itemize}
+%        \item Researched on library summarization techniques for static analysis of large Java applications.
+%        \item Proposed a Datalog-based algorithm that computes a complete analysis-specific conditional summary of JDK.
+%        \item Achieved 3.9$\times$ and 1.3$\times$ speedup for Class Hierarchy Analysis and Rapid Type Analysis, respectively, on DaCapo benchmarks.
+%      \end{itemize}
+%    }}
 
-  \item{\cventry{Mar 2016 -- Jun 2016}{Design Principles of Programming Languages}{Melon: A Language
-        with Indexed Types}{}{}{
-        \begin{itemize}
-        \item Researched on type systems that can statically ensure dimension correctness
-          in matrix manipulation.
-        \item Implemented a language with a refinement type system that indexes matrices
-          by their dimensions and generates verification conditions for each
-          matrix operation.
-        \item Conducted a case study on linear regression and wrote a techical report that formally presents the language specification.
-        \end{itemize}
-      }}
+%  \item{\cventry{Mar 2016 -- Jun 2016}{Design Principles of Programming Languages}{Melon: A Language
+%        with Indexed Types}{}{}{
+%        \begin{itemize}
+%        \item Researched on type systems that can statically ensure dimension correctness
+%          in matrix manipulation.
+%        \item Implemented a language with a refinement type system that indexes matrices
+%          by their dimensions and generates verification conditions for each
+%          matrix operation.
+%        \item Conducted a case study on linear regression and wrote a techical report that formally presents the language specification.
+%        \end{itemize}
+%      }}
 
-      \vspace{4pt}
+%      \vspace{4pt}
+%
+%  \item{\cventry{Sep 2015 -- Jan 2016}{Software Analysis}{JStype: A Static
+%        Analysis Tool for JavaScript}{}{}{
+%        \begin{itemize}
+%        \item Researched on static-analysis techniques for dynamic programming
+%          languages, especially for JavaScript.
+%        \item Implemented an abstract interpretater for a
+%          CESK-style semantics of JavaScript with tunable analysis sensitivity.
+%        \item Evaluated precision and efficiency of the analyzer on a broad suite of JavaScript programs.
+%        \end{itemize}
+%      }}
 
-  \item{\cventry{Sep 2015 -- Jan 2016}{Software Analysis}{JStype: A Static
-        Analysis Tool for JavaScript}{}{}{
-        \begin{itemize}
-        \item Researched on static-analysis techniques for dynamic programming
-          languages, especially for JavaScript.
-        \item Implemented an abstract interpretater for a
-          CESK-style semantics of JavaScript with tunable analysis sensitivity.
-        \item Evaluated precision and efficiency of the analyzer on a broad suite of JavaScript programs.
-        \end{itemize}
-      }}
-
-      \vspace{4pt}
+%      \vspace{4pt}
 
   % \item{\cventry{Nov 2015 -- Jan 2016}{Operating Systems (Honor
   %       Track)}{User-Level Thread Library}{}{}{
@@ -248,7 +301,7 @@ Currently, I am working on language-level integrations for Bayesian inference an
   %     }}
 
   \item{\cventry{Jul 2015 -- Aug 2015}{Querying Big Data: Theory and
-        Practice}{Parallel Scalability}{}{}{
+        Practice}{Parallel Scalability}{}{Peking University}{
         \begin{itemize}
         \item Proposed a new definition of linear/parallel scalability for the case where the
           number of cores is far less than the scale of input, and conducted
