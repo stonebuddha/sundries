@@ -35,6 +35,14 @@
 	\fi%
 }{\PackageError{\@classname}{The option cochineal can be either true or false}}
 \ExecuteOptionsX{cochineal=false}
+\define@boolkey+{techreport.cls}[@TR@]{alegreya}[true]{%
+	\if@TR@alegreya
+		\PackageInfo{\@classname}{Using alegreya fonts}%
+	\else
+		\PackageInfo{\@classname}{Not using alegreya fonts}%
+	\fi%
+}{\PackageError{\@classname}{The option alegreya can be either true or false}}
+\ExecuteOptionsX{alegreya=false}
 \define@boolkey+{techreport.cls}[@TR@]{mathdesign}[true]{%
 	\if@TR@mathdesign
 		\PackageInfo{\@classname}{Using mathdesign fonts}%
@@ -80,6 +88,10 @@
 \else
 \if@TR@cochineal
 \RequirePackage{amsfonts}
+\else
+\if@TR@alegreya
+\RequirePackage{amsfonts,amssymb}
+\fi
 \fi
 \fi
 \fi
@@ -179,6 +191,14 @@
 \RequirePackage[cochineal,smallerops,bigdelims]{newtxmath}
 \RequirePackage[cal=cm,calscaled=.97]{mathalfa}
 \else
+\if@TR@alegreya
+\RequirePackage{mathpazo}
+\RequirePackage[osf]{Alegreya}
+\RequirePackage[zerostyle=c]{newtxtt}
+\RequirePackage{AlegreyaSans}
+\RequirePackage[T1,small,euler-digits]{eulervm}
+\RequirePackage{mathrsfs}
+\else
 \if@TR@mathdesign
 \RequirePackage[cal=cmcal]{mathdesign}
 \renewcommand{\sfdefault}{fvs}
@@ -194,6 +214,7 @@
 }
 \else
 \RequirePackage[light]{kpfonts}
+\fi
 \fi
 \fi
 \fi
