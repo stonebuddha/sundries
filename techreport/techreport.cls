@@ -192,12 +192,11 @@
 \RequirePackage[cal=cm,calscaled=.97]{mathalfa}
 \else
 \if@TR@alegreya
-\RequirePackage{mathpazo}
+\RequirePackage{fourier}
 \RequirePackage[osf]{Alegreya}
-\RequirePackage[zerostyle=c]{newtxtt}
 \RequirePackage{AlegreyaSans}
-\RequirePackage[T1,small,euler-digits]{eulervm}
-\RequirePackage{mathrsfs}
+\RequirePackage[zerostyle=c]{newtxtt}
+\RequirePackage[bb=ams,cal=cm,scr=boondox,frak=euler]{mathalpha}
 \else
 \if@TR@mathdesign
 \RequirePackage[cal=cmcal]{mathdesign}
@@ -230,6 +229,12 @@
 \newcommand{\mathbbl}[1]{\vvmathbb{#1}}
 \else
 \RequirePackage{mathbbol}
+\if@TR@alegreya
+\AtBeginDocument{%
+	\DeclareSymbolFontAlphabet{\mathbb}{Ufutm}%
+	\DeclareSymbolFontAlphabet{\mathbbl}{bbold}%
+}
+\else
 \if@TR@mathdesign
 \AtBeginDocument{%
 	\DeclareSymbolFontAlphabet{\mathbb}{mathdesignA}%
@@ -240,6 +245,7 @@
 	\DeclareSymbolFontAlphabet{\mathbb}{AMSb}%
 	\DeclareSymbolFontAlphabet{\mathbbl}{bbold}%
 }
+\fi
 \fi
 \fi
 \fi
