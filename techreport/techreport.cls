@@ -196,7 +196,7 @@
 \RequirePackage[osf]{Alegreya}
 \RequirePackage{AlegreyaSans}
 \RequirePackage[zerostyle=c]{newtxtt}
-\RequirePackage[bb=ams,cal=cm,scr=boondox,frak=euler]{mathalpha}
+\RequirePackage[bb=ams,cal=cm,scr=boondox,frak=euler]{mathalfa}
 \else
 \if@TR@mathdesign
 \RequirePackage[cal=cmcal]{mathdesign}
