@@ -14,7 +14,7 @@ antigen bundle git
 antigen bundle gitignore
 
 # macOS
-antigen bundle osx
+antigen bundle macos
 antigen bundle brew
 
 # misc
