@@ -113,9 +113,6 @@ setopt HIST_VERIFY								# Don't execute immediately upon history expansion.
 # opam
 . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-# cask
-export PATH="$HOME/.cask/bin:$PATH"
-
 # override the system bison
 export PATH="/usr/local/opt/bison/bin:$PATH"
 
@@ -125,14 +122,5 @@ eval "$(rbenv init -)"
 # brew
 export PATH="/usr/local/sbin:$PATH"
 
-# SML/NJ
-export PATH="/usr/local/smlnj/bin:$PATH"
-
-# Ruby
+# ruby
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-
-# Matlab
-export PATH="/Applications/MATLAB_R2018b.app/bin:$PATH"
-
-# pyenv
-eval "$(pyenv init -)"
