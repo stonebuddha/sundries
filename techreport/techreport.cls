@@ -78,6 +78,10 @@
 \DeclareOptionX{onecolumn}{\edef\TR@column{\CurrentOption}}
 \DeclareOptionX{twocolumn}{\edef\TR@column{\CurrentOption}}
 \ProcessOptionsX
+\def\TR@backend{bibtex}
+\DeclareOptionX{bibtex}{\edef\TR@backend{\CurrentOption}}
+\DeclareOptionX{biber}{\edef\TR@backend{\CurrentOption}}
+\ProcessOptionsX
 \LoadClass[\TR@fontsize,\TR@column]{extarticle}
 \RequirePackage{amsmath,amsthm}
 \if@TR@libertine
@@ -103,10 +107,10 @@
 \RequirePackage{environ}
 \RequirePackage{textcase}
 \ifx\TR@column\@TR@twocolumn
-	\RequirePackage[style=TR-Reference-Numeric,maxcitenames=2,giveninits=true]{biblatex}
+	\RequirePackage[style=TR-Reference-Numeric,maxcitenames=2,giveninits=true,backend=\TR@backend,natbib]{biblatex}
 	\setlength\bibitemsep{\z@}
 \else
-	\RequirePackage[style=TR-Reference-Alpha,maxcitenames=2]{biblatex}
+	\RequirePackage[style=TR-Reference-Alpha,maxcitenames=2,backend=\TR@backend,natbib]{biblatex}
 \fi
 \renewcommand{\bibfont}{\footnotesize}
 \RequirePackage[bookmarksnumbered,unicode]{hyperref}
