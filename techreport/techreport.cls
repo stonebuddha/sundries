@@ -3,6 +3,7 @@
 \def\@classname{techreport}
 \RequirePackage{xkeyval}
 \RequirePackage{xstring}
+\RequirePackage{iftex}
 \define@boolkey+{techreport.cls}[@TR@]{screen}[true]{%
 	\if@TR@screen
 		\PackageInfo{\@classname}{Using screen mode}%
@@ -43,6 +44,22 @@
 	\fi%
 }{\PackageError{\@classname}{The option alegreya can be either true or false}}
 \ExecuteOptionsX{alegreya=false}
+\define@boolkey+{techreport.cls}[@TR@]{newtx}[true]{%
+	\if@TR@newtx
+		\PackageInfo{\@classname}{Using newtx fonts}%
+	\else
+		\PackageInfo{\@classname}{Not using newtx fonts}%
+	\fi%
+}{\PackageError{\@classname}{The option newtx can be either true or false}}
+\ExecuteOptionsX{newtx=false}
+\define@boolkey+{techreport.cls}[@TR@]{newpx}[true]{%
+	\if@TR@newpx
+		\PackageInfo{\@classname}{Using newpx fonts}%
+	\else
+		\PackageInfo{\@classname}{Not using newpx fonts}%
+	\fi%
+}{\PackageError{\@classname}{The option newpx can be either true or false}}
+\ExecuteOptionsX{newpx=false}
 \define@boolkey+{techreport.cls}[@TR@]{mathdesign}[true]{%
 	\if@TR@mathdesign
 		\PackageInfo{\@classname}{Using mathdesign fonts}%
@@ -95,6 +112,14 @@
 \else
 \if@TR@alegreya
 \RequirePackage{amsfonts,amssymb}
+\else
+\if@TR@newtx
+\RequirePackage{amsfonts}
+\else
+\if@TR@newpx
+\RequirePackage{amsfonts}
+\fi
+\fi
 \fi
 \fi
 \fi
@@ -113,6 +138,7 @@
 	\RequirePackage[style=TR-Reference-Alpha,maxcitenames=2,backend=\TR@backend,natbib]{biblatex}
 \fi
 \renewcommand{\bibfont}{\footnotesize}
+\RequirePackage{hyperxmp}
 \RequirePackage[bookmarksnumbered,unicode]{hyperref}
 \pdfstringdefDisableCommands{%
 	\def\unskip{}%
@@ -126,6 +152,7 @@
 \fi
 \AtEndPreamble{%
 	\if@TR@screen\hypersetup{colorlinks,linkcolor=Red,citecolor=Purple,urlcolor=DarkBlue,filecolor=DarkBlue}\else\hypersetup{hidelinks}\fi%
+	\hypersetup{pdflang={en},pdfdisplaydoctitle}%
 }
 \RequirePackage{graphicx}
 \RequirePackage[prologue]{xcolor}
@@ -155,16 +182,15 @@
 \fi
 \setlength\parindent{10\p@}
 \setlength\parskip{\z@}
-\RequirePackage{iftex}
 \ifPDFTeX
 \input{glyphtounicode}
 \pdfglyphtounicode{f_f}{FB00}
 \pdfglyphtounicode{f_f_i}{FB03}
 \pdfglyphtounicode{f_f_l}{FB04}
 \pdfglyphtounicode{f_i}{FB01}
-\pdfglyphtounicode{t_t}{00740074}
-\pdfglyphtounicode{f_t}{00660074}
-\pdfglyphtounicode{T_h}{00540068}
+\pdfglyphtounicode{t_t}{0074 0074}
+\pdfglyphtounicode{f_t}{0066 0074}
+\pdfglyphtounicode{T_h}{0054 0068}
 \pdfgentounicode=1
 \RequirePackage{cmap}
 \fi
@@ -202,6 +228,14 @@
 \RequirePackage[zerostyle=c]{newtxtt}
 \RequirePackage[bb=ams,cal=cm,scr=boondox,frak=euler]{mathalfa}
 \else
+\if@TR@newtx
+\RequirePackage{newtxtext,newtxmath}
+\RequirePackage[cal=cm]{mathalfa}
+\else
+\if@TR@newpx
+\RequirePackage{newpxtext,newpxmath}
+\RequirePackage[cal=cm]{mathalfa}
+\else
 \if@TR@mathdesign
 \RequirePackage[cal=cmcal]{mathdesign}
 \renewcommand{\sfdefault}{fvs}
@@ -223,6 +257,8 @@
 \fi
 \fi
 \fi
+\fi
+\fi
 \if@TR@libertine
 \newcommand{\mathbbl}[1]{\vvmathbb{#1}}
 \else
@@ -230,6 +266,12 @@
 \newcommand{\mathbbl}[1]{\vvmathbb{#1}}
 \else
 \if@TR@cochineal
+\newcommand{\mathbbl}[1]{\vvmathbb{#1}}
+\else
+\if@TR@newtx
+\newcommand{\mathbbl}[1]{\vvmathbb{#1}}
+\else
+\if@TR@newpx
 \newcommand{\mathbbl}[1]{\vvmathbb{#1}}
 \else
 \RequirePackage{mathbbol}
@@ -249,6 +291,8 @@
 	\DeclareSymbolFontAlphabet{\mathbb}{AMSb}%
 	\DeclareSymbolFontAlphabet{\mathbbl}{bbold}%
 }
+\fi
+\fi
 \fi
 \fi
 \fi
@@ -317,7 +361,6 @@
 }
 \let\enddescription=\endlist % for efficiency
 \RequirePackage{comment}
-\RequirePackage{textcomp}
 \RequirePackage{fancyhdr}
 \pagestyle{headings}
 \def\@trplainbodyfont{\itshape}
@@ -411,9 +454,9 @@
 }{%
 	\popQED\endtrivlist\@endpefalse
 }
-\AtEndPreamble{%
-	\RequirePackage{flushend}%
-}
+\ifx\TR@column\@TR@twocolumn
+	\RequirePackage{balance}
+\fi
 \newcommand\acksname{Acknowledgments}
 \specialcomment{acks}{%
 	\begingroup
@@ -521,14 +564,14 @@
 \IfFileExists{shortcuts.sty}{\RequirePackage{shortcuts}}{}
 \ifx\TR@column\@TR@twocolumn
 	\AtEndPreamble{%
-	\setlist{nosep,leftmargin=\parindent}%
-	}%
+		\setlist{nosep,leftmargin=\parindent}%
+	}
 	\AtBeginDocument{%
-	\setlength\abovedisplayskip{0.5\abovedisplayskip}%
-	\setlength\belowdisplayskip{0.5\belowdisplayskip}%
-	\setlength\abovedisplayshortskip{0.5\abovedisplayshortskip}%
-	\setlength\belowdisplayshortskip{0.5\belowdisplayshortskip}%
-	\setlength\floatsep{0.5\floatsep}%
-	\def\MathparLineskip{\lineskip=0.29cm}%
-}
+		\setlength\abovedisplayskip{0.5\abovedisplayskip}%
+		\setlength\belowdisplayskip{0.5\belowdisplayskip}%
+		\setlength\abovedisplayshortskip{0.5\abovedisplayshortskip}%
+		\setlength\belowdisplayshortskip{0.5\belowdisplayshortskip}%
+		\setlength\floatsep{0.5\floatsep}%
+		\def\MathparLineskip{\lineskip=0.29cm}%
+	}
 \fi
