@@ -127,3 +127,6 @@ export PATH="/usr/local/sbin:$PATH"
 
 # ruby
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+# openssl
+export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
