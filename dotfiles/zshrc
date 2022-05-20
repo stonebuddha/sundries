@@ -133,3 +133,6 @@ export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
 
 # TurtleBot3
 export TURTLEBOT3_MODEL=burger
+
+# Cask
+export PATH="$HOME/.local/bin:$PATH"
