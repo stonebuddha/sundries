@@ -1,6 +1,7 @@
 [submodule "techreport/acmart"]
 	path = techreport/acmart
 	url = https://github.com/borisveytsman/acmart.git
+	branch = primary
 [submodule "dotfiles/config/base16-shell"]
 	path = dotfiles/config/base16-shell
 	url = https://github.com/stonebuddha/base16-shell.git
