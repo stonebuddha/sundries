@@ -11,15 +11,15 @@
 \moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
 \moderncvcolor{black}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
 %\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
-%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
 
 % character encoding
 \usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
 %\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
-\usepackage[scaled=.98,sups,osf]{XCharter}
-\usepackage[scaled=1.04,zerostyle=c]{newtxtt}
-\usepackage[type1]{cabin}
-\usepackage[xcharter,smallerops,bigdelims,scaled=1.05]{newtxmath}
+\usepackage{fourier}
+\usepackage[osf]{Alegreya}
+\usepackage{AlegreyaSans}
+\usepackage[zerostyle=c]{newtxtt}
 \linespread{1.04}
 
 % adjust the page margins
@@ -33,16 +33,16 @@
 \name{Di}{Wang}
 %\title{Research Intern}                               % optional, remove / comment the line if not wanted
 %\address{Carnegie Mellon University, 5000 Forbes Avenue, Pittsburgh, PA 15213}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
-\phone[mobile]{+86 138 8226 6228}                   % optional, remove / comment the line if not wanted
+%\phone[mobile]{+86 138 8226 6228}                   % optional, remove / comment the line if not wanted
 %\phone[fixed]{01234 123456}                    % optional, remove / comment the line if not wanted
 %\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
-\email{diw3@cs.cmu.edu}                               % optional, remove / comment the line if not wanted
+\email{diw3@alumni.cmu.edu}                               % optional, remove / comment the line if not wanted
 \urlstyle{rm}
 \renewcommand{\httpslink}[2][]{%
   \ifthenelse{\equal{#1}{}}%
   {\url{#2}}%
   {\href{https://#2}{\detokenize{#1}}}}
-\homepage{https://www.cs.cmu.edu/~diw3}                         % optional, remove / comment the line if not wanted
+\homepage{https://stonebuddha.github.io/}                         % optional, remove / comment the line if not wanted
 %\extrainfo{Carnegie Mellon University -- Computer Science Department -- Doctoral Student}                 % optional, remove / comment the line if not wanted
 %\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 %\quote{Some quote}                                 % optional, remove / comment the line if not wanted
@@ -68,7 +68,10 @@
 
 \section{Bio}
 
-I am a Ph.D. candidate at Carnegie Mellon University working with Jan Hoffmann.
+I am an incoming Assistant Professor at Peking University in Fall 2022.
+%
+I received my Ph.D. from Carnegie Mellon University under the supervision of
+Prof. Jan Hoffmann.
 %
 My research focuses are programming languages,
 quantitative verification,
@@ -76,6 +79,7 @@ and probabilistic programming;
 my broader interests include type theory, program synthesis, concurrency, and
 Bayesian inference.
 %
+During my Ph.D.,
 I built an effective toolkit for rigorous and automatic analysis of probabilistic
 programs (PLDI'18, MFPS'19, ICFP'20, PLDI'21),
 the first coroutine-based paradigm for sound programmable Bayesian inference (PLDI'21),
@@ -85,11 +89,11 @@ and the first resource-aware synthesizer for recursive programs (PLDI'19, ICFP'2
 \section{Education}
 
 %\begin{itemize}
-  {\cventry{Aug 2017 -- present}{Ph.D. in Computer Science}{Carnegie Mellon University}{Pittsburgh, PA, USA}{}{GPA: 4.0/4.0 \\ Advisor: Prof.\ Jan Hoffmann \\ Thesis: \emph{Static Analysis of Probabilistic Programs: An Algebraic Approach}}}
+  {\cventry{Aug 2017 -- May 2022}{Ph.D. in Computer Science}{Carnegie Mellon University}{Pittsburgh, PA, USA}{}{GPA: 4.0/4.0 \\ Advisor: Prof.\ Jan Hoffmann \\ Thesis: \emph{Static Analysis of Probabilistic Programs: An Algebraic Approach}}}
 
   \vspace{4pt}
 
-  {\cventry{Sep 2013 -- Jun 2017}{Bachelor of Science (with Honors) in Computer Science \& Technology}{Peking University}{Beijing, China}{}{GPA: 3.83/4.0 (\textbf{ranked 3rd} out of \texttildelow 200) \\ Advisor: Prof.\ Yingfei Xiong \\ Thesis: \emph{Accelerating Program Analyses by Conditional Summarization with Datalog}}}
+  {\cventry{Sep 2013 -- Jun 2017}{Bachelor of Science (with Honors) in Computer Science \& Technology}{Peking University}{Beijing, China}{}{GPA: 3.83/4.0 (\textbf{ranked 3rd} out of \textasciitilde 200) \\ Advisor: Prof.\ Yingfei Xiong \\ Thesis: \emph{Accelerating Program Analyses by Conditional Summarization with Datalog}}}
 %\end{itemize}
 
 \section{Research Experiences}
@@ -155,7 +159,7 @@ and the first resource-aware synthesizer for recursive programs (PLDI'19, ICFP'2
   \item \textbf{Teaching Assistant} -- \emph{Introduction to Computer Systems}, Peking University \hfill 2015
 
   \vspace{4pt}
-  
+
   \item \textbf{Mentor} -- Vanshika Chowdhary, \emph{Programmable Gibbs sampling with linear types} \hfill 2021
   \item \textbf{Mentor} -- Mohamed Lotfi, \emph{Synthesis of probabilistic programs that generate handwritten digits} \hfill 2021
   \item \textbf{Mentor} -- Charles Yuan, \emph{Exact Bayesian inference with distribution transformers} \hfill 2019
@@ -165,7 +169,7 @@ and the first resource-aware synthesizer for recursive programs (PLDI'19, ICFP'2
 
 \begin{itemize}
   \item \textbf{Artifact Evaluation Committee Member} -- POPL'19, POPL'20, CAV'20
-  \item \textbf{External Reviewer} -- ICALP'18, LICS'19, LICS'20, LICS'21, ESOP'20, ESOP'21, POPL'22
+  \item \textbf{External Reviewer} -- ICALP'18, LICS'19, LICS'20, LICS'21, LICS'22, ESOP'20, ESOP'21, POPL'22, FoSSaCS'22
 \end{itemize}
 
 %\section{Technical and Personal Skills}
@@ -229,7 +233,7 @@ and the first resource-aware synthesizer for recursive programs (PLDI'19, ICFP'2
         \item Applied the static tag analysis to analyze side-channel vulnerabilities of blockchain code.
       \end{itemize}
     }}
-    
+
     \vspace{4pt}
 
   {\cventry{Feb 2018 -- May 2018}{Optimizing Compilers for Modern
@@ -247,7 +251,7 @@ and the first resource-aware synthesizer for recursive programs (PLDI'19, ICFP'2
 
       \vspace{4pt}
 
-  {\cventry{April 2018 -- May 2018}{Graduate Artificial Intelligence}{Predicting the Efficiency of Exact Inference Methods in Bayesian Network}{}{Carnegie Mellon University}{
+  {\cventry{Apr 2018 -- May 2018}{Graduate Artificial Intelligence}{Predicting the Efficiency of Exact Inference Methods in Bayesian Network}{}{Carnegie Mellon University}{
         \begin{itemize}
         \item Reviewed exact inference methods for Bayesian networks from both the statistics and the programming languages community.
         \item Proposed and implemented a machine-learning-based algorithm that predicts which exact inference method would work best on a given Bayesian network.
@@ -318,16 +322,16 @@ and the first resource-aware synthesizer for recursive programs (PLDI'19, ICFP'2
   %         between the front-end and judgers.
   %       \end{itemize}
   %     }}
-  
-\section{References}
 
-\begin{center}
-\begin{tabular}{c @{\hspace{3em}} c @{\hspace{3em}} c}
-\large\textbf{Jan Hoffmann} & \large\textbf{Thomas Reps} & \large\textbf{Nadia Polikarpova} \\
-Carnegie Mellon University & University of Wisconsin--Madison & University of California, San Diego \\
-\emaillink{jhoffmann@cmu.edu} & \emaillink{reps@cs.wisc.edu} & \emaillink{npolikarpova@eng.ucsd.edu}
-\end{tabular}
-\end{center}
+% \section{References}
+
+% \begin{center}
+% \begin{tabular}{c @{\hspace{3em}} c @{\hspace{3em}} c}
+% \large\textbf{Jan Hoffmann} & \large\textbf{Thomas Reps} & \large\textbf{Nadia Polikarpova} \\
+% Carnegie Mellon University & University of Wisconsin--Madison & University of California, San Diego \\
+% \emaillink{jhoffmann@cmu.edu} & \emaillink{reps@cs.wisc.edu} & \emaillink{npolikarpova@eng.ucsd.edu}
+% \end{tabular}
+% \end{center}
 
 
 %-----       letter       ---------------------------------------------------------
