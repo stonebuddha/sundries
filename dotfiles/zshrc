@@ -129,6 +129,26 @@ export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
 export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
 
+function activate_x86() {
+	export OLDPATH=$PATH
+	export PATH=/usr/local/homebrew/bin:$PATH
+	export CPATH=/usr/local/homebrew/include
+	export LIBRARY_PATH=/usr/local/homebrew/lib
+	export OLDPROMPT=$PROMPT
+	export PROMPT="[x86] $PROMPT"
+	alias brew='arch -x86_64 /usr/local/homebrew/bin/brew'
+}
+
+function deactivate_x86() {
+	export PATH=$OLDPATH
+	export OLDPATH=
+	export CPATH=/opt/homebrew/include
+	export LIBRARY_PATH=/opt/homebrew/lib
+	export PROMPT=$OLDPROMPT
+	export OLDPROMPT=
+	unalias brew
+}
+
 # Anaconda
 export CONDA_EXE='/opt/homebrew/anaconda3/bin/conda'
 export _CE_M=''
