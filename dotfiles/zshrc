@@ -131,7 +131,7 @@ export LIBRARY_PATH=/opt/homebrew/lib
 
 function activate_x86() {
 	export OLDPATH=$PATH
-	export PATH=/usr/local/homebrew/bin:$PATH
+	export PATH=/usr/local/homebrew/bin:/usr/local/homebrew/sbin:$PATH
 	export CPATH=/usr/local/homebrew/include
 	export LIBRARY_PATH=/usr/local/homebrew/lib
 	export OLDPROMPT=$PROMPT

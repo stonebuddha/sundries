@@ -55,7 +55,9 @@ This function should only modify configuration layer settings."
      ;; version-control
      treemacs
      themes-megapack
-     agda)
+     agda
+     sml
+     ocaml)
 
 
    ;; List of additional packages that will be installed without being wrapped
@@ -66,7 +68,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(proof-general company-coq)
+   dotspacemacs-additional-packages '(proof-general company-coq fstar-mode)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -574,8 +576,6 @@ before packages are loaded."
     (hlt-unhighlight-region))
   (spacemacs/set-leader-keys (kbd ",") 'unhighlight)
 
-  (require 'proof-general)
-  (require 'company-coq)
   (add-hook 'coq-mode-hook #'company-coq-mode)
 
   (set-fontset-font t 'unicode (font-spec :name "XITS Math") nil 'prepend)
