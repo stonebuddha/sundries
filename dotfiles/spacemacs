@@ -259,7 +259,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Lekton Nerd Font"
+   dotspacemacs-default-font '("ComicShannsMono Nerd Font"
                                :size 12.0
                                :weight normal
                                :width normal)
@@ -394,7 +394,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil unicode symbols are displayed in the mode line.
    ;; If you use Emacs as a daemon and wants unicode characters only in GUI set
    ;; the value to quoted `display-graphic-p'. (default t)
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
 
    ;; If non-nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
@@ -578,8 +578,9 @@ before packages are loaded."
 
   (add-hook 'coq-mode-hook #'company-coq-mode)
 
-  (set-fontset-font t 'unicode (font-spec :name "XITS Math") nil 'prepend)
-  (set-fontset-font t 'greek (font-spec :name "Lekton Nerd Font") nil 'prepend)
+  (dolist (ft (fontset-list))
+    (set-fontset-font ft 'unicode (font-spec :name "ComicShannsMono Nerd Font"))
+    (set-fontset-font ft 'unicode (font-spec :name "XITS Math monospacified for ComicShannsMono Nerd Font") nil 'append))
 
   (setq-default line-spacing 2)
 )
