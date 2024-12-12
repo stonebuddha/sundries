@@ -19,3 +19,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+[core]
+	sshCommand = ssh -i ~/.ssh/id_rsa
