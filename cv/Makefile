@@ -7,6 +7,7 @@ bib: *bib
 full: *tex *bib
 	pdflatex -interaction=nonstopmode root
 	bibtex conf
+	bibtex jour
 	bibtex thesis
 	pdflatex root
 	pdflatex root

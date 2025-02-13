@@ -5,13 +5,13 @@
 % available at http://www.latex-project.org/lppl/.
 
 
-\documentclass[11pt,letterpaper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[11pt,letterpaper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % modern themes
 \moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
 \moderncvcolor{black}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
 %\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
-\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
 
 % character encoding
 \usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
@@ -30,20 +30,20 @@
 \usepackage{import}
 
 % personal data
-\name{Di}{Wang}
+\name{\color{black}Di}{Wang}
 % \title{Assistant Professor}                               % optional, remove / comment the line if not wanted
 \address{Yanyuan Mansion 520, 151 Zhongguancun N Ave, Haidian District, Beijing 100084}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
 %\phone[mobile]{+86 138 8226 6228}                   % optional, remove / comment the line if not wanted
 %\phone[fixed]{01234 123456}                    % optional, remove / comment the line if not wanted
 %\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
 \email{wangdi95@pku.edu.cn}                               % optional, remove / comment the line if not wanted
-\urlstyle{rm}
+\urlstyle{sf}
 \renewcommand{\httpslink}[2][]{%
   \ifthenelse{\equal{#1}{}}%
   {\url{#2}}%
   {\href{https://#2}{\detokenize{#1}}}}
 \homepage{https://stonebuddha.github.io/}                         % optional, remove / comment the line if not wanted
-%\extrainfo{Carnegie Mellon University -- Computer Science Department -- Doctoral Student}                 % optional, remove / comment the line if not wanted
+\extrainfo{Peking University -- School of Computer Science -- Assistant Professor}                 % optional, remove / comment the line if not wanted
 %\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 %\quote{Some quote}                                 % optional, remove / comment the line if not wanted
 
@@ -55,7 +55,7 @@
 
 % bibliography with multiple entries
 \usepackage{multibib}
-\newcites{conf,thesis}{{Refereed Conference Papers},{Other Publications}}
+\newcites{conf,jour,thesis}{{Refereed Conference Papers},{Refereed Journal Papers},{Other Publications}}
 %----------------------------------------------------------------------------------
 %            content
 %----------------------------------------------------------------------------------
@@ -67,12 +67,13 @@
 %\small{Undergraduate electrical and electronic engineer completing the final year of a master's degree. Passionate about science, with strong technical, business, and interpersonal skills for working in a team and successfully completing a project.}
 
 \section{Bio}
-
-I am an Assistant Professor at Peking University's School of Computer Science and a member of the PL Lab there.
-
+% I am an Assistant Professor at Peking University's School of Computer Science and a member of the PL Lab there.
+%
 My main interest is in programming languages, and formal verification, program analysis, and probabilistic programming in particular.
 %
 My mission is to develop \emph{universal and easy-to-use abstractions and paradigms} for programming safe and efficient software, and \emph{programming-language-level integrations} to automatically analyze, optimize, and synthesize programs.
+
+% \vspace{4pt}
 
 Currently, I am working on resource-safe system programming, programmable Bayesian inference, quantitative program analysis, and proof-oriented programming languages.
 
@@ -116,9 +117,10 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
 \section{Professional Activities}
 
 \begin{itemize}
-  \item \textbf{Program/Review Committee Member} -- ASE'23, OOPSLA'24, PLDI'24
-  \item \textbf{Artifact Evaluation Committee Member} -- POPL'19, POPL'20, CAV'20
-  \item \textbf{External Reviewer} -- ICALP'18, LICS'19, LICS'20, LICS'21, LICS'22, ESOP'20, ESOP'21, ESOP'23, POPL'22, FoSSaCS'22, FoSSaCS'23, ICFP'23
+  \item \textbf{Program/Review Committee Member} -- APLAS (2024 SRC), ASE (2023), ChinaSoft (2023, 2024), ECOOP (2025), ECOOP/ISSTA (2024 Tool Demos), ICALP (2025), OOPSLA (2024, 2026), PLDI (2024), POPL (2026), SLE (2024)
+  \item \textbf{Artifact Evaluation Committee Member} -- CAV (2020), POPL (2019, 2020)
+  \item \textbf{External Reviewer} -- ESOP (2020, 2021, 2023), FoSSaCS (2022, 2023), ICALP (2018), ICFP (2023), LICS (2019, 2020, 2021, 2022), POPL (2022)
+  \item \textbf{Reviewer} -- ASE (2023), ChinaSoft (2023, 2024), MSCS (2020), STVR (2024)
 \end{itemize}
 
 % Publications from a BibTeX file without multibib
@@ -130,11 +132,15 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
 
 % Publications from a BibTeX file using the multibib package
 \section{Publications}
-\nociteconf{POPL:DWH23,PLDI:WHR21B,PLDI:WHR21A,ICFP:WKH20,ICFP:KWR20,PLDI:KWPH19,MFPS:WHR19,POPL:WH19,PLDI:WHR18,OOPSLA:WWC17,ESOP:TWX17}
+\nociteconf{OOPSLA:LW25,OOPSLA:PWS24,OOPSLA:GCY24,ECOOP:PWS24,OOPSLA:WR24,POPL:DWH23,PLDI:WHR21B,PLDI:WHR21A,ICFP:KWR20,ICFP:WKH20,PLDI:KWP19,MFPS:WHR19,POPL:WH19,PLDI:WHR18,OOPSLA:WWC17,ESOP:TWX17}
 \bibliographystyleconf{unsrt}
 \bibliographyconf{publications}                   % 'publications' is the name of a BibTeX file
 \vspace{4pt}
-\nocitethesis{misc:WW23,misc:WR23,misc:WHR21}
+\nocitejour{TOPLAS:JZX24}
+\bibliographystylejour{unsrt}
+\bibliographyjour{publications}
+\vspace{4pt}
+\nocitethesis{arxiv:CWW24,arxiv:HW24,arxiv:WW23,arxiv:WHR21}
 \bibliographystylethesis{unsrt}
 \bibliographythesis{publications}
 %\vspace{4pt}
@@ -148,12 +154,24 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
 \section{Teaching and Mentoring Experience}
 
 \begin{itemize}
-  \item \textbf{Lecturer} -- \emph{Compiler Principles}, Peking University \hfill 2023
-  \item \textbf{Lecturer} -- \emph{Design Principles of Programming Languages}, Peking University \hfill 2023
-  \item \textbf{Guest Lecturer} -- \emph{Foundations of Quantitative Program Analysis}, Carnegie Mellon University \hfill 2019
+  \item \textbf{Lecturer} -- \emph{Compiler Principles}, Peking University \hfill 2023, 2024, 2025
+  \item \textbf{Lecturer} -- \emph{Design Principles of Programming Languages}, Peking University \hfill 2023, 2024, 2025
+  \item \textbf{Lecturer} -- \emph{Seminar on Introduction to Computer Systems}, Peking University \hfill 2023, 2024
+  % \item \textbf{Guest Lecturer} -- \emph{Foundations of Quantitative Program Analysis}, Carnegie Mellon University \hfill 2019
 
   \vspace{4pt}
 
+  \item \textbf{PhD Advisor} -- Zimu Chen \hfill 2024--pres.
+  \item \textbf{PhD Advisor} -- Siyuan Zhu \hfill 2024--pres.
+  \item \textbf{PhD Advisor} -- Changze Huang \hfill 2023--pres.
+  \item \textbf{PhD Advisor} -- Qihao Lian \hfill 2023--pres.
+
+  \vspace{4pt}
+
+  \item \textbf{Mentor} -- Zimu Chen, \emph{Worst case analysis by fuzzing symbolic-execution paths} \hfill 2024
+  \item \textbf{Mentor} -- Tianxiang Gao, \emph{A preliminary exploration of intuitionistic probability linear logic} \hfill 2024
+  \item \textbf{Mentor} -- Jiaqi Si, \emph{Constructive proof based on contextual structure} \hfill 2024
+  \item \textbf{Mentor} -- Hongjun Wu, \emph{Worst-case analysis is maximum-a-posteriori estimation} \hfill 2024
   \item \textbf{Mentor} -- Xuanyu Peng, \emph{Rust resource analysis by functional translation} \hfill 2023
   \item \textbf{Mentor} -- Vanshika Chowdhary, \emph{Programmable Gibbs sampling with linear types} \hfill 2021
   \item \textbf{Mentor} -- Mohamed Lotfi, \emph{Synthesis of probabilistic programs that generate handwritten digits} \hfill 2021
@@ -187,6 +205,7 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
 \subsection{Conference Presentations}
 
 \begin{itemize}
+  \item {Newtonian Program Analysis of Probabilistic Programs}, \emph{OOPSLA'24}. \hfill Oct 2024
   \item {Sound Probabilistic Inference via Guide Types}, \emph{PLDI'21}. \hfill Jun 2021
   \item {Central Moment Analysis for Cost Accumulators in Probabilistic Programs}, \emph{PLDI'21}. \hfill Jun 2021
   \item {Raising Expectations: Automating Expected Cost Analysis with Types}, \emph{ICFP'20}. \hfill Aug 2020
@@ -199,6 +218,16 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
 \subsection{Seminar Presentations}
 
 \begin{itemize}
+  \item {Program Resource Analysis and Verification}, \emph{Xijiao Hotel Beijing}, SAVE 2024. \hfill Nov 2024
+  \item {Programmable MCMC with Soundly Composed Guide Programs}, \emph{ChinaSoft}, Top Conference Seminar. \hfill Nov 2024
+  \item {A Paradigm that Unifies Programming and Verification}, \emph{Shanghai Jiao Tong University}, TPChina Seminar. \hfill Sep 2024
+  \item {A Proof-Oriented Programming Language}, \emph{CCF}, Beautiful Lake Seminar. \hfill Aug 2024
+  \item {Newtonian Program Analysis of Probabilistic Programs}, \emph{Peking University}, Programming Language Seminar. \hfill Jul 2024
+  \item {Exploration of New Designs for Programming Languages}, \emph{Shanghai Jiao Tong University}, Turing Forum of 3 Institutes. \hfill Jun 2024
+  \item {Towards Next-Gen Programming Languages}, \emph{Compiler Competition}, Seminar. \hfill Jun 2024
+  \item {Algebraic Program Analysis of Probabilistic Programs}, \emph{PROBPROG}. Spring 2024 Seminar Series. \hfill Apr 2024
+  \item {Exploration of New Designs for Programming Languages}, \emph{Nanjing University}, Seminar. \hfill Dec 2023
+  \item {Algebraic Program Analysis of Probabilistic Programs}, \emph{ChinaSoft}, Young Scholar Seminar. \hfill Dec 2023
   \item {Algebraic Program Analysis of Probabilistic Programs}, \emph{CCF}, Formal Methods Seminar. \hfill Jun 2023
   \item {Type-Driven Programming Language Design}, \emph{Compiler Competition}, Seminar. \hfill Jun 2023
   \item {Resource-Safe System Programming Language}, \emph{PL Lab}, Seminar. \hfill May 2023
@@ -211,9 +240,15 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
   \item {Automating Expected Cost Analysis with Types}, \emph{Facebook}, Novice Seminar. \hfill Jun 2020
 \end{itemize}
 
-\section{Scholarships and Awards}
+\section{Awards}
 
 \begin{itemize}
+\item OOPSLA Distinguished Reviewer \hfill 2024
+\item ECOOP Distinguished Paper \hfill 2024
+\item Peking University Boya Fellowship \hfill 2024
+
+\vspace{4pt}
+
 \item China National Scholarship \hfill 2014, 2016
 \item Huawei Scholarship \hfill 2015
 
@@ -222,6 +257,12 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
   \item Silver Medal (5\textsuperscript{th} place) in the 39\textsuperscript{th} Annual ACM-ICPC World Finals \hfill 2015
   \item Gold Medal (1\textsuperscript{st} place) in the 39\textsuperscript{th} ACM-ICPC Asia Regionals Anshan site \hfill 2014
   \item Gold Medal (9\textsuperscript{th} place) in the 38\textsuperscript{th} ACM-ICPC Asia Regionals Changchun site \hfill 2013
+\end{itemize}
+
+\section{Contribued Software}
+\begin{itemize}
+\item RaML: Resource Aware ML \hfill \url{https://www.raml.co/}
+\item MIRAI: Rust mid-level IR Abstract Interpreter \hfill \url{https://github.com/endorlabs/MIRAI}
 \end{itemize}
 
 % \section{Projects}
