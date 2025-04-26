@@ -183,4 +183,4 @@ export PATH="$(modular config mojo.path)/bin:$PATH"
 export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 
 # LM Studio CLI (lms)
-export PATH="$PATH:/Users/di/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
