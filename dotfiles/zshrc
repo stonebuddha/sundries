@@ -184,3 +184,12 @@ export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 
 # LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.lmstudio/bin"
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=($HOME/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+# Created by `pipx` on 2025-05-21 14:16:28
+export PATH="$PATH:$HOME/.local/bin"
