@@ -120,7 +120,7 @@ setopt HIST_VERIFY								# Don't execute immediately upon history expansion.
 eval "$(rbenv init -)"
 
 # ruby
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)"
 
 # openssl
 export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
@@ -193,3 +193,6 @@ compinit
 
 # Created by `pipx` on 2025-05-21 14:16:28
 export PATH="$PATH:$HOME/.local/bin"
+
+# cstar
+export PATH="$HOME/.cstar/bin:$PATH"
