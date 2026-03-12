@@ -22,3 +22,5 @@
 
 [core]
 	sshCommand = ssh -i ~/.ssh/id_rsa
+[safe]
+	directory = *
