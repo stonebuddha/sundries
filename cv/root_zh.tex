@@ -4,71 +4,42 @@
 % conditions of the LaTeX Project Public License version 1.3c,
 % available at http://www.latex-project.org/lppl/.
 
+\documentclass[11pt,letterpaper,sans]{moderncv}
+\moderncvstyle{banking}
+\moderncvcolor{black}
 
-\documentclass[11pt,letterpaper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
-
-% modern themes
-\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
-\moderncvcolor{black}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
-%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
-%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
-
-% character encoding
-% \usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
-% \usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
-% \usepackage[scaled=.98,sups,osf]{XCharter}
-% \usepackage[scaled=1.04,zerostyle=c]{newtxtt}
-% \usepackage[type1]{cabin}
-% \usepackage[xcharter,smallerops,bigdelims,scaled=1.05]{newtxmath}
-% \linespread{1.04}
-
+% fonts (xelatex + xeCJK)
 \usepackage{fontspec}
 \usepackage{xunicode}
 \usepackage{xeCJK}
-\usepackage{fourier}
-\usepackage[osf]{Alegreya}
 \setsansfont{Alegreya Sans}
-\setmonofont{Agave Nerd Font}
-\usepackage[bb=ams,cal=cm,scr=boondox,frak=euler]{mathalfa}
-\setCJKmainfont[BoldFont={FZLanTingHei-DB-GBK},ItalicFont={FZSongKeBenXiuKaiS-R-JF}]{FZBoYaFangKanSongK}
-% \setCJKsansfont{KaiTi}
-% \setCJKmonofont{SimHei}
-% \setCJKmathfont{}
+\setCJKmainfont[BoldFont={TsangerYunHei-W05},ItalicFont={TsangerJinKai05-W03}]{TsangerYunHei-W03}
 \punctstyle{kaiming}
 \linespread{1.04}
 
-% adjust the page margins
+% page margins
 \usepackage[scale=0.86]{geometry}
-%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
-%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
 % personal data
-\name{王迪}{}
-%\title{Research Intern}                               % optional, remove / comment the line if not wanted
-\address{北京市海淀区, 中关村北大街151号, 燕园大厦520室}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
-\phone[mobile]{+86 138 8226 6228}                   % optional, remove / comment the line if not wanted
-%\phone[fixed]{01234 123456}                    % optional, remove / comment the line if not wanted
-%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
-\email{wangdi95@pku.edu.cn}                               % optional, remove / comment the line if not wanted
-\urlstyle{rm}
+\name{\color{black}王}{迪}
+\address{北京市海淀区, 中关村北大街151号, 燕园大厦520室}{}{}
+\email{wangdi95@pku.edu.cn}
+\urlstyle{sf}
 \renewcommand{\httpslink}[2][]{%
   \ifthenelse{\equal{#1}{}}%
   {\url{#2}}%
   {\href{https://#2}{\detokenize{#1}}}}
-\homepage{https://stonebuddha.github.io/}                         % optional, remove / comment the line if not wanted
-%\extrainfo{Carnegie Mellon University -- Computer Science Department -- Doctoral Student}                 % optional, remove / comment the line if not wanted
-%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+\homepage{https://stonebuddha.github.io/}
+\extrainfo{北京大学 -- 计算机学院 -- 助理教授}
 
-% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+% numerical labels in the bibliography
 \makeatletter
 \renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
 \makeatother
-%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
 
 % bibliography with multiple entries
 \usepackage{multibib}
-\newcites{conf,thesis}{{同行评审论文},{其它论文}}
+\newcites{conf,workshop,jour,thesis}{{同行评审会议论文},{同行评审研讨会论文},{同行评审期刊论文},{其它论文}}
 
 % Fix for moderncv >= 2.5.1 (TeX Live 2026): the banking style loads
 % moderncvskillmatrix -> arydshln, which breaks the tabular* used inside
@@ -86,15 +57,12 @@
   \else{\par\begin{minipage}{\maincolumnwidth}\small#7\end{minipage}}\fi%
   \par\addvspace{#1}}
 \makeatother
+
 %----------------------------------------------------------------------------------
 %            content
 %----------------------------------------------------------------------------------
 \begin{document}
-%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
-%-----       resume       ---------------------------------------------------------
 \makecvtitle
-
-%\small{Undergraduate electrical and electronic engineer completing the final year of a master's degree. Passionate about science, with strong technical, business, and interpersonal skills for working in a team and successfully completing a project.}
 
 \section{个人简介}
 
@@ -105,14 +73,11 @@
 
 \section{教育经历}
 
-%\begin{itemize}
-  {\cventry{2017年8月 -- 2022年5月}{博士（计算机科学）}{卡内基梅隆大学（Carnegie Mellon University）}{美国}{}{导师：Jan Hoffmann \\ 论文：\emph{Static Analysis of Probabilistic Programs: An Algebraic Approach}}}
+  {\cventry{2017年8月 -- 2022年5月}{哲学博士（计算机科学）}{卡内基梅隆大学（Carnegie Mellon University）}{美国}{}{导师：Jan Hoffmann \\ 论文：\emph{Static Analysis of Probabilistic Programs: An Algebraic Approach}}}
 
   \vspace{4pt}
 
-  {\cventry{2013年9月 -- 2017年6月}{荣誉学士（计算机科学与技术）}{北京大学}{中国}{}{导师：熊英飞 \\ 论文：\emph{基于Datalog条件摘要的程序
-  分析加速技术}}}
-%\end{itemize}
+  {\cventry{2013年9月 -- 2017年6月}{荣誉理学学士（计算机科学与技术）}{北京大学}{中国}{}{导师：熊英飞 \\ 论文：\emph{基于Datalog条件摘要的程序分析加速技术}}}
 
 \section{学术服务}
 
@@ -120,162 +85,98 @@
   \item \textbf{组织委员会成员（Organizing Committee Member）} -- APLAS \& ATVA (2026 Poster)
   \item \textbf{程序/审稿委员会成员（Program/Review Committee Member）} -- APLAS (2024 SRC), ASE (2023), ECOOP (2025), ECOOP/ISSTA (2024 Tool Demos), ICALP (2025), ISSTA (2026), OOPSLA (2024, 2026), PLDI (2024), POPL (2026), SLE (2024), TFP (2026), TyDe (2025)
   \item \textbf{软件评审委员会成员（Artifact Evaluation Committee Member）} -- CAV (2020), POPL (2019, 2020)
-  % \item \textbf{审稿人（External Reviewer）} -- ICALP'18, LICS'19, LICS'20, LICS'21, LICS'22, ESOP'20, ESOP'21, ESOP'23, POPL'22, FoSSaCS'22, FoSSaCS'23
 \end{itemize}
 
 \section{获奖经历}
 
 \begin{itemize}
-\item 北京大学博雅青年学者 \hfill 2024
+\item ECOOP 杰出审稿人奖 \hfill 2025
+\item OOPSLA 杰出审稿人奖 \hfill 2024
 
 \vspace{4pt}
 
-\item SOSP 最佳论文奖（CortenMM: Efficient Memory Management with Strong Correctness Guarantees） \hfill 2025
-\item OOPSLA 杰出论文奖（Automatic Linear Resource Bound Analysis for Rust via Prophecy Potentials） \hfill 2025
-\item ECOOP 杰出论文奖（Formalizing, Mechanizing, and Verifying Class-based Refinement Types） \hfill 2024
+\item SOSP 最佳论文奖 \hfill 2025
+\item OOPSLA 杰出论文奖 \hfill 2025
+\item ECOOP 杰出论文奖 \hfill 2024
 
-  \vspace{4pt}
+\vspace{4pt}
 
-  \item ECOOP 杰出审稿人奖 \hfill 2025
-  \item OOPSLA 杰出审稿人奖 \hfill 2024
+\item 北京大学博雅青年学者 \hfill 2024
+\item 国家奖学金 \hfill 2014, 2016
+\item 华为奖学金 \hfill 2015
+
+\vspace{4pt}
+
+\item 第39届ACM-ICPC全球总决赛银牌（第5名） \hfill 2015
+\item 第39届ACM-ICPC亚洲区域赛鞍山站金牌（第1名） \hfill 2014
+\item 第38届ACM-ICPC亚洲区域赛长春站金牌（第9名） \hfill 2013
 \end{itemize}
 
-% \section{科研经历}
-
-% %\begin{itemize}
-% %  \item{\cventry{Aug 2017 -- present}{Research assistant, supervised by Prof. Jan Hoffmann}{Carnegie Mellon University}{Pittsburgh, PA}{}
-% %  {Topics: Static Analysis of Probabilistic Programs, Automatic Resource Bound Analysis}}
-
-% %  \vspace{4pt}
-
-%   {\cventry{2020年5月 -- 2020年8月}{科研实习（导师：Herman Venter）}{Facebook}{美国}{}
-%   {课题：Rust代码的形式化验证，区块链代码的侧信道隐患分析}}
-
-%   \vspace{4pt}
-
-%   {\cventry{2016年9月 -- 2017年1月}{科研实习（导师：Adam Chlipala）}{麻省理工学院（Massachusetts Institute of Technology）}{美国}{}
-%   {课题：针对时间复杂度分析的类型系统，保证时间复杂度不变的可靠编译器}}
-
-%   \vspace{4pt}
-
-%   {\cventry{2016年6月 -- 2016年8月}{科研实习（导师：Thomas Reps）}{威斯康星大学麦迪逊分校（University of Wisconsin--Madison）}{美国}{}
-%   {课题：针对侧信道攻击的概率分析，概率程序的期望不变量分析}}
-
-%   \vspace{4pt}
-
-%   {\cventry{2015年9月 -- 2017年6月}{本科生科研（导师：张路，熊英飞）}{北京大学}{中国}{}
-%   {课题：针对程序分析的完整库摘要，Java代码的指针分析}}
-% %\end{itemize}
-
-% Publications from a BibTeX file without multibib
-%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
-%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
-%\nocite{*}
-%\bibliographystyle{plain}
-%\bibliography{publications}                        % 'publications' is the name of a BibTeX file
-
-% Publications from a BibTeX file using the multibib package
 \section{学术成果}
-\nociteconf{OOPSLA:GYW26,ESOP:JW26,ESOP:XW26,TOPLAS:CWW26,PEPM:YGW26,LMPL:Wang25,SOSP:ZXZ25,OOPSLA:LW25,OOPSLA:PWS24,OOPSLA:GCY24,ECOOP:PWS24,OOPSLA:WR24,TOPLAS:JZX24,POPL:DWH23,PLDI:WHR21B,PLDI:WHR21A,ICFP:KWR20,ICFP:WKH20,PLDI:KWP19,MFPS:WHR19,POPL:WH19,PLDI:WHR18,OOPSLA:WWC17,ESOP:TWX17}
+\nociteconf{OOPSLA:GYW26,ESOP:JW26,ESOP:XW26,SOSP:ZXZ25,OOPSLA:LW25,OOPSLA:PWS24,OOPSLA:GCY24,ECOOP:PWS24,OOPSLA:WR24,POPL:DWH23,PLDI:WHR21B,PLDI:WHR21A,ICFP:KWR20,ICFP:WKH20,PLDI:KWP19,MFPS:WHR19,POPL:WH19,PLDI:WHR18,OOPSLA:WWC17,ESOP:TWX17}
 \bibliographystyleconf{unsrt}
-\bibliographyconf{publications}                   % 'publications' is the name of a BibTeX file
-% \vspace{4pt}
-% \nocitethesis{misc:DWH21,misc:WHR21}
-% \bibliographystylethesis{unsrt}
-% \bibliographythesis{publications}
-%\vspace{4pt}
-%\nocitedraft{misc:WWC18}
-%\bibliographystyledraft{unsrt}
-%\bibliographydraft{publications}
-%\nocitemisc{misc1,misc2,misc3}
-%\bibliographystylemisc{plain}
-%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+\bibliographyconf{publications}
+\vspace{4pt}
+\nocitejour{TOPLAS:CWW26,TOPLAS:JZX24}
+\bibliographystylejour{unsrt}
+\bibliographyjour{publications}
+\vspace{4pt}
+\nociteworkshop{PEPM:YGW26,LMPL:Wang25}
+\bibliographystyleworkshop{unsrt}
+\bibliographyworkshop{publications}
+\vspace{4pt}
+\nocitethesis{arxiv:HWZ25,arxiv:CW25,arxiv:CZC25,arxiv:HW24,arxiv:WW23,arxiv:WHR21}
+\bibliographystylethesis{unsrt}
+\bibliographythesis{publications}
 
 \section{教学经历}
 
 \begin{itemize}
-  \item \textbf{授课教师} -- \emph{编译原理}, 北京大学 \hfill 2023, 2024, 2025, 2026
+  \item \textbf{授课教师} -- \emph{编译原理实验班}, 北京大学 \hfill 2025, 2026
+  \item \textbf{授课教师} -- \emph{编译原理}, 北京大学 \hfill 2023, 2024
   \item \textbf{授课教师} -- \emph{编程语言的设计原理}, 北京大学 \hfill 2023, 2024, 2025, 2026
   \item \textbf{授课教师} -- \emph{计算机系统导论讨论班}, 北京大学 \hfill 2023, 2024, 2025
-  % \item \textbf{客座讲师} -- \emph{Foundations of Quantitative Program Analysis}, Carnegie Mellon University \hfill 2019
+  \item \textbf{客座讲师} -- \emph{Foundations of Quantitative Program Analysis}, 卡内基梅隆大学 \hfill 2019
 
   \vspace{4pt}
 
-  \item \textbf{博士导师} -- 陈厚锦 \hfill 2025--今
-  \item \textbf{博士导师} -- 庄嘉毅 \hfill 2025--今
-  \item \textbf{博士导师} -- 竺思远 \hfill 2024--今
-  \item \textbf{博士导师} -- 陈子木 \hfill 2024--今
-  \item \textbf{博士导师} -- 黄常泽 \hfill 2023--今
-  \item \textbf{博士导师} -- 练琪灏 \hfill 2023--今
+  \item \textbf{博士导师} -- 陈厚锦, 庄嘉毅 \hfill 2025--今
+  \item \textbf{博士导师} -- 陈子木, 竺思远 \hfill 2024--今
+  \item \textbf{博士导师} -- 黄常泽, 练琪灏 \hfill 2023--今
 \end{itemize}
 
+\section{学术报告}
 
+\subsection{会议报告}
 
-% \section{学术报告}
+\begin{itemize}
+  \item {Dependently-Typed AARA: A Non-Affine Approach for Resource Analysis of Higher-Order Programs}, \emph{ESOP'26}. \hfill 2026年4月
+  \item {Newtonian Program Analysis of Probabilistic Programs}, \emph{OOPSLA'24}. \hfill 2024年10月
+  \item {Sound Probabilistic Inference via Guide Types}, \emph{PLDI'21}. \hfill 2021年6月
+  \item {Central Moment Analysis for Cost Accumulators in Probabilistic Programs}, \emph{PLDI'21}. \hfill 2021年6月
+  \item {Raising Expectations: Automating Expected Cost Analysis with Types}, \emph{ICFP'20}. \hfill 2020年8月
+  \item {Liquid Resource Types}, \emph{ICFP'20}. \hfill 2020年8月
+  \item {A Denotational Semantics for Low-Level Probabilistic Programs with Nondeterminism}, \emph{MFPS'19}. \hfill 2019年6月
+  \item {Type-Guided Worst-Case Input Generation}, \emph{POPL'19}. \hfill 2019年1月
+  \item {PMAF: An Algebraic Framework for Static Analysis of Probabilistic Programs}, \emph{PLDI'18}. \hfill 2018年6月
+\end{itemize}
 
-% \subsection{会议报告}
+\subsection{研讨会报告}
 
-% \begin{itemize}
-%   \item {Sound Probabilistic Inference via Guide Types}, \emph{PLDI'21}. \hfill 2021年6月
-%   \item {Central Moment Analysis for Cost Accumulators in Probabilistic Programs}, \emph{PLDI'21}. \hfill 2021年6月
-%   \item {Raising Expectations: Automating Expected Cost Analysis with Types}, \emph{ICFP'20}. \hfill 2020年8月
-%   \item {Liquid Resource Types}, \emph{ICFP'20}. \hfill 2020年8月
-%   \item {A Denotational Semantics for Low-Level Probabilistic Programs with Nondeterminism}, \emph{MFPS'19}. \hfill 2019年6月
-%   \item {Type-Guided Worst-Case Input Generation}, \emph{POPL'19}. \hfill 2019年1月
-%   \item {PMAF: An Algebraic Framework for Static Analysis of Probabilistic Programs}, \emph{PLDI'18}. \hfill 2018年6月
-% \end{itemize}
+\begin{itemize}
+  \item {CStar: Unifying Programming and Verification in C}, \emph{新加坡}, Sponsor Invited Talks, SPLASH 2025. \hfill 2025年10月
+  \item {程序的资源分析与验证}, \emph{北京}, 软件分析与验证研讨会（SAVE 2024）. \hfill 2024年11月
+  \item {保证引导程序组合正确性的可编程MCMC}, \emph{西安}, 2024中国软件大会. \hfill 2024年11月
+  \item {面向形式化证明的程序设计语言}, \emph{苏州}, CCF秀湖会议. \hfill 2024年8月
+  \item {Algebraic Program Analysis of Probabilistic Programs}, \emph{线上}. Spring 2024 Seminar Series, PROBPROG. \hfill 2024年4月
+  \item {概率程序的代数程序分析}, \emph{上海}, 2023中国软件大会. \hfill 2023年12月
+\end{itemize}
 
-% \subsection{研讨会报告}
-
-% \begin{itemize}
-%   \item {Type-Based Resource-Guided Search}, \emph{北京大学}, 程序设计语言讨论班. \hfill 2020年10月
-%   \item {Taint Analysis for Blockchain Code}, \emph{Facebook}, Novice Seminar. \hfill 2020年8月
-%   \item {Automating Expected Cost Analysis with Types}, \emph{Facebook}, Novice Seminar. \hfill 2020年6月
-% \end{itemize}
-
-% \section{项目经历}
-
-% %\begin{itemize}
-%   {\cventry{2020年5月 -- 2020年8月}{在Facebook实习时的科研项目}{Rust代码的静态标签分析}{}{}{
-%       \begin{itemize}
-%         \item 学习了Rust的形式语义和一个静态分析工具MIRAI。
-%         \item 设计并实现了针对Rust代码的静态标签分析：该分析能够追踪过程间的信息流，并允许用户自定义标签在代码中的传播行为。
-%         \item 使用静态标签分析来寻找区块链代码中的侧信道隐患。
-%       \end{itemize}
-%     }}
-
-%     \vspace{4pt}
-
-%   {\cventry{2018年2月 -- 2018年5月}{合作课程项目（Optimizing Compilers for Modern
-%         Architectures）}{内存数据库中的基于SIMD向量化的查询优化}{}{}{
-%         \begin{itemize}
-%         \item 设计了一个JIT查询编译时的基于向量化的优化。
-%         \item 实现了两种基于LLVM生成SIMD指令的向量化方法。这些向量化针对的是数据库查询中的谓词计算。我们的优化实现在一个由Carnegie Mellon Database Group开发的内存数据库Peloton上。
-%         \item 通过实验验证了我们的优化可以在复杂的SQL查询中达到1.5倍的平均加速。
-%         \end{itemize}
-%       }}
-
-%       \vspace{4pt}
-
-%   {\cventry{2018年4月 -- 2018年5月}{合作课程项目（Graduate Artificial Intelligence）}{贝叶斯网络上的精确推断算法的性能预测}{}{}{
-%         \begin{itemize}
-%         \item 学习了来自统计学以及程序语言研究的贝叶斯网络上的精确推断算法。
-%         \item 设计并实现了一个机器学习算法来预测不同的精确推断算法在一个给定贝叶斯网络上的性能。
-%         \item 通过实验验证了我们的算法在一个人造数据集上到达了72\%的准确性。
-%         \end{itemize}
-%       }}
-
-%     \vspace{4pt}
-
-%   {\cventry{2017年2月 -- 2017年6月}{本科学位论文}{ConDlog：基于Datalog条件摘要的程序
-%   分析加速技术}{}{}{
-%     \begin{itemize}
-%       \item 研究了在大型Java应用上的基于库摘要的程序分析技术。
-%       \item 提出了一个基于Datalog的程序分析算法：该算法可以为一个特定分析问题计算出完整的JDK库的条件摘要。
-%       \item 通过实验验证了该分析算法能在DaCapo数据集上，分别对类层次分析和快速类型分析达到3.9倍的平均加速和1.3倍的平均加速。
-%     \end{itemize}
-%   }}
-
-%-----       letter       ---------------------------------------------------------
+\section{软件贡献}
+\begin{itemize}
+\item C*: Unifying Programming and Verification in C \hfill \url{http://cstarlang.org}
+\item RaML: Resource Aware ML \hfill \url{https://www.raml.co}
+\item MIRAI: Rust mid-level IR Abstract Interpreter \hfill \url{https://github.com/endorlabs/MIRAI}
+\end{itemize}
 
 \end{document}

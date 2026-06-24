@@ -12,7 +12,9 @@ en: *tex *bib
 zh: *tex *bib
 	xelatex -interaction=nonstopmode root_zh
 	bibtex conf
-# 	bibtex thesis
+	bibtex jour
+	bibtex workshop
+	bibtex thesis
 	xelatex -interaction=nonstopmode root_zh
 	xelatex -interaction=nonstopmode root_zh
 
