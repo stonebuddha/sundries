@@ -55,7 +55,24 @@
 
 % bibliography with multiple entries
 \usepackage{multibib}
-\newcites{conf,jour,thesis}{{Refereed Conference Papers},{Refereed Journal Papers},{Other Publications}}
+\newcites{conf,workshop,jour,thesis}{{Refereed Conference Papers},{Refereed Workshop Papers},{Refereed Journal Papers},{Other Publications}}
+
+% Fix for moderncv >= 2.5.1 (TeX Live 2026): the banking style loads
+% moderncvskillmatrix -> arydshln, which breaks the tabular* used inside
+% banking's \cventry, causing "Extra }, or forgotten $" errors. Redefine
+% \cventry without tabular* (same visual layout).
+\makeatletter
+\renewcommand*{\cventry}[7][.25em]{%
+  \begin{minipage}{\maincolumnwidth}%
+    \ifboolexpr{test {\ifstrempty{#4}} and test {\ifstrempty{#5}}}%
+      {}%
+      {{\bfseries #4}\hfill{\bfseries #5}\par}%
+    {\itshape #3\ifstrempty{#6}{}{, #6}}\hfill{\itshape #2}\par%
+  \end{minipage}%
+  \ifx&#7&%
+  \else{\par\begin{minipage}{\maincolumnwidth}\small#7\end{minipage}}\fi%
+  \par\addvspace{#1}}
+\makeatother
 %----------------------------------------------------------------------------------
 %            content
 %----------------------------------------------------------------------------------
@@ -68,13 +85,14 @@
 
 \section{Bio}
 % I am an Assistant Professor at Peking University's School of Computer Science and a member of the PL Lab there.
+I am an Assistant Professor at Peking University’s School of Computer Science, a member of the Programming Languages Lab, and a research advisor of the Turing Program.
 %
 My main interest is in programming languages, and formal verification, program analysis, and probabilistic programming in particular.
 %
 My mission is to develop \emph{universal and easy-to-use abstractions and paradigms} for programming safe and efficient software, and \emph{programming-language-level integrations} to automatically analyze, optimize, and synthesize programs.
-
+%
 % \vspace{4pt}
-
+%
 Currently, I am working on resource-safe system programming, programmable Bayesian inference, quantitative program analysis, and proof-oriented programming languages.
 
 \section{Education}
@@ -87,40 +105,66 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
   {\cventry{Sep 2013 -- Jun 2017}{Bachelor of Science (with Honors) in Computer Science \& Technology}{Peking University}{Beijing, China}{}{Advisor: Prof.\ Yingfei Xiong \\ Thesis: \emph{Accelerating Program Analyses by Conditional Summarization with Datalog}}}
 %\end{itemize}
 
-\section{Research Experiences}
+% \section{Research Experiences}
 
-%\begin{itemize}
-%  \item{\cventry{Aug 2017 -- present}{Research assistant, supervised by Prof. Jan Hoffmann}{Carnegie Mellon University}{Pittsburgh, PA}{}
-%  {Topics: Static Analysis of Probabilistic Programs, Automatic Resource Bound Analysis}}
+% %\begin{itemize}
+% %  \item{\cventry{Aug 2017 -- present}{Research assistant, supervised by Prof. Jan Hoffmann}{Carnegie Mellon University}{Pittsburgh, PA}{}
+% %  {Topics: Static Analysis of Probabilistic Programs, Automatic Resource Bound Analysis}}
 
-%  \vspace{4pt}
+% %  \vspace{4pt}
 
-  {\cventry{May 2020 -- Aug 2020}{Research intern, supervised by Dr.\ Herman Venter}{Facebook}{Seattle, WA, USA}{}
-  {Topics: Formal Verification of Rust Code, Side Channel Analysis of Blockchain Code}}
+%   {\cventry{May 2020 -- Aug 2020}{Research intern, supervised by Dr.\ Herman Venter}{Facebook}{Seattle, WA, USA}{}
+%   {Topics: Formal Verification of Rust Code, Side Channel Analysis of Blockchain Code}}
 
-  \vspace{4pt}
+%   \vspace{4pt}
 
-  {\cventry{Sep 2016 -- Jan 2017}{Research intern, supervised by Prof.\ Adam Chlipala}{Massachusetts Institute of Technology}{Boston, MA, USA}{}
-  {Topics: Type System for Complexity Analysis, Complexity Preserved Compiler}}
+%   {\cventry{Sep 2016 -- Jan 2017}{Research intern, supervised by Prof.\ Adam Chlipala}{Massachusetts Institute of Technology}{Boston, MA, USA}{}
+%   {Topics: Type System for Complexity Analysis, Complexity Preserved Compiler}}
 
-  \vspace{4pt}
+%   \vspace{4pt}
 
-  {\cventry{Jun 2016 -- Aug 2016}{Research intern, supervised by Prof.\ Thomas Reps}{University of Wisconsin--Madison}{Madison, WI, USA}{}
-  {Topics:Probabilistic Reasoning about Side Channel Attacks, Expectation Invariant Analysis of Probabilistic Programs}}
+%   {\cventry{Jun 2016 -- Aug 2016}{Research intern, supervised by Prof.\ Thomas Reps}{University of Wisconsin--Madison}{Madison, WI, USA}{}
+%   {Topics:Probabilistic Reasoning about Side Channel Attacks, Expectation Invariant Analysis of Probabilistic Programs}}
 
-  \vspace{4pt}
+%   \vspace{4pt}
 
-  {\cventry{Sep 2015 -- Jun 2017}{Research assistant, supervised by Prof.\ Lu Zhang and Prof.\ Yingfei Xiong}{Peking University}{Beijing, China}{}
-  {Topics: Complete Library Summarization for Program Analyses, Pointer Analysis for Java}}
-%\end{itemize}
+%   {\cventry{Sep 2015 -- Jun 2017}{Research assistant, supervised by Prof.\ Lu Zhang and Prof.\ Yingfei Xiong}{Peking University}{Beijing, China}{}
+%   {Topics: Complete Library Summarization for Program Analyses, Pointer Analysis for Java}}
+% %\end{itemize}
 
 \section{Professional Activities}
 
 \begin{itemize}
-  \item \textbf{Program/Review Committee Member} -- APLAS (2024 SRC), ASE (2023), ChinaSoft (2023, 2024), ECOOP (2025), ECOOP/ISSTA (2024 Tool Demos), ICALP (2025), OOPSLA (2024, 2026), PLDI (2024), POPL (2026), SLE (2024)
+  \item \textbf{Organizing Committee Member} -- APLAS \& ATVA (2026 Poster)
+  \item \textbf{Program/Review Committee Member} -- APLAS (2024 SRC), ASE (2023), ECOOP (2025), ECOOP/ISSTA (2024 Tool Demos), ICALP (2025), ISSTA (2026), OOPSLA (2024, 2026), PLDI (2024), POPL (2026), SLE (2024), TFP (2026), TyDe (2025)
   \item \textbf{Artifact Evaluation Committee Member} -- CAV (2020), POPL (2019, 2020)
-  \item \textbf{External Reviewer} -- ESOP (2020, 2021, 2023), FoSSaCS (2022, 2023), ICALP (2018), ICFP (2023), LICS (2019, 2020, 2021, 2022), POPL (2022)
-  \item \textbf{Reviewer} -- ASE (2023), ChinaSoft (2023, 2024), MSCS (2020), STVR (2024)
+  % \item \textbf{External Reviewer} -- ESOP (2020, 2021, 2023), FoSSaCS (2022, 2023), ICALP (2018), ICFP (2023), LICS (2019, 2020, 2021, 2022), POPL (2022)
+  % \item \textbf{Reviewer} -- ASE (2023), ChinaSoft (2023, 2024), MSCS (2020), STVR (2024)
+\end{itemize}
+
+\section{Awards}
+
+\begin{itemize}
+\item ECOOP Distinguished Reviewer \hfill 2025
+\item OOPSLA Distinguished Reviewer \hfill 2024
+
+\vspace{4pt}
+
+\item SOSP Best Paper \hfill 2025
+\item OOPSLA Distinguished Paper \hfill 2025
+\item ECOOP Distinguished Paper \hfill 2024
+
+\vspace{4pt}
+
+\item Peking University Boya Fellowship \hfill 2024
+\item China National Scholarship \hfill 2014, 2016
+\item Huawei Scholarship \hfill 2015
+
+  \vspace{4pt}
+
+  \item Silver Medal (5\textsuperscript{th} place) in the 39\textsuperscript{th} Annual ACM-ICPC World Finals \hfill 2015
+  \item Gold Medal (1\textsuperscript{st} place) in the 39\textsuperscript{th} ACM-ICPC Asia Regionals Anshan site \hfill 2014
+  \item Gold Medal (9\textsuperscript{th} place) in the 38\textsuperscript{th} ACM-ICPC Asia Regionals Changchun site \hfill 2013
 \end{itemize}
 
 % Publications from a BibTeX file without multibib
@@ -132,15 +176,19 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
 
 % Publications from a BibTeX file using the multibib package
 \section{Publications}
-\nociteconf{OOPSLA:LW25,OOPSLA:PWS24,OOPSLA:GCY24,ECOOP:PWS24,OOPSLA:WR24,POPL:DWH23,PLDI:WHR21B,PLDI:WHR21A,ICFP:KWR20,ICFP:WKH20,PLDI:KWP19,MFPS:WHR19,POPL:WH19,PLDI:WHR18,OOPSLA:WWC17,ESOP:TWX17}
+\nociteconf{OOPSLA:GYW26,ESOP:JW26,ESOP:XW26,SOSP:ZXZ25,OOPSLA:LW25,OOPSLA:PWS24,OOPSLA:GCY24,ECOOP:PWS24,OOPSLA:WR24,POPL:DWH23,PLDI:WHR21B,PLDI:WHR21A,ICFP:KWR20,ICFP:WKH20,PLDI:KWP19,MFPS:WHR19,POPL:WH19,PLDI:WHR18,OOPSLA:WWC17,ESOP:TWX17}
 \bibliographystyleconf{unsrt}
-\bibliographyconf{publications}                   % 'publications' is the name of a BibTeX file
+\bibliographyconf{publications}
 \vspace{4pt}
-\nocitejour{TOPLAS:JZX24}
+\nocitejour{TOPLAS:CWW26,TOPLAS:JZX24}
 \bibliographystylejour{unsrt}
-\bibliographyjour{publications}
+\bibliographyjour{publications}                 % 'publications' is the name of a BibTeX file
 \vspace{4pt}
-\nocitethesis{arxiv:CWW24,arxiv:HW24,arxiv:WW23,arxiv:WHR21}
+\nociteworkshop{PEPM:YGW26,LMPL:Wang25}
+\bibliographystyleworkshop{unsrt}
+\bibliographyworkshop{publications}
+\vspace{4pt}
+\nocitethesis{arxiv:HWZ25,arxiv:CW25,arxiv:CZC25,arxiv:HW24,arxiv:WW23,arxiv:WHR21}
 \bibliographystylethesis{unsrt}
 \bibliographythesis{publications}
 %\vspace{4pt}
@@ -154,57 +202,42 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
 \section{Teaching and Mentoring Experience}
 
 \begin{itemize}
-  \item \textbf{Lecturer} -- \emph{Compiler Principles}, Peking University \hfill 2023, 2024, 2025
-  \item \textbf{Lecturer} -- \emph{Design Principles of Programming Languages}, Peking University \hfill 2023, 2024, 2025
-  \item \textbf{Lecturer} -- \emph{Seminar on Introduction to Computer Systems}, Peking University \hfill 2023, 2024
-  % \item \textbf{Guest Lecturer} -- \emph{Foundations of Quantitative Program Analysis}, Carnegie Mellon University \hfill 2019
+  \item \textbf{Lecturer} -- \emph{Compiler Principles (Honor Track)}, Peking University \hfill S25, S26
+  \item \textbf{Lecturer} -- \emph{Compiler Principles}, Peking University \hfill F23, S24, F24
+  \item \textbf{Lecturer} -- \emph{Design Principles of Programming Languages}, Peking University \hfill S23, S24, S25, S26
+  \item \textbf{Lecturer} -- \emph{Seminar on Introduction to Computer Systems}, Peking University \hfill F23, F24, F25
+  \item \textbf{Guest Lecturer} -- \emph{Foundations of Quantitative Program Analysis}, Carnegie Mellon University \hfill F19
 
   \vspace{4pt}
 
-  \item \textbf{PhD Advisor} -- Zimu Chen \hfill 2024--pres.
-  \item \textbf{PhD Advisor} -- Siyuan Zhu \hfill 2024--pres.
-  \item \textbf{PhD Advisor} -- Changze Huang \hfill 2023--pres.
-  \item \textbf{PhD Advisor} -- Qihao Lian \hfill 2023--pres.
+  \item \textbf{PhD Advisor} -- Houjin Chen, Jiayi Zhuang \hfill 2025--pres.
+  \item \textbf{PhD Advisor} -- Zimu Chen, Siyuan Zhu \hfill 2024--pres.
+  \item \textbf{PhD Advisor} -- Changze Huang, Qihao Lian \hfill 2023--pres.
 
-  \vspace{4pt}
+  % \vspace{4pt}
 
-  \item \textbf{Mentor} -- Zimu Chen, \emph{Worst case analysis by fuzzing symbolic-execution paths} \hfill 2024
-  \item \textbf{Mentor} -- Tianxiang Gao, \emph{A preliminary exploration of intuitionistic probability linear logic} \hfill 2024
-  \item \textbf{Mentor} -- Jiaqi Si, \emph{Constructive proof based on contextual structure} \hfill 2024
-  \item \textbf{Mentor} -- Hongjun Wu, \emph{Worst-case analysis is maximum-a-posteriori estimation} \hfill 2024
-  \item \textbf{Mentor} -- Xuanyu Peng, \emph{Rust resource analysis by functional translation} \hfill 2023
-  \item \textbf{Mentor} -- Vanshika Chowdhary, \emph{Programmable Gibbs sampling with linear types} \hfill 2021
-  \item \textbf{Mentor} -- Mohamed Lotfi, \emph{Synthesis of probabilistic programs that generate handwritten digits} \hfill 2021
-  \item \textbf{Mentor} -- Charles Yuan, \emph{Exact Bayesian inference with distribution transformers} \hfill 2019
+  % \item \textbf{Mentor} -- Zimu Chen, \emph{Worst case analysis by fuzzing symbolic-execution paths} \hfill 2024
+  % \item \textbf{Mentor} -- Tianxiang Gao, \emph{A preliminary exploration of intuitionistic probability linear logic} \hfill 2024
+  % \item \textbf{Mentor} -- Jiaqi Si, \emph{Constructive proof based on contextual structure} \hfill 2024
+  % \item \textbf{Mentor} -- Hongjun Wu, \emph{Worst-case analysis is maximum-a-posteriori estimation} \hfill 2024
+  % \item \textbf{Mentor} -- Xuanyu Peng, \emph{Rust resource analysis by functional translation} \hfill 2023
+  % \item \textbf{Mentor} -- Vanshika Chowdhary, \emph{Programmable Gibbs sampling with linear types} \hfill 2021
+  % \item \textbf{Mentor} -- Mohamed Lotfi, \emph{Synthesis of probabilistic programs that generate handwritten digits} \hfill 2021
+  % \item \textbf{Mentor} -- Charles Yuan, \emph{Exact Bayesian inference with distribution transformers} \hfill 2019
 
-  \vspace{4pt}
+  % \vspace{4pt}
 
-  \item \textbf{Teaching Assistant} -- \emph{Bug Catching: Automated Program Verification}, Carnegie Mellon University \hfill 2020
-  \item \textbf{Teaching Assistant} -- \emph{Programming Language Semantics}, Carnegie Mellon University \hfill 2019
-  \item \textbf{Teaching Assistant} -- \emph{Introduction to Computer Systems}, Peking University \hfill 2015
+  % \item \textbf{Teaching Assistant} -- \emph{Bug Catching: Automated Program Verification}, Carnegie Mellon University \hfill 2020
+  % \item \textbf{Teaching Assistant} -- \emph{Programming Language Semantics}, Carnegie Mellon University \hfill 2019
+  % \item \textbf{Teaching Assistant} -- \emph{Introduction to Computer Systems}, Peking University \hfill 2015
 \end{itemize}
-
-%\section{Technical and Personal Skills}
-%
-%\begin{itemize}
-%
-%\item \textbf{Programming Languages:} Proficient in: C, C++, Java, OCaml, Standard ML, Racket, Ruby, Rust; \\ Also familiar with: Coq, Scala, Python, JavaScript, Go, Objective-C.
-%
-%\vspace{4pt}
-%
-%\item \textbf{Softwares and Tools:} Rails, Soot, WALA, LLVM, Souffl{\'e}, Z3, Gurobi, PyTorch, Git, Vim, Emacs.
-%
-%\vspace{4pt}
-%
-%\item \textbf{Languages:} Native in Chinese; Fluent in English.
-%
-%\end{itemize}
 
 \section{Talks}
 
 \subsection{Conference Presentations}
 
 \begin{itemize}
+  \item {Dependently-Typed AARA: A Non-Affine Approach for Resource Analysis of Higher-Order Programs}, \emph{ESOP'26}. \hfill Apr 2026
   \item {Newtonian Program Analysis of Probabilistic Programs}, \emph{OOPSLA'24}. \hfill Oct 2024
   \item {Sound Probabilistic Inference via Guide Types}, \emph{PLDI'21}. \hfill Jun 2021
   \item {Central Moment Analysis for Cost Accumulators in Probabilistic Programs}, \emph{PLDI'21}. \hfill Jun 2021
@@ -218,50 +251,18 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
 \subsection{Seminar Presentations}
 
 \begin{itemize}
-  \item {Program Resource Analysis and Verification}, \emph{Xijiao Hotel Beijing}, SAVE 2024. \hfill Nov 2024
-  \item {Programmable MCMC with Soundly Composed Guide Programs}, \emph{ChinaSoft}, Top Conference Seminar. \hfill Nov 2024
-  \item {A Paradigm that Unifies Programming and Verification}, \emph{Shanghai Jiao Tong University}, TPChina Seminar. \hfill Sep 2024
-  \item {A Proof-Oriented Programming Language}, \emph{CCF}, Beautiful Lake Seminar. \hfill Aug 2024
-  \item {Newtonian Program Analysis of Probabilistic Programs}, \emph{Peking University}, Programming Language Seminar. \hfill Jul 2024
-  \item {Exploration of New Designs for Programming Languages}, \emph{Shanghai Jiao Tong University}, Turing Forum of 3 Institutes. \hfill Jun 2024
-  \item {Towards Next-Gen Programming Languages}, \emph{Compiler Competition}, Seminar. \hfill Jun 2024
-  \item {Algebraic Program Analysis of Probabilistic Programs}, \emph{PROBPROG}. Spring 2024 Seminar Series. \hfill Apr 2024
-  \item {Exploration of New Designs for Programming Languages}, \emph{Nanjing University}, Seminar. \hfill Dec 2023
-  \item {Algebraic Program Analysis of Probabilistic Programs}, \emph{ChinaSoft}, Young Scholar Seminar. \hfill Dec 2023
-  \item {Algebraic Program Analysis of Probabilistic Programs}, \emph{CCF}, Formal Methods Seminar. \hfill Jun 2023
-  \item {Type-Driven Programming Language Design}, \emph{Compiler Competition}, Seminar. \hfill Jun 2023
-  \item {Resource-Safe System Programming Language}, \emph{PL Lab}, Seminar. \hfill May 2023
-  \item {Intuitionistic Logics and Programing Languages}, \emph{Peking University}, Logic Seminar. \hfill Mar 2023
-  \item {Quantitative Program Analysis and Verification}, \emph{ZTE}, Seminar. \hfill Dec 2022
-  \item {Semantics of Probabilistic Programs: An Algebraic Approach}, \emph{Tsinghua University}, Seminar. \hfill Mar 2022
-  \item {Type-Based Resource-Guided Search}, \emph{Imperial College London}, Functional Programming Seminar. \hfill Nov 2021
-  \item {Type-Based Resource-Guided Search}, \emph{Peking University}, Programming Language Seminar. \hfill Oct 2020
-  \item {Taint Analysis for Blockchain Code}, \emph{Facebook}, Novice Seminar. \hfill Aug 2020
-  \item {Automating Expected Cost Analysis with Types}, \emph{Facebook}, Novice Seminar. \hfill Jun 2020
-\end{itemize}
-
-\section{Awards}
-
-\begin{itemize}
-\item OOPSLA Distinguished Reviewer \hfill 2024
-\item ECOOP Distinguished Paper \hfill 2024
-\item Peking University Boya Fellowship \hfill 2024
-
-\vspace{4pt}
-
-\item China National Scholarship \hfill 2014, 2016
-\item Huawei Scholarship \hfill 2015
-
-  \vspace{4pt}
-
-  \item Silver Medal (5\textsuperscript{th} place) in the 39\textsuperscript{th} Annual ACM-ICPC World Finals \hfill 2015
-  \item Gold Medal (1\textsuperscript{st} place) in the 39\textsuperscript{th} ACM-ICPC Asia Regionals Anshan site \hfill 2014
-  \item Gold Medal (9\textsuperscript{th} place) in the 38\textsuperscript{th} ACM-ICPC Asia Regionals Changchun site \hfill 2013
+  \item {CStar: Unifying Programming and Verification in C}, \emph{Singapore}, Sponsor Invited Talks, SPLASH 2025. \hfill Oct 2025
+  \item {Program Resource Analysis and Verification}, \emph{Beijing, China}, SAVE 2024. \hfill Nov 2024
+  \item {Programmable MCMC with Soundly Composed Guide Programs}, \emph{Xi'an, China}, ChinaSoft 2024. \hfill Nov 2024
+  \item {A Proof-Oriented Programming Language}, \emph{Suzhou, China}, CCF Beautiful Lake Seminar. \hfill Aug 2024
+  \item {Algebraic Program Analysis of Probabilistic Programs}, \emph{Online}. Spring 2024 Seminar Series, PROBPROG. \hfill Apr 2024
+  \item {Algebraic Program Analysis of Probabilistic Programs}, \emph{Shanghai, China}, ChinaSoft 2023. \hfill Dec 2023
 \end{itemize}
 
 \section{Contribued Software}
 \begin{itemize}
-\item RaML: Resource Aware ML \hfill \url{https://www.raml.co/}
+\item C*: Unifying Programming and Verification in C \hfill \url{http://cstarlang.org}
+\item RaML: Resource Aware ML \hfill \url{https://www.raml.co}
 \item MIRAI: Rust mid-level IR Abstract Interpreter \hfill \url{https://github.com/endorlabs/MIRAI}
 \end{itemize}
 
