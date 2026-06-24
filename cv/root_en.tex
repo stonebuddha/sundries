@@ -4,54 +4,39 @@
 % conditions of the LaTeX Project Public License version 1.3c,
 % available at http://www.latex-project.org/lppl/.
 
-
-\documentclass[11pt,letterpaper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
-
-% modern themes
-\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
-\moderncvcolor{black}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
-%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
-%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+\documentclass[11pt,letterpaper,sans]{moderncv}
+\moderncvstyle{banking}
+\moderncvcolor{black}
 
 % character encoding
-\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
-%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+\usepackage[utf8]{inputenc}
 \usepackage{fourier}
 \usepackage[osf]{Alegreya}
 \usepackage{AlegreyaSans}
 \usepackage[zerostyle=c]{newtxtt}
 \linespread{1.04}
 
-% adjust the page margins
+% page margins
 \usepackage[scale=0.86]{geometry}
-%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
-%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
 \usepackage{import}
 
 % personal data
 \name{\color{black}Di}{Wang}
-% \title{Assistant Professor}                               % optional, remove / comment the line if not wanted
-\address{Yanyuan Mansion 520, 151 Zhongguancun N Ave, Haidian District, Beijing 100084}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
-%\phone[mobile]{+86 138 8226 6228}                   % optional, remove / comment the line if not wanted
-%\phone[fixed]{01234 123456}                    % optional, remove / comment the line if not wanted
-%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
-\email{wangdi95@pku.edu.cn}                               % optional, remove / comment the line if not wanted
+\address{Yanyuan Mansion 520, 151 Zhongguancun N Ave, Haidian District, Beijing 100084}{}{}
+\email{wangdi95@pku.edu.cn}
 \urlstyle{sf}
 \renewcommand{\httpslink}[2][]{%
   \ifthenelse{\equal{#1}{}}%
   {\url{#2}}%
   {\href{https://#2}{\detokenize{#1}}}}
-\homepage{https://stonebuddha.github.io/}                         % optional, remove / comment the line if not wanted
-\extrainfo{Peking University -- School of Computer Science -- Assistant Professor}                 % optional, remove / comment the line if not wanted
-%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+\homepage{https://stonebuddha.github.io/}
+\extrainfo{Peking University -- School of Computer Science -- Assistant Professor}
 
-% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+% numerical labels in the bibliography
 \makeatletter
 \renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
 \makeatother
-%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
 
 % bibliography with multiple entries
 \usepackage{multibib}
@@ -73,64 +58,29 @@
   \else{\par\begin{minipage}{\maincolumnwidth}\small#7\end{minipage}}\fi%
   \par\addvspace{#1}}
 \makeatother
+
 %----------------------------------------------------------------------------------
 %            content
 %----------------------------------------------------------------------------------
 \begin{document}
-%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
-%-----       resume       ---------------------------------------------------------
 \makecvtitle
 
-%\small{Undergraduate electrical and electronic engineer completing the final year of a master's degree. Passionate about science, with strong technical, business, and interpersonal skills for working in a team and successfully completing a project.}
-
 \section{Bio}
-% I am an Assistant Professor at Peking University's School of Computer Science and a member of the PL Lab there.
 I am an Assistant Professor at Peking University’s School of Computer Science, a member of the Programming Languages Lab, and a research advisor of the Turing Program.
 %
 My main interest is in programming languages, and formal verification, program analysis, and probabilistic programming in particular.
 %
 My mission is to develop \emph{universal and easy-to-use abstractions and paradigms} for programming safe and efficient software, and \emph{programming-language-level integrations} to automatically analyze, optimize, and synthesize programs.
 %
-% \vspace{4pt}
-%
 Currently, I am working on resource-safe system programming, programmable Bayesian inference, quantitative program analysis, and proof-oriented programming languages.
 
 \section{Education}
 
-%\begin{itemize}
   {\cventry{Aug 2017 -- May 2022}{Ph.D. in Computer Science}{Carnegie Mellon University}{Pittsburgh, PA, USA}{}{Advisor: Prof.\ Jan Hoffmann \\ Thesis: \emph{Static Analysis of Probabilistic Programs: An Algebraic Approach}}}
 
   \vspace{4pt}
 
   {\cventry{Sep 2013 -- Jun 2017}{Bachelor of Science (with Honors) in Computer Science \& Technology}{Peking University}{Beijing, China}{}{Advisor: Prof.\ Yingfei Xiong \\ Thesis: \emph{Accelerating Program Analyses by Conditional Summarization with Datalog}}}
-%\end{itemize}
-
-% \section{Research Experiences}
-
-% %\begin{itemize}
-% %  \item{\cventry{Aug 2017 -- present}{Research assistant, supervised by Prof. Jan Hoffmann}{Carnegie Mellon University}{Pittsburgh, PA}{}
-% %  {Topics: Static Analysis of Probabilistic Programs, Automatic Resource Bound Analysis}}
-
-% %  \vspace{4pt}
-
-%   {\cventry{May 2020 -- Aug 2020}{Research intern, supervised by Dr.\ Herman Venter}{Facebook}{Seattle, WA, USA}{}
-%   {Topics: Formal Verification of Rust Code, Side Channel Analysis of Blockchain Code}}
-
-%   \vspace{4pt}
-
-%   {\cventry{Sep 2016 -- Jan 2017}{Research intern, supervised by Prof.\ Adam Chlipala}{Massachusetts Institute of Technology}{Boston, MA, USA}{}
-%   {Topics: Type System for Complexity Analysis, Complexity Preserved Compiler}}
-
-%   \vspace{4pt}
-
-%   {\cventry{Jun 2016 -- Aug 2016}{Research intern, supervised by Prof.\ Thomas Reps}{University of Wisconsin--Madison}{Madison, WI, USA}{}
-%   {Topics:Probabilistic Reasoning about Side Channel Attacks, Expectation Invariant Analysis of Probabilistic Programs}}
-
-%   \vspace{4pt}
-
-%   {\cventry{Sep 2015 -- Jun 2017}{Research assistant, supervised by Prof.\ Lu Zhang and Prof.\ Yingfei Xiong}{Peking University}{Beijing, China}{}
-%   {Topics: Complete Library Summarization for Program Analyses, Pointer Analysis for Java}}
-% %\end{itemize}
 
 \section{Professional Activities}
 
@@ -138,8 +88,6 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
   \item \textbf{Organizing Committee Member} -- APLAS \& ATVA (2026 Poster)
   \item \textbf{Program/Review Committee Member} -- APLAS (2024 SRC), ASE (2023), ECOOP (2025), ECOOP/ISSTA (2024 Tool Demos), ICALP (2025), ISSTA (2026), OOPSLA (2024, 2026), PLDI (2024), POPL (2026), SLE (2024), TFP (2026), TyDe (2025)
   \item \textbf{Artifact Evaluation Committee Member} -- CAV (2020), POPL (2019, 2020)
-  % \item \textbf{External Reviewer} -- ESOP (2020, 2021, 2023), FoSSaCS (2022, 2023), ICALP (2018), ICFP (2023), LICS (2019, 2020, 2021, 2022), POPL (2022)
-  % \item \textbf{Reviewer} -- ASE (2023), ChinaSoft (2023, 2024), MSCS (2020), STVR (2024)
 \end{itemize}
 
 \section{Awards}
@@ -167,14 +115,6 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
   \item Gold Medal (9\textsuperscript{th} place) in the 38\textsuperscript{th} ACM-ICPC Asia Regionals Changchun site \hfill 2013
 \end{itemize}
 
-% Publications from a BibTeX file without multibib
-%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
-%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
-%\nocite{*}
-%\bibliographystyle{plain}
-%\bibliography{publications}                        % 'publications' is the name of a BibTeX file
-
-% Publications from a BibTeX file using the multibib package
 \section{Publications}
 \nociteconf{OOPSLA:GYW26,ESOP:JW26,ESOP:XW26,SOSP:ZXZ25,OOPSLA:LW25,OOPSLA:PWS24,OOPSLA:GCY24,ECOOP:PWS24,OOPSLA:WR24,POPL:DWH23,PLDI:WHR21B,PLDI:WHR21A,ICFP:KWR20,ICFP:WKH20,PLDI:KWP19,MFPS:WHR19,POPL:WH19,PLDI:WHR18,OOPSLA:WWC17,ESOP:TWX17}
 \bibliographystyleconf{unsrt}
@@ -182,7 +122,7 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
 \vspace{4pt}
 \nocitejour{TOPLAS:CWW26,TOPLAS:JZX24}
 \bibliographystylejour{unsrt}
-\bibliographyjour{publications}                 % 'publications' is the name of a BibTeX file
+\bibliographyjour{publications}
 \vspace{4pt}
 \nociteworkshop{PEPM:YGW26,LMPL:Wang25}
 \bibliographystyleworkshop{unsrt}
@@ -191,13 +131,6 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
 \nocitethesis{arxiv:HWZ25,arxiv:CW25,arxiv:CZC25,arxiv:HW24,arxiv:WW23,arxiv:WHR21}
 \bibliographystylethesis{unsrt}
 \bibliographythesis{publications}
-%\vspace{4pt}
-%\nocitedraft{misc:WWC18}
-%\bibliographystyledraft{unsrt}
-%\bibliographydraft{publications}
-%\nocitemisc{misc1,misc2,misc3}
-%\bibliographystylemisc{plain}
-%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
 
 \section{Teaching and Mentoring Experience}
 
@@ -213,23 +146,6 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
   \item \textbf{PhD Advisor} -- Houjin Chen, Jiayi Zhuang \hfill 2025--pres.
   \item \textbf{PhD Advisor} -- Zimu Chen, Siyuan Zhu \hfill 2024--pres.
   \item \textbf{PhD Advisor} -- Changze Huang, Qihao Lian \hfill 2023--pres.
-
-  % \vspace{4pt}
-
-  % \item \textbf{Mentor} -- Zimu Chen, \emph{Worst case analysis by fuzzing symbolic-execution paths} \hfill 2024
-  % \item \textbf{Mentor} -- Tianxiang Gao, \emph{A preliminary exploration of intuitionistic probability linear logic} \hfill 2024
-  % \item \textbf{Mentor} -- Jiaqi Si, \emph{Constructive proof based on contextual structure} \hfill 2024
-  % \item \textbf{Mentor} -- Hongjun Wu, \emph{Worst-case analysis is maximum-a-posteriori estimation} \hfill 2024
-  % \item \textbf{Mentor} -- Xuanyu Peng, \emph{Rust resource analysis by functional translation} \hfill 2023
-  % \item \textbf{Mentor} -- Vanshika Chowdhary, \emph{Programmable Gibbs sampling with linear types} \hfill 2021
-  % \item \textbf{Mentor} -- Mohamed Lotfi, \emph{Synthesis of probabilistic programs that generate handwritten digits} \hfill 2021
-  % \item \textbf{Mentor} -- Charles Yuan, \emph{Exact Bayesian inference with distribution transformers} \hfill 2019
-
-  % \vspace{4pt}
-
-  % \item \textbf{Teaching Assistant} -- \emph{Bug Catching: Automated Program Verification}, Carnegie Mellon University \hfill 2020
-  % \item \textbf{Teaching Assistant} -- \emph{Programming Language Semantics}, Carnegie Mellon University \hfill 2019
-  % \item \textbf{Teaching Assistant} -- \emph{Introduction to Computer Systems}, Peking University \hfill 2015
 \end{itemize}
 
 \section{Talks}
@@ -259,124 +175,11 @@ Currently, I am working on resource-safe system programming, programmable Bayesi
   \item {Algebraic Program Analysis of Probabilistic Programs}, \emph{Shanghai, China}, ChinaSoft 2023. \hfill Dec 2023
 \end{itemize}
 
-\section{Contribued Software}
+\section{Contributed Software}
 \begin{itemize}
 \item C*: Unifying Programming and Verification in C \hfill \url{http://cstarlang.org}
 \item RaML: Resource Aware ML \hfill \url{https://www.raml.co}
 \item MIRAI: Rust mid-level IR Abstract Interpreter \hfill \url{https://github.com/endorlabs/MIRAI}
 \end{itemize}
-
-% \section{Projects}
-
-% %\begin{itemize}
-%   {\cventry{May 2020 -- Aug 2020}{Research Intern at Facebook}{Static Tag Analysis of Rust Code}{}{}{
-%       \begin{itemize}
-%         \item Studied the formal semantics of Rust and the static analysis tool MIRAI.
-%         \item Proposed and implemented a static tag analysis for Rust; the analysis keeps track of inter-procedural information flow, and allows user to customize tag propagation behavior of primitive operations.
-%         \item Applied the static tag analysis to analyze side-channel vulnerabilities of blockchain code.
-%       \end{itemize}
-%     }}
-
-%     \vspace{4pt}
-
-%   {\cventry{Feb 2018 -- May 2018}{Optimizing Compilers for Modern
-%         Architectures}{SIMD Vectorization in In-Memory DBMSs for OLAP
-%         Applications}{}{Carnegie Mellon University}{
-%         \begin{itemize}
-%         \item Proposed an optimization that uses vectorization in just-in-time
-%           query compilation.
-%         \item Implemented two approaches that use LLVM to emit SIMD instructions
-%           to vectorize predicate evaluation in Peloton, an in-memory DBMS
-%           developed by Carnegie Mellon Database Group.
-%         \item Achieved a significant speedup (avg. 1.5$\times$) on complex SQL queries.
-%         \end{itemize}
-%       }}
-
-%       \vspace{4pt}
-
-%   {\cventry{Apr 2018 -- May 2018}{Graduate Artificial Intelligence}{Predicting the Efficiency of Exact Inference Methods in Bayesian Network}{}{Carnegie Mellon University}{
-%         \begin{itemize}
-%         \item Reviewed exact inference methods for Bayesian networks from both the statistics and the programming languages community.
-%         \item Proposed and implemented a machine-learning-based algorithm that predicts which exact inference method would work best on a given Bayesian network.
-%         \item Achieved 72\% prediction accuracy on a synthetic test set.
-%         \end{itemize}
-%       }}
-
-%      \vspace{4pt}
-
-%    \item{\cventry{Feb 2017 -- Jun 2017}{Diploma Thesis}{ConDlog: Accelerating Program Analyses by Conditional Summarization with Datalog}{}{}{
-%      \begin{itemize}
-%        \item Researched on library summarization techniques for static analysis of large Java applications.
-%        \item Proposed a Datalog-based algorithm that computes a complete analysis-specific conditional summary of JDK.
-%        \item Achieved 3.9$\times$ and 1.3$\times$ speedup for Class Hierarchy Analysis and Rapid Type Analysis, respectively, on DaCapo benchmarks.
-%      \end{itemize}
-%    }}
-
-%  \item{\cventry{Mar 2016 -- Jun 2016}{Design Principles of Programming Languages}{Melon: A Language
-%        with Indexed Types}{}{}{
-%        \begin{itemize}
-%        \item Researched on type systems that can statically ensure dimension correctness
-%          in matrix manipulation.
-%        \item Implemented a language with a refinement type system that indexes matrices
-%          by their dimensions and generates verification conditions for each
-%          matrix operation.
-%        \item Conducted a case study on linear regression and wrote a techical report that formally presents the language specification.
-%        \end{itemize}
-%      }}
-
-%      \vspace{4pt}
-%
-%  \item{\cventry{Sep 2015 -- Jan 2016}{Software Analysis}{JStype: A Static
-%        Analysis Tool for JavaScript}{}{}{
-%        \begin{itemize}
-%        \item Researched on static-analysis techniques for dynamic programming
-%          languages, especially for JavaScript.
-%        \item Implemented an abstract interpretater for a
-%          CESK-style semantics of JavaScript with tunable analysis sensitivity.
-%        \item Evaluated precision and efficiency of the analyzer on a broad suite of JavaScript programs.
-%        \end{itemize}
-%      }}
-
-%      \vspace{4pt}
-
-  % \item{\cventry{Nov 2015 -- Jan 2016}{Operating Systems (Honor
-  %       Track)}{User-Level Thread Library}{}{}{
-  %       \begin{itemize}
-  %       \item Implemented a user-level thread library with a preemptive
-  %         round-robin scheduler.
-  %       \end{itemize}
-  %     }}
-
-%  {\cventry{Jul 2015 -- Aug 2015}{Querying Big Data: Theory and
-%        Practice}{Parallel Scalability}{}{Peking University}{
-%        \begin{itemize}
-%        \item Proposed a new definition of linear/parallel scalability for the case where the
-%          number of cores is far less than the scale of input, and conducted
-%          theoretical analysis on several classical problems.
-%        \item Proved graph reachability is not linear scalable, and not parallel scalable to some extent.
-%        \item Wrote a technical paper that formally presents the results.
-%        \end{itemize}
-%      }}
-
-  % \item{\cventry{Mar 2014 -- Jun 2014}{Linux Programming}{OItester: A Judge
-  %       System for Programming Contests}{}{}{
-  %       \begin{itemize}
-  %       \item Designed and Implemented a web-based judge system with a separation
-  %         between the front-end and judgers.
-  %       \end{itemize}
-  %     }}
-
-% \section{References}
-
-% \begin{center}
-% \begin{tabular}{c @{\hspace{3em}} c @{\hspace{3em}} c}
-% \large\textbf{Jan Hoffmann} & \large\textbf{Thomas Reps} & \large\textbf{Nadia Polikarpova} \\
-% Carnegie Mellon University & University of Wisconsin--Madison & University of California, San Diego \\
-% \emaillink{jhoffmann@cmu.edu} & \emaillink{reps@cs.wisc.edu} & \emaillink{npolikarpova@eng.ucsd.edu}
-% \end{tabular}
-% \end{center}
-
-
-%-----       letter       ---------------------------------------------------------
 
 \end{document}
